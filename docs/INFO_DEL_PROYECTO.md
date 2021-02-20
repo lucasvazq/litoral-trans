@@ -56,9 +56,9 @@ El proyecto consiste en un sitio web para la empresa de transporte **Litoral Tra
     <thead>
     <tr>
         <th>Concepto</th>
-        <th>Gasto inicial</th>
-        <th>Gasto fijo mensual</th>
-        <th>Gasto variable mensual</th>
+        <th>Costo inicial</th>
+        <th>Costo fijo mensual</th>
+        <th>Costo variable mensual</th>
         <th>Estado</th>
     </tr>
     </thead>
@@ -104,5 +104,5 @@ También puede ser un gasto fijo mensual, pero intentaré evitar esta alternativ
 ## Repositorio
 
 El repositorio es el lugar donde se encuentra alojada la paquetería correspondiente al proyecto. \
-Esto incluye el código fuente, la distribución, archivos de configuración, la licencia y documentos de información varios. \
-[@lucasvazq/litoral-trans](https://github.com/lucasvazq/litoral-trans/)
+Esto incluye el código fuente, la distribución, los archivos de configuración, la licencia y documentos de información varios. \
+[Repositorio](https://github.com/lucasvazq/litoral-trans/)
