@@ -8,3 +8,7 @@ Herramientas y Tecnologías aplicadas:
 - [NIC Argentina](https://nic.ar/)
 - [GitHub Pages](https://pages.github.com/)
 - [Namecheap](https://www.namecheap.com/)
+
+Documentación:
+- [Info del proyecto](/docs/INFO_DEL_PROYECTO)
+- [Setup](/docs/SETUP.md)
