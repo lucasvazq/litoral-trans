@@ -18,9 +18,7 @@ El proyecto consiste en un sitio web para la empresa de transporte **Litoral Tra
 
 - [x] Configuración inicial del repositorio y el dominio.
 - [ ] Construcción del sitio web en formato **Mobile First**
-
     <details><summary>Esto incluye lo siguiente:</summary><blockquote>
-
     <p>- Logo</p>
     <p>- Página de inicio</p>
     <p>- Slide</p>
