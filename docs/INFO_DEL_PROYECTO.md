@@ -4,9 +4,9 @@ El proyecto consiste en un sitio web para la empresa de transporte **Litoral Tra
 
 ## Índice
 
-- [Estado del desarrollo](Estado-del-desarrollo)
-- [Presupuesto](Presupuesto)
-- [Repositorio](Repositorio)
+- [Estado del desarrollo](#Estado-del-desarrollo)
+- [Presupuesto](#Presupuesto)
+- [Repositorio](#Repositorio)
 
 ---
 
