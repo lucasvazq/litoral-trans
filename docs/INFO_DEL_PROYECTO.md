@@ -1,12 +1,12 @@
 # Info del proyecto
 
-El proyecto consiste en un sitio web para la empresa de transporte **Litoral Trans** que se sirve a través del dominio litoral-trans.com.ar
+El proyecto consiste en un sitio web para la empresa de transporte **Litoral Trans** que se sirve a través del dominio **litoral-trans.com.ar**
 
 ## Índice
 
-- [Estado del desarrollo][Estado-del-desarrollo]
-- [Presupuesto][Presupuesto]
-- [Repositorio][Repositorio]
+- [Estado del desarrollo](Estado-del-desarrollo)
+- [Presupuesto](Presupuesto)
+- [Repositorio](Repositorio)
 
 ---
 
@@ -19,15 +19,15 @@ El proyecto consiste en un sitio web para la empresa de transporte **Litoral Tra
 - [x] Configuración inicial del repositorio y el dominio.
 - [ ] Construcción del sitio web en formato **Mobile First**
 
-    <details><summary>Detalles</summary><blockquote>
+    <details><summary>Esto incluye lo siguiente:</summary><blockquote>
 
-    Logo \
-    Página de inicio \
-    Slide \
-    Información de diferentes sucursales y servicios \
-    Mapa con ubicaciónes \
-    Info de contacto con botón de Whatsapp, y botones para llamadas y mails directos \
-    Info de clientes
+    <p>- Logo</p>
+    <p>- Página de inicio</p>
+    <p>- Slide</p>
+    <p>- Información de diferentes sucursales y servicios</p>
+    <p>- Mapa con ubicaciónes</p>
+    <p>- Info de contacto con botón de Whatsapp, y botones para llamadas y mails directos</p>
+    <p>- Info de clientes</p>
     </blockquote></details>
 
 - [ ] Adaptación del sitio web para diferentes tamaños de pantalla (Responsive design)
@@ -75,7 +75,7 @@ El proyecto consiste en un sitio web para la empresa de transporte **Litoral Tra
     </tr>
     <tr>
         <td>Desarrollo del proyecto - Etapa 1</td>
-        <td>$5000</td>
+        <td>$8000</td>
         <td></td>
         <td></td>
         <td>👨‍💻</td>
@@ -89,7 +89,7 @@ El proyecto consiste en un sitio web para la empresa de transporte **Litoral Tra
     </tr>
     <tr>
         <td>Desarrollo del proyecto - Etapa 3</td>
-        <td>$5000</td>
+        <td>$2000</td>
         <td></td>
         <td>? *1</td>
         <td></td>
