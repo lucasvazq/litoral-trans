@@ -17,6 +17,7 @@ El proyecto consiste en un sitio web para la empresa de transporte **Litoral Tra
 *Desarrollo básico*
 
 - [x] Configuración inicial del repositorio y el dominio.
+
 - [ ] Construcción del sitio web en formato **Mobile First**
     <details><summary>Esto incluye lo siguiente:</summary><blockquote>
     <p>- Logo</p>
@@ -29,6 +30,7 @@ El proyecto consiste en un sitio web para la empresa de transporte **Litoral Tra
     </blockquote></details>
 
 - [ ] Adaptación del sitio web para diferentes tamaños de pantalla (Responsive design)
+
 - [ ] Adaptación a las guidelines de Lighthouse (Performance, Best Practices, Accessibility, SEO, Mobile & Desktop)
 
 ### Etapa 2
@@ -36,18 +38,26 @@ El proyecto consiste en un sitio web para la empresa de transporte **Litoral Tra
 *Optimización avanzada para el posicionamiento (SEO)*
 
 - [ ] Sitemap
+
 - [ ] Robots
+
 - [ ] Structured Data
+
 - [ ] AMP
+
 - [ ] Google Site Ownership
+
 - [ ] Bing Site Verification
+
 - [ ] Google My Business
+
 - [ ] Google Analytics
 
 ### Etapa 3
 
-- [ ] Página con preguntas frecuentes (Ejemplo: https://virtual.andreani.com/ayuda.html)
-- [ ] Formulario que envía un correo con spam filter (puede ser recaptcha v2.0 y/o akismet)
+- [ ] Página con preguntas frecuentes (Ejemplo: [Andreani](https://virtual.andreani.com/ayuda.html))
+
+- [ ] Formulario que envía un correo con spam filter (puede ser **reCaptcha v2** y/o **Akismet**)
 
 ---
 
@@ -88,8 +98,8 @@ El proyecto consiste en un sitio web para la empresa de transporte **Litoral Tra
     <tr>
         <td>Desarrollo del proyecto - Etapa 3</td>
         <td>$2000</td>
-        <td></td>
-        <td>? *1</td>
+        <td>*1</td>
+        <td>*1</td>
         <td></td>
     </tr>
     </tbody>
@@ -106,4 +116,4 @@ También puede ser un gasto fijo mensual, pero intentaré evitar esta alternativ
 
 El repositorio es el lugar donde se encuentra alojada la paquetería correspondiente al proyecto. \
 Esto incluye el código fuente, la distribución, archivos de configuración, la licencia y documentos de información varios. \
-https://github.com/lucasvazq/litoral-trans/
+[@lucasvazq/litoral-trans](https://github.com/lucasvazq/litoral-trans/)
