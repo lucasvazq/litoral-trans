@@ -1,115 +1,111 @@
-<h1>Info del proyecto</h1>
+# Info del proyecto
 
-<p>El proyecto consiste en un sitio web para la empresa de transporte <strong>Litoral Trans</strong> que se sirve a través del dominio <strong>litoral-trans.com.ar</strong></p>
+El proyecto consiste en un sitio web para la empresa de transporte **Litoral Trans** que se sirve a través del dominio litoral-trans.com.ar
 
-<details><summary>Estado del desarrollo</summary>
+## Índice
 
-    <h2>Etapa 1</h2>
+- [Estado del desarrollo][Estado-del-desarrollo]
+- [Presupuesto][Presupuesto]
+- [Repositorio][Repositorio]
 
-    <p><em>Desarrollo básico</em></p>
+---
 
-    <ul>
-        <li><input type="checkbox" disabled checked> Configuración inicial del repositorio y el dominio.</li>
-        <li>
-            <input type="checkbox" disabled> Construcción del sitio web en formato <strong>Mobile First</strong>
-            <details><blockquote>
-            Logo
-            Página de inicio
-            Slide
-            Información de diferentes sucursales y servicios
-            Mapa con ubicaciónes
-            Info de contacto con botón de Whatsapp, y botones para llamadas y mails directos
-            Info de clientes
-            </blockquote></details>
-        </li>
-        <li><input type="checkbox" disabled> Adaptación del sitio web para diferentes tamaños de pantalla (Responsive design)</li>
-        <li><input type="checkbox" disabled> Adaptación a las guidelines de Lighthouse (Performance, Best Practices, Accessibility, SEO, Mobile &amp; Desktop)</li>
-    </ul>
+## Estado del desarrollo
 
-    <h2 id="etapa-2">Etapa 2</h2>
-    <p>Optimización avanzada para el posicionamiento (SEO)</p>
-    <ul>
-        <li><input type="checkbox" disabled> Sitemap</li>
-        <li><input type="checkbox" disabled> Robots</li>
-        <li><input type="checkbox" disabled> Structured Data</li>
-        <li><input type="checkbox" disabled> AMP</li>
-        <li><input type="checkbox" disabled> Google Site Ownership</li>
-        <li><input type="checkbox" disabled> Bing Site Verification</li>
-        <li><input type="checkbox" disabled> Google My Business</li>
-        <li><input type="checkbox" disabled> Google Analytics</li>
-    </ul>
+### Etapa 1
 
-    <h2 id="etapa-3">Etapa 3</h2>
-    <ul>
-        <li><input type="checkbox" disabled> Página con preguntas frecuentes (Ejemplo: <a href="https://virtual.andreani.com/ayuda.html">https://virtual.andreani.com/ayuda.html</a>)</li>
-        <li><input type="checkbox" disabled> Formulario que envía un correo con spam filter (puede ser reCaptcha v2 y/o akismet)</li>
-    </ul>
+*Desarrollo básico*
 
-</details>
+- [x] Configuración inicial del repositorio y el dominio.
+- [ ] Construcción del sitio web en formato **Mobile First**
 
-<hr>
+    <details><summary>Detalles</summary><blockquote>
 
-<details><summary>Presupuesto</summary>
+    Logo \
+    Página de inicio \
+    Slide \
+    Información de diferentes sucursales y servicios \
+    Mapa con ubicaciónes \
+    Info de contacto con botón de Whatsapp, y botones para llamadas y mails directos \
+    Info de clientes
+    </blockquote></details>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Concepto</th>
-                <th>Gasto inicial</th>
-                <th>Gasto fijo mensual</th>
-                <th>Gasto variable mensual</th>
-                <th>Estado</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Compra del dominio (1 año)</td>
-                <td>$ 270</td>
-                <td></td>
-                <td></td>
-                <td>✅</td>
-            </tr>
-            <tr>
-                <td>Desarrollo del proyecto - Etapa 1</td>
-                <td>$5000</td>
-                <td></td>
-                <td></td>
-                <td><a href="https://emojipedia.org/man-technologist/" target="_blank" rel="noopener noreferrer">👨‍💻</a></td>
-            </tr>
-            <tr>
-                <td>Desarrollo del proyecto - Etapa 2</td>
-                <td>$5000</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Desarrollo del proyecto - Etapa 3</td>
-                <td>$5000</td>
-                <td></td>
-                <td>? <em>*1</em></td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
+- [ ] Adaptación del sitio web para diferentes tamaños de pantalla (Responsive design)
+- [ ] Adaptación a las guidelines de Lighthouse (Performance, Best Practices, Accessibility, SEO, Mobile & Desktop)
 
-    <p><em>Los gastos se presentan en Pesos Argentinos (ARS)</em></p>
+### Etapa 2
 
-    <p>
-        <em>*1</em>:
-        El envío de correos a través de un formulario supone un gasto que se genera por cada envío.
-        Desconozco este gasto, pero puede ser desde $0 hasta poco menos de $1.
-        También puede ser un gasto fijo mensual, pero intentaré evitar esta alternativa porque es más costosa.
-    </p>
+*Optimización avanzada para el posicionamiento (SEO)*
 
-</details>
+- [ ] Sitemap
+- [ ] Robots
+- [ ] Structured Data
+- [ ] AMP
+- [ ] Google Site Ownership
+- [ ] Bing Site Verification
+- [ ] Google My Business
+- [ ] Google Analytics
 
-<hr>
+### Etapa 3
 
-<details><summary>Repositorio</summary>
+- [ ] Página con preguntas frecuentes (Ejemplo: https://virtual.andreani.com/ayuda.html)
+- [ ] Formulario que envía un correo con spam filter (puede ser recaptcha v2.0 y/o akismet)
 
-    <p>El repositorio es el lugar donde se encuentra alojada la paquetería correspondiente al proyecto.</p>
-    <p>Esto incluye el código fuente, la distribución, archivos de configuración, la licencia y documentos de información varios.</p>
-    <p><a href="https://github.com/lucasvazq/litoral-trans/">https://github.com/lucasvazq/litoral-trans/</a></p>
+---
 
-</details>
+## Presupuesto
+
+<table>
+    <thead>
+    <tr>
+        <th>Concepto</th>
+        <th>Gasto inicial</th>
+        <th>Gasto fijo mensual</th>
+        <th>Gasto variable mensual</th>
+        <th>Estado</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Compra del dominio (1 año)</td>
+        <td>$ 270</td>
+        <td></td>
+        <td></td>
+        <td>✅</td>
+    </tr>
+    <tr>
+        <td>Desarrollo del proyecto - Etapa 1</td>
+        <td>$5000</td>
+        <td></td>
+        <td></td>
+        <td>👨‍💻</td>
+    </tr>
+    <tr>
+        <td>Desarrollo del proyecto - Etapa 2</td>
+        <td>$5000</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Desarrollo del proyecto - Etapa 3</td>
+        <td>$5000</td>
+        <td></td>
+        <td>? *1</td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+
+*Los gastos se presentan en Pesos Argentinos (ARS)*
+
+*1: El envío de correos a través de un formulario supone un gasto que se genera por cada envío. Desconozco este gasto, pero puede ser desde $0 hasta poco menos de $1.
+También puede ser un gasto fijo mensual, pero intentaré evitar esta alternativa porque es más costosa.
+
+---
+
+## Repositorio
+
+El repositorio es el lugar donde se encuentra alojada la paquetería correspondiente al proyecto. \
+Esto incluye el código fuente, la distribución, archivos de configuración, la licencia y documentos de información varios. \
+https://github.com/lucasvazq/litoral-trans/
