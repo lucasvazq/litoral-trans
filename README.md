@@ -1,20 +1,10 @@
-# litoral-trans
-web de litoral-trans
+<img src="https://github.com/lucasvazq/litoral-trans/blob/main/test.png?raw=true">
 
-SERVERLESS
+Sitio en desarrollo 👨‍💻
 
-## Requirements
-
-```
-node v14.15.5
-npm v6.14.11
-```
-
-## Setup
-
-1. Setear las variables de entorno en src/next.config.js
-
-## Registros
-
-https://curiosidadesespaciales.ar/2020/09/21/Tutorial-blog-2/
-Nic.ar + namecheap + githubpages
+Herramientas y Tecnologías aplicadas:
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [NIC Argentina](https://nic.ar/)
+- [GitHub Pages](https://pages.github.com/)
+- [Namecheap](https://www.namecheap.com/)
