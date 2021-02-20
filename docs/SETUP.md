@@ -19,7 +19,7 @@ A grandes rasgos, el proyecto está armado con Next.js (servido estáticamente) 
 
 ### 2 - Setup del servidor en modo dev
 
-2.1 Ejecutar `npm run dev` para iniciar el proyecto en modo desarrollo. El mismo estará disponible en la url [http://localhost:3000]
+2.1 Ejecutar `npm run dev` para iniciar el proyecto en modo desarrollo. El mismo estará disponible en la url [http://localhost:3000](http://localhost:3000)
 
 ### 3 - Exportación
 
@@ -41,7 +41,7 @@ Como estamos sirviendo el proyecto a través de Github Pages, tenemos que simula
 
 4.4 Ejecutar `bundle install` para instalar las gemas necesarias
 
-4.5 Ejecutar `bundle exec jekyll serve` para iniciar el proyecto en modo previsualización. Ahora se puede ver el proyecto a través de la url [http://localhost:4000] tal cual se vería como si estuviese en internet
+4.5 Ejecutar `bundle exec jekyll serve` para iniciar el proyecto en modo previsualización. Ahora se puede ver el proyecto a través de la url [http://localhost:4000](http://localhost:4000) tal cual se vería como si estuviese en internet
 
 ## Setup Producción
 
