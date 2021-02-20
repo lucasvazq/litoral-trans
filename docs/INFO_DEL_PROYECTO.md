@@ -16,10 +16,10 @@ El proyecto consiste en un sitio web para la empresa de transporte **Litoral Tra
 
 *Desarrollo básico*
 
-- [x]&nbsp;Configuración inicial del repositorio y el dominio.
-- [ ]&nbsp;Construcción de la plantilla web base *1
-- [ ]&nbsp;Adaptación del sitio web para diferentes tamaños de pantalla (Responsive design)
-- [ ]&nbsp;Adaptación a las guidelines de Lighthouse (Performance, Best Practices, Accessibility, SEO, Mobile & Desktop)
+- [x] Configuración inicial del repositorio y el dominio.
+- [ ] Construcción de la plantilla web base *1
+- [ ] Adaptación del sitio web para diferentes tamaños de pantalla (Responsive design)
+- [ ] Adaptación a las guidelines de Lighthouse (Performance, Best Practices, Accessibility, SEO, Mobile & Desktop)
 
 *1: Esto incluye lo siguiente:
 - Logo
@@ -34,19 +34,19 @@ El proyecto consiste en un sitio web para la empresa de transporte **Litoral Tra
 
 *Optimización avanzada para el posicionamiento (SEO)*
 
-- [ ]&nbsp;Sitemap
-- [ ]&nbsp;Robots
-- [ ]&nbsp;Structured Data
-- [ ]&nbsp;AMP
-- [ ]&nbsp;Google Site Ownership
-- [ ]&nbsp;Bing Site Verification
-- [ ]&nbsp;Google My Business
-- [ ]&nbsp;Google Analytics
+- [ ] Sitemap
+- [ ] Robots
+- [ ] Structured Data
+- [ ] AMP
+- [ ] Google Site Ownership
+- [ ] Bing Site Verification
+- [ ] Google My Business
+- [ ] Google Analytics
 
 ### Etapa 3
 
-- [ ]&nbsp;Página con preguntas frecuentes (Ejemplo: [Andreani](https://virtual.andreani.com/ayuda.html))
-- [ ]&nbsp;Formulario que envía un correo con spam filter (puede ser **reCaptcha v2** y/o **Akismet**)
+- [ ] Página con preguntas frecuentes (Ejemplo: [Andreani](https://virtual.andreani.com/ayuda.html))
+- [ ] Formulario que envía un correo con spam filter (puede ser **reCaptcha v2** y/o **Akismet**)
 
 ---
 
