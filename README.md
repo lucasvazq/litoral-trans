@@ -1,6 +1,8 @@
 # litoral-trans
 web de litoral-trans
 
+SERVERLESS
+
 ## Requirements
 
 ```
