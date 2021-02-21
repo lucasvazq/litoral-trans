@@ -1,112 +1,76 @@
 import { NextSeo } from 'next-seo';
-import {LocalBusiness, Service, WithContext} from 'schema-dts';
+import { Base, Slideshow, SlideContent, Services, Paragraph, H2, Locations } from '../components';
+import { FaTruckLoading, FaShippingFast } from 'react-icons/fa'
+import { GoPackage } from 'react-icons/go'
+import { TiMessages } from 'react-icons/ti'
+import { BsHouseDoor } from 'react-icons/bs'
+import { AiOutlineSafety } from 'react-icons/ai'
 
-const LB: WithContext<LocalBusiness> = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Litoral Trans",
-  "image": "",
-  "@id": "https://litoral-trans.com.ar",
-  "url": "https://litoral-trans.com.ar",
-  "telephone": "",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "",
-    "addressLocality": "Rafaela",
-    "addressRegion": "AL",
-    "postalCode": "S2300",
-    "addressCountry": "US"
+const slides = [
+  {
+    slideContent: (
+      <SlideContent>
+        <p className="text-2xl font-semibold">LA MEJOR MANERA</p>
+        <p className="text tracking-thight">PARA ENVIAR TUS PAQUETES</p>
+      </SlideContent>
+    ),
+    image: 'images/slide/slide_1.jpg',
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 40.7590403,
-    "longitude": -74.0392709
+  {
+    slideContent: (
+      <SlideContent>
+        <p className="text-lg tracking-tighter font-semibold mb-4">SOLUCIONES DE LOGÍSTICA</p>
+        <p className="text-sm tracking-wider">BRINDADA POR SUS DUEÑOS</p>
+        <p className="text-sm">DISFRUTADA POR SUS CLIENTES</p></SlideContent>
+    ),
+    image: 'images/slide/slide_2.jpg',
   },
-  "openingHoursSpecification": [{
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": "Monday",
-    "opens": "08:00",
-    "closes": "12:00"
-  },{
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": "Monday",
-    "opens": "08:00",
-    "closes": "12:00"
-  }]
-}
+]
 
-const Servicio: Service = {
-  // "@context": "https://schema.org/",
-  "@type": "Service",
-  "serviceType": "Servicio de Transporte",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": process.env.TITLE,
-  },
-  "areaServed": {
-    "@type": "State",
-    "name": "Área de Servicio",
-    "description": "Litoral de Santa Fe",
-  },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Servicio de Transporte",
-    "itemListElement": [
-      {
-        "@type": "OfferCatalog",
-        "name": "House Cleaning",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Apartment light cleaning"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "House light cleaning up to 2 bedrooms"
-            }
-          },
-        ]
-      },
-      {
-        "@type": "OfferCatalog",
-        "name": "One-time services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Window washing"
-            }
-          },
-        ]
-      }
-    ]
-  }
-}
-
-
-// subject="Inicio"
+const services = [
+  {icon: GoPackage, description: 'Encomiendas generales puerta a puerta'},
+  {icon: BsHouseDoor, description: 'Retiro de mercadería en domicilio'},
+  {icon: AiOutlineSafety, description: 'Gestión de contrareembolsos'},
+  {icon: FaShippingFast, description: 'Redespacho a otras localidades'},
+  {icon: FaTruckLoading, description: 'Entregas inmediatas una vez llegada a la localidad del destino'},
+]
 
 const Root = () => {
+
   return (
       <>
         <NextSeo
           title='Inicio'
-          description={`${process.env.SLOGAN}`}
+          description={`${process.env.slogan}`}
           openGraph={{
-            title: `${process.env.TITLE} | Inicio`,
-            site_name: `${process.env.TITLE} | Inicio`,
-            description: `${process.env.SLOGAN}`,
+            title: `${process.env.name} | Inicio`,
+            site_name: `${process.env.name} | Inicio`,
+            description: `${process.env.slogan}`,
           }}
         />
-        test
+        <Base breadcrumb="home">
+          <Slideshow slides={slides}/>
+          <div className="bg-gradient-to-r from-primary to-secondary text-light text-lg main-font overflow-hidden p-8">
+            <Paragraph className="relative m-auto z-1">{`${process.env.name} es una empresa de transporte familiar con más de 30 años de trayectoria.`}</Paragraph>
+            <TiMessages className="text-9xl float-right -mr-4 -mt-8 -mb-28 opacity-30" />
+          </div>
+          <div className="bg-gray">
+            <div className="m-8">
+              <H2 className="text-4xl font-semibold text-primary">Servicios</H2>
+            </div>
+            <div className="m-8">
+              <Services services={services}/>
+            </div>
+            <div className="m-8">
+              <H2 className="text-4xl font-semibold text-primary">Ubicación</H2>
+            </div>
+            <Locations />
+          </div>
+        </Base>
       </>
   );
 };
 
 export default Root;
+
+// ImCalendar

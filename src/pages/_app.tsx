@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { useEffect } from "react"
 import "../styles/styles.sass";
 import { DefaultSeo } from 'next-seo';
 
@@ -18,11 +17,11 @@ const App = ({ Component, pageProps }) => {
         <meta name="author" content="Lucas Vazquez" />
       </Head>
       <DefaultSeo
-        titleTemplate={`${process.env.TITLE} | %s`}
+        titleTemplate={`${process.env.name} | %s`}
         openGraph={{
           locale: 'es_AR',
           type: 'website',
-          url: process.env.URL,
+          url: process.env.url,
           site_name: 'SiteName',
           images: [
             {

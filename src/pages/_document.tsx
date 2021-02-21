@@ -17,11 +17,11 @@ export const GoogleTagManager = () => {
 class CustomDocument extends Document {
   render() {
     return (
-      <Html className="min-w-screen min-h-screen" lang="es-AR">
+      <Html lang="es-AR">
         <Head>
             <GoogleTagManager />
         </Head>
-        <body className="bg-white text-black main-font">
+        <body className="min-h-screen bg-gray text-dark main-font">
             <noscript>
                 <iframe src={`https://www.googletagmanager.com/ns.html?id=${process.env.GTM}`} height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe>
             </noscript>
