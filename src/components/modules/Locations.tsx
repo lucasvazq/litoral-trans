@@ -4,10 +4,16 @@ import { Paragraph, H3, Route } from ".."
 
 export const Locations = () => {
     return (
-        <>
-            <div className="m-8">mapa</div>
-            <div className="m-8">
-                <H3 className="text-xl font-semibold">CASA CENTRAL</H3>
+        <div className="flex flex-wrap m-8 justify-center">
+            <div className="m-4" style={{ width: '700px'}}>
+                <div className="m-auto max-h-screen">
+                    <iframe src="/map" />
+                </div>
+            </div>
+            <div className="m-4 flex items-center flex-col justify-center">
+                <div>
+                    <H3 className="text-xl font-semibold">CASA CENTRAL</H3>
+                </div>
                 <div className="flex flex-col text-sm text-center">
                     <div className="m-2">
                         <Paragraph className="relative m-auto z-1">Rafaela, Santa Fe</Paragraph>
@@ -29,6 +35,6 @@ export const Locations = () => {
                     <div className="h-44 w-16 bg-dots mt-0 right-0 absolute" style={{ clipPath: 'polygon(50% 0, 100% 0, 100% 100%, 0 100%, 0 66%, 50% 66%)' }}/>
                 </div>
             </div>
-        </>
+        </div>
     )
 }

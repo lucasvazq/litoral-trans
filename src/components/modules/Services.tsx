@@ -8,7 +8,7 @@ export const Services = (props: {services: {icon: IconType; description: string}
             {props.services.map((value, index) => {
                 const Icon = value.icon
                 return (
-                    <Label key={index} className="bg-light p-4 min-h-64">
+                    <Label key={index} className="bg-light p-4 min-h-64 max-w-2xs">
                         <div className="bg-secondary rounded-full p-3 mb-3">
                             <Icon className="text-5xl text-primary" />
                         </div>

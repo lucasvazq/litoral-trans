@@ -8,5 +8,12 @@ module.exports = {
         telCountryCode: '+54',
         telAreaCode: '3492',
         telPhoneNumber: '589638',
+
+        // colors in hex mode of pair values
+        primary: '#d71920',
+        secondary: '#ffc4c6',
+        dark: '#616161',
+        light: '#ffffff',
+        gray: '#fafafa',
     },
 }

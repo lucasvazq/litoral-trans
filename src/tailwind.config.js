@@ -1,9 +1,13 @@
+// console.log(process.env)
+
+const config = require('./next.config');
+
 const colors = {
-  primary: '#d71920',
-  secondary: '#ffc4c6',
-  dark: '#616161',
-  light: '#fff',
-  gray: '#fafafa',
+  primary: config.env.primary,
+  secondary: config.env.secondary,
+  light: config.env.light,
+  gray: config.env.gray,
+  dark: config.env.dark,
 }
 
 module.exports = {
@@ -21,6 +25,9 @@ module.exports = {
       minHeight: {
         '64': '16rem',
         'screen': '100vh',
+      },
+      maxWidth: {
+        '2xs': '16rem',
       },
       boxShadow: {
         'strong': '0px 0px 2px 1px rgba(0, 0, 0, 0.4)',

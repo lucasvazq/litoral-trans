@@ -5,6 +5,8 @@ import { GoPackage } from 'react-icons/go'
 import { TiMessages } from 'react-icons/ti'
 import { BsHouseDoor } from 'react-icons/bs'
 import { AiOutlineSafety } from 'react-icons/ai'
+import { RiKeyboardBoxLine } from 'react-icons/ri'
+
 
 const slides = [
   {
@@ -36,7 +38,6 @@ const services = [
 ]
 
 const Root = () => {
-
   return (
       <>
         <NextSeo
@@ -62,15 +63,28 @@ const Root = () => {
               <Services services={services}/>
             </div>
             <div className="m-8">
-              <H2 className="text-4xl font-semibold text-primary">Ubicación</H2>
+              <H2 className="text-4xl font-semibold text-primary">Localidades</H2>
             </div>
             <Locations />
+            <div className="bg-gradient-to-r from-primary to-secondary text-light text-lg main-font overflow-hidden p-8">
+              <Paragraph className="relative m-auto z-1">Frecuencia de viaje</Paragraph>
+              <RiKeyboardBoxLine className="text-9xl float-right -mr-4 -mt-8 -mb-28 opacity-30" />
+            </div>
           </div>
         </Base>
       </>
   );
 };
 
-export default Root;
+const Map = () => {
+  return (
+      <>
+        <Base breadcrumb="home">
+            <Locations />
+        </Base>
+      </>
+  );
+};
+export default Map;
 
 // ImCalendar
