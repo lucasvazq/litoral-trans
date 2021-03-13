@@ -29,7 +29,7 @@ En este paso, lo que hacemos es preparar el código fuente para que esté listo 
 
 3.2 Ejecutar `npm run export` para exportar el sitio web en formato estático
 
-### 4 - Preview de archivo exportado
+### 4 - Preview de los archivos exportados
 
 Como estamos sirviendo el proyecto a través de Github Pages, tenemos que simular el mismo entorno en local.
 
