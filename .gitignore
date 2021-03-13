@@ -2,9 +2,6 @@
 node_modules
 package-lock.json
 
-# next exported files
-src/out
-
 # ruby packages
 vendor
 .bundle
