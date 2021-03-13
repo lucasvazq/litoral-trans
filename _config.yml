@@ -5,14 +5,22 @@ baseurl: "/"
 url: "https://litoral-trans.com.ar"
 github_username: lucasvazq
 
+markdown: kramdown
 theme: minima
 
-exclude: "src"
+exclude: [
+  # ruby generated files
+  ".bundle",
+  "vendor",
+
+  # next proyect folder
+  "src",
+]
+
 
 include: [
   # ./
   "_next",
-  ".well-known",
 
   # ./_next/static/d_*/
   "_buildManifest.js",

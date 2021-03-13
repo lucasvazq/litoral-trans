@@ -1,14 +1,17 @@
 # node packages
-node_modules
-package-lock.json
+src/node_modules
+src/package-lock.json
 
 # next build
-.next
+src/.next
+
+# next export
+src/out
 
 # ruby packages
-vendor
 .bundle
-githubpages.gem.lock
+vendor
+githubpages.rb.lock
 
 # github pages generated files
 _site

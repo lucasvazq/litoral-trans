@@ -13,9 +13,11 @@ A grandes rasgos, el proyecto está armado con Next.js (servido estáticamente) 
 
 ### 1 - Setup de las herramientas necesarias:
 
-1.1 Instalar y configurar para usar `node v14.15.5` y `npm v6.14.11`
+1.1 Nos posicionamos en la carpeta **src**
 
-1.2 Ejecutar `npm install` para instalar los paquetes necesarios
+1.2 Instalar y configurar para usar `node v14.15.5` y `npm v6.14.11`
+
+1.3 Ejecutar `npm install` para instalar los paquetes necesarios
 
 ### 2 - Setup del servidor en modo dev
 
@@ -25,17 +27,19 @@ A grandes rasgos, el proyecto está armado con Next.js (servido estáticamente) 
 
 En este paso, lo que hacemos es preparar el código fuente para que esté listo para ser servido en producción.
 
-3.1 Ejecutar `npm run build` para crear la build
+3.1 Ejecutar `npm run build` para crear la build.
 
 3.2 Ejecutar `npm run export` para exportar el sitio web en formato estático.
+
+3.3 Copiar los archivos de la carpeta **out** a la carpeta base del proyecto.
 
 ### 4 - Preview de los archivos exportados
 
 Como estamos sirviendo el proyecto a través de Github Pages, tenemos que simular el mismo entorno en local.
 
-4.1 Dirigirse a la carpeta base del repositorio
+4.1 Nos posicionamos en la carpeta base del proyecto.
 
-4.2 Instalar `ruby 2.7.2p137`, también instalar RubyGem si no viene incluido
+4.2 Instalar `ruby 2.7.2p137`, también instalar RubyGem si no viene incluido.
 
 4.3 Ejecutar `gem install bundle` para instalar Bundler
 
