@@ -2,5 +2,9 @@ export * from "./Base";
 export * from "./Header";
 export * from "./Slide";
 export * from "./Services";
-export * from './Locations';
-export * from './Map'
+export * from "./Locations";
+export * from "./Map";
+export * from "./Clients";
+export * from "./Separation";
+export * from "./Whatsapp";
+export * from "./Footer";

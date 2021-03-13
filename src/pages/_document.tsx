@@ -1,7 +1,6 @@
 import Document, { Html, Head } from "next/document";
 import { Main, NextScript } from "next/document";
 
-
 export const GoogleTagManager = () => {
   const data = `
       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
@@ -13,20 +12,19 @@ export const GoogleTagManager = () => {
   return <script dangerouslySetInnerHTML={{ __html: data.replace(/\n\s*/g, "") }} />;
 };
 
-
 class CustomDocument extends Document {
   render() {
     return (
       <Html lang="es-AR">
         <Head>
-            <GoogleTagManager />
+          <GoogleTagManager />
         </Head>
         <body className="min-h-screen bg-gray text-dark main-font">
-            <noscript>
-                <iframe src={`https://www.googletagmanager.com/ns.html?id=${process.env.GTM}`} height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe>
-            </noscript>
-            <Main />
-            <NextScript />
+          <noscript>
+            <iframe src={`https://www.googletagmanager.com/ns.html?id=${process.env.GTM}`} height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe>
+          </noscript>
+          <Main />
+          <NextScript />
         </body>
       </Html>
     );

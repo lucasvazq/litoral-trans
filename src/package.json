@@ -2,7 +2,7 @@
   "name": "litoral-trans",
   "version": "1.0.0",
   "description": "litoral-trans web",
-  "main": "index.ts",
+  "main": "index.tsx",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,7 +13,7 @@
     "url": "git+https://github.com/lucasvazq/litoral-trans.git"
   },
   "author": "Lucas Vazquez",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/lucasvazq/litoral-trans/issues"
   },
@@ -21,25 +21,20 @@
   "devDependencies": {
     "@types/react": "^17.0.2",
     "autoprefixer": "^10.2.4",
-    "nextjs-sitemap-generator": "^1.3.0",
     "postcss": "^8.2.6",
     "postcss-import": "^14.0.0",
     "sass": "^1.32.7",
-    "schema-dts": "^0.8.2",
     "tailwindcss": "^2.0.3",
     "typescript": "^4.1.5",
     "webpack": "^5.22.0"
   },
   "dependencies": {
-    "ndjson-cli": "^0.3.1",
     "next": "^10.0.7",
     "next-seo": "^4.19.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
     "react-simple-maps": "^2.3.0",
-    "react-slideshow-image": "^3.4.3",
-    "react-tooltip": "^4.2.14",
-    "styled-components": "^5.2.1"
+    "react-slideshow-image": "^3.4.3"
   }
 }
