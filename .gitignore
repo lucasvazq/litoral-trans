@@ -1,0 +1,14 @@
+# node packages
+node_modules
+package-lock.json
+
+# next exported files
+src/out
+
+# ruby packages
+vendor
+.bundle
+Gemfile.lock
+
+# github pages generated files
+_site

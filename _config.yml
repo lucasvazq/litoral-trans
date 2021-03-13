@@ -1,3 +1,27 @@
-theme: jekyll-theme-cayman
-
+title: litoral-trans
+email: lucas5zvazquez@gmail.com
+description: litoral-trans web
+baseurl: "/"
 url: "https://litoral-trans.com.ar"
+github_username: lucasvazq
+
+theme: minima
+
+source: "src/out/"
+exclude: [
+  "src",
+]
+
+include: [
+  # ./
+  "_next",
+  ".well-known",
+
+  # ./_next/static/d_*/
+  "_buildManifest.js",
+  "_ssgManifest.js",
+
+  # ./_next/static/chunks/pages
+  "_error-*.js",
+  "_app-*.js",
+]
