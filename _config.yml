@@ -7,7 +7,7 @@ github_username: lucasvazq
 
 theme: minima
 
-source: "src/out/"
+exclude: "src"
 
 include: [
   # ./

@@ -2,10 +2,13 @@
 node_modules
 package-lock.json
 
+# next build
+.next
+
 # ruby packages
 vendor
 .bundle
-Gemfile.lock
+githubpages.gem.lock
 
 # github pages generated files
 _site

@@ -27,24 +27,27 @@ En este paso, lo que hacemos es preparar el código fuente para que esté listo 
 
 3.1 Ejecutar `npm run build` para crear la build
 
-3.2 Ejecutar `npm run export` para exportar el sitio web en formato estático
+3.2 Ejecutar `npm run export` para exportar el sitio web en formato estático.
 
 ### 4 - Preview de los archivos exportados
 
 Como estamos sirviendo el proyecto a través de Github Pages, tenemos que simular el mismo entorno en local.
 
-4.1 Instalar `ruby 2.7.2p137`, también instalar RubyGem si no viene incluido
+4.1 Dirigirse a la carpeta base del repositorio
 
-4.2 Ejecutar `gem install bundle`
+4.2 Instalar `ruby 2.7.2p137`, también instalar RubyGem si no viene incluido
 
-4.3 Dirigirse a la carpeta base del repositorio
+4.3 Ejecutar `gem install bundle` para instalar Bundler
 
-4.4 Ejecutar `bundle install` para instalar las gemas necesarias
+4.4 Ejecutar `bundle config set --local path vendor/bundle` para configurar Bundler
 
-4.5 Ejecutar `bundle exec jekyll serve` para iniciar el proyecto en modo previsualización. Ahora se puede ver el proyecto a través de la url [http://localhost:4000](http://localhost:4000) tal cual se vería como si estuviese en internet
+4.5 Ejecutar `bundle install --gemfile githubpages.rb` para instalar las gemas necesarias
+
+4.6 Ejecutar `bundle exec jekyll serve` para iniciar el proyecto en modo previsualización. Ahora se puede ver el proyecto a través de la url [http://localhost:4000](http://localhost:4000) tal cual se vería como si estuviese en internet
 
 ## Setup Producción
 
 Este proyecto se realizó utilizando Github Pages, NIC Argentina y Namecheap.
 Un buen tutorial sobre como montar a producción los archivos exportados desde el código fuente, se muestran a continuación:
 [Tutorial: cómo armar un blog con GitHub pages](https://curiosidadesespaciales.ar/2020/09/21/Tutorial-blog-2/)
+

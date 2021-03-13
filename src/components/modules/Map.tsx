@@ -173,7 +173,7 @@ const MapClass = () => {
   return (
     <>
       <div style={{ backgroundColor: mixHexColors(process.env.colorDark, process.env.colorGray, 0.95) }}>
-        <ComposableMap projection="geoMercator" data-tip="" fill="red" width={600} height={600}>
+        <ComposableMap projection="geoMercator" dataTip="" fill="red" width={600} height={600}>
           <ZoomableGroup zoom={zoom} center={coordinates} onMoveEnd={handleMoveEnd} maxZoom={maxZoom} minZoom={minZoom}>
             {layers.map((layer, index) => (
               <Geographies key={index} geography={layer.file} strokeWidth={layer.size * (initialZoom / zoom)} stroke={layer.color ? layer.color : null} style={{ pointerEvents: "none" }}>
