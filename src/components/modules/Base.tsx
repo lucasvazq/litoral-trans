@@ -1,4 +1,6 @@
-import { Footer, Header, Whatsapp } from "..";
+import React from "react"
+
+import { Footer, Header, Whatsapp } from ".."
 
 export const Base = (props: { items?: { href: string, description: string }[] }) => (
   <>
@@ -7,4 +9,4 @@ export const Base = (props: { items?: { href: string, description: string }[] })
     <div className="mt-24">{props.children}</div>
     <Footer />
   </>
-);
+)

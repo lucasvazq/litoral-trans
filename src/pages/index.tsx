@@ -1,13 +1,15 @@
-import { AiOutlineSafety } from "react-icons/ai";
-import { BsHouseDoor } from "react-icons/bs";
-import { FaTruckLoading, FaShippingFast } from "react-icons/fa";
-import { GoPackage } from "react-icons/go";
-import { HiPhone } from "react-icons/hi";
-import { MdEmail } from "react-icons/md";
+import { NextSeo } from "next-seo"
 
-import { NextSeo } from "next-seo";
+import React from "react"
 
-import { Base, Button, Clients, H2 , Map, Paragraph, Separation, Services, Slideshow, } from "../components";
+import { AiOutlineSafety } from "react-icons/ai"
+import { BsHouseDoor } from "react-icons/bs"
+import { FaTruckLoading, FaShippingFast } from "react-icons/fa"
+import { GoPackage } from "react-icons/go"
+import { HiPhone } from "react-icons/hi"
+import { MdEmail } from "react-icons/md"
+
+import { Base, Button, Clients, H2, Map, Paragraph, Separation, Services, Slideshow } from "../components"
 
 const services = [
   { icon: GoPackage, description: "Encomiendas generales puerta a puerta" },
@@ -15,13 +17,13 @@ const services = [
   { icon: AiOutlineSafety, description: "Gestión de contrareembolsos" },
   { icon: FaShippingFast, description: "Redespacho a otras localidades" },
   { icon: FaTruckLoading, description: "Entregas inmediatas una vez llegada a la localidad del destino" },
-];
+]
 
 const items = [
   { href: "/#servicios", description: "Servicios" },
   { href: "/#casa-central", description: "Ubicación" },
   { href: "/#clientes", description: "Clientes" },
-];
+]
 
 const Root = () => {
   return (
@@ -36,7 +38,6 @@ const Root = () => {
         }}
       />
       <Base items={items}>
-
         <Slideshow />
 
         {/* Main separator */}
@@ -107,7 +108,7 @@ const Root = () => {
           </div>
         </Separation>
 
-        {/* Map */ }
+        {/* Map */}
         <div className="m-8">
           <H2 className="text-6xl handwritten-font text-primary">Mirá por donde andamos!</H2>
         </div>
@@ -150,10 +151,9 @@ const Root = () => {
         <div className="m-8">
           <Clients />
         </div>
-
       </Base>
     </>
-  );
-};
+  )
+}
 
-export default Root;
+export default Root

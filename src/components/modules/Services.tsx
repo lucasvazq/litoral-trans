@@ -1,11 +1,13 @@
-import { IconType } from "react-icons";
+import React from "react"
 
-import { Label, LabelsContainer, Paragraph } from "..";
+import { IconType } from "react-icons"
+
+import { Label, LabelsContainer, Paragraph } from ".."
 
 export const Services = (props: { services: { icon: IconType, description: string }[] }) => (
   <LabelsContainer>
     {props.services.map((value, index) => {
-      const Icon = value.icon;
+      const Icon = value.icon
       return (
         <Label key={index} className="bg-light p-4 min-h-64 max-w-2xs">
           <div>
@@ -33,7 +35,7 @@ export const Services = (props: { services: { icon: IconType, description: strin
           </div>
           <Paragraph className="text-center">{value.description}</Paragraph>
         </Label>
-      );
+      )
     })}
   </LabelsContainer>
-);
+)

@@ -1,35 +1,32 @@
 title: litoral-trans
 email: lucas5zvazquez@gmail.com
 description: litoral-trans web
-baseurl: "/"
-url: "https://litoral-trans.com.ar"
+baseurl: /
+url: 'https://litoral-trans.com.ar'
 github_username: lucasvazq
-
 markdown: kramdown
 theme: minima
 
-exclude: [
+exclude:
   # folders
-  "docs",
-  "src",
+  - docs
+  - src
 
   # files
-  "CNAME",
-  "LICENSE",
-  "README.md",
-  "githubpages.rb",
-]
+  - CNAME
+  - LICENSE
+  - README.md
+  - dependabot.yml
+  - githubpages.rb
 
-
-include: [
+include:
   # ./
-  "_next",
+  - _next
 
   # ./_next/static/d_*/
-  "_buildManifest.js",
-  "_ssgManifest.js",
+  - _buildManifest.js
+  - _ssgManifest.js
 
   # ./_next/static/chunks/pages
-  "_error-*.js",
-  "_app-*.js",
-]
+  - _error-*.js
+  - _app-*.js

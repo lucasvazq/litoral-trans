@@ -1,5 +1,6 @@
-import Document, { Html, Head } from "next/document";
-import { Main, NextScript } from "next/document";
+import Document, { Head, Html, Main, NextScript } from "next/document"
+
+import React from "react"
 
 export const GoogleTagManager = () => {
   const data = `
@@ -8,9 +9,9 @@ export const GoogleTagManager = () => {
       j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       "https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,"script","dataLayer","${process.env.GTM}");
-    `;
-  return <script dangerouslySetInnerHTML={{ __html: data.replace(/\n\s*/g, "") }} />;
-};
+    `
+  return <script dangerouslySetInnerHTML={{ __html: data.replace(/\n\s*/g, "") }} />
+}
 
 class CustomDocument extends Document {
   render() {
@@ -27,8 +28,8 @@ class CustomDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }
 
-export default CustomDocument;
+export default CustomDocument

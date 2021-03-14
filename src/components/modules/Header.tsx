@@ -1,30 +1,30 @@
-import { createRef, useEffect, useState, RefObject } from "react";
+import React, { createRef, useEffect, useState, RefObject } from "react"
 
-import { FaShippingFast } from "react-icons/fa";
-import { HiMenuAlt3, HiPhone } from "react-icons/hi";
-import { MdEmail } from "react-icons/md";
-import { RiArrowDropRightLine } from "react-icons/ri";
-import { VscClose } from "react-icons/vsc";
+import { FaShippingFast } from "react-icons/fa"
+import { HiMenuAlt3, HiPhone } from "react-icons/hi"
+import { MdEmail } from "react-icons/md"
+import { RiArrowDropRightLine } from "react-icons/ri"
+import { VscClose } from "react-icons/vsc"
 
-import { Button, Route } from "..";
+import { Button, Route } from ".."
 
 export const Header = (props: { breadcrumb?: string, items?: { href: string, description: string }[] }) => {
   /* Handle menu visibility */
-  const hiddenMenu: RefObject<HTMLDivElement> = createRef();
-  const [menuIsActive, setMenuIsActive] = useState(false);
+  const hiddenMenu: RefObject<HTMLDivElement> = createRef()
+  const [menuIsActive, setMenuIsActive] = useState(false)
   useEffect(() => {
-    const node = hiddenMenu.current;
+    const node = hiddenMenu.current
     if (menuIsActive) {
-      node.classList.remove("hidden");
+      node.classList.remove("hidden")
     }
     setTimeout(() => {
       if (menuIsActive) {
-        node.classList.remove("hidden");
+        node.classList.remove("hidden")
       } else {
-        node.classList.add("hidden");
+        node.classList.add("hidden")
       }
-    }, 100);
-  }, [menuIsActive]);
+    }, 100)
+  }, [menuIsActive])
 
   return (
     <nav className="bg-primary text-light fixed shadow-lg top-0 w-full z-2">
@@ -64,5 +64,5 @@ export const Header = (props: { breadcrumb?: string, items?: { href: string, des
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}

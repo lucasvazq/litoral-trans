@@ -1,3 +1,5 @@
+import React from "react"
+
 const clients: { path: string, name: string }[] = [
   { path: "images/brands/boness.png", name: "Boness" },
   { path: "images/brands/andretich.png", name: "Carlos Andretich" },
@@ -8,7 +10,7 @@ const clients: { path: string, name: string }[] = [
   { path: "images/brands/faben.png", name: "Faben" },
   { path: "images/brands/villanueva.png", name: "Villanueva" },
   { path: "images/brands/veterinaria_rafaela.png", name: "Veterinaria Rafaela" },
-];
+]
 
 export const Clients = () => (
   <div className="flex flex-wrap justify-center">
@@ -18,4 +20,4 @@ export const Clients = () => (
       </div>
     ))}
   </div>
-);
+)

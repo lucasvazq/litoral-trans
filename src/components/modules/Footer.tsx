@@ -1,6 +1,8 @@
-import Link from "next/link";
+import Link from "next/link"
 
-import { Paragraph } from "..";
+import React from "react"
+
+import { Paragraph } from ".."
 
 export const Footer = () => (
   <>
@@ -44,4 +46,4 @@ export const Footer = () => (
       </Paragraph>
     </div>
   </>
-);
+)

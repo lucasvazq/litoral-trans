@@ -1,10 +1,10 @@
-import "react-slideshow-image/dist/styles.css";
+import "react-slideshow-image/dist/styles.css"
 
-import { useState } from "react";
+import React, { useState } from "react"
 
-import { Slide } from "react-slideshow-image";
+import { Slide } from "react-slideshow-image"
 
-import { Label } from "..";
+import { Label } from ".."
 
 const slides = [
   {
@@ -26,10 +26,10 @@ const slides = [
     ),
     image: "/images/slide/slide_2.jpg",
   },
-];
+]
 
 export const Slideshow = () => {
-  const [nextIndex, setNextIndex] = useState(null);
+  const [nextIndex, setNextIndex] = useState(null)
   const props = {
     arrows: false,
     transitionDuration: 500,
@@ -41,9 +41,9 @@ export const Slideshow = () => {
       />
     ),
     onChange: (_: Number, next: Number) => {
-      setNextIndex(next);
+      setNextIndex(next)
     },
-  };
+  }
 
   return (
     <div className="flex flex-col-reverse -mb-7">
@@ -54,14 +54,12 @@ export const Slideshow = () => {
               <div className="bg-center bg-cover h-50vh flex items-center justify-center overflow-hidden" style={{ backgroundImage: `url(${value.image})` }}>
                 <div className="bg-dots">
                   <div className="m-8">
-                    <Label className="bg-primary text-light p-4 select-none">
-                      {value.slideContent}
-                    </Label>
+                    <Label className="bg-primary text-light p-4 select-none">{value.slideContent}</Label>
                   </div>
                 </div>
               </div>
             </div>
-          );
+          )
         })}
       </Slide>
       <div className="absolute z-1 w-full mb-7">
@@ -74,5 +72,5 @@ export const Slideshow = () => {
         </svg>
       </div>
     </div>
-  );
-};
+  )
+}

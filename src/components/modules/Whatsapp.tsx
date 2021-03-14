@@ -1,4 +1,6 @@
-import { Route } from "..";
+import React from "react"
+
+import { Route } from ".."
 
 export const Whatsapp = () => (
   <div className="text-8xl z-2 fixed bottom-0 right-0 m-4">
@@ -35,4 +37,4 @@ export const Whatsapp = () => (
       </svg>
     </div>
   </div>
-);
+)

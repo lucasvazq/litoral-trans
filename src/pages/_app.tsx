@@ -1,8 +1,10 @@
-import "../styles/styles.sass";
+import "../styles/styles.sass"
 
-import Head from "next/head";
+import Head from "next/head"
 
-import { DefaultSeo } from "next-seo";
+import { DefaultSeo } from "next-seo"
+
+import React from "react"
 
 const App = ({ Component, initialProps }) => (
   <>
@@ -44,6 +46,6 @@ const App = ({ Component, initialProps }) => (
     />
     <Component {...initialProps} />
   </>
-);
+)
 
-export default App;
+export default App

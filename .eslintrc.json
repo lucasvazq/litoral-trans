@@ -20,6 +20,17 @@
     "@typescript-eslint"
   ],
   "rules": {},
+  "overrides": [
+    {
+      "files": [
+        "*"
+      ],
+      "rules": {
+        "comma-dangle": "off",
+        "space-before-function-paren": "off"
+      }
+    }
+  ],
   "ignorePatterns": [
     "_next/**/*"
   ]

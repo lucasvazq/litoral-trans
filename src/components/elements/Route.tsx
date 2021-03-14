@@ -1,8 +1,8 @@
-import Link from "next/link";
+import Link from "next/link"
 
-import { IconType } from "react-icons";
+import React, { MouseEventHandler, ReactNode } from "react"
 
-import { MouseEventHandler, ReactNode } from "react";
+import { IconType } from "react-icons"
 
 export const Route = (props: { href: string, className?: string, onClick?: MouseEventHandler, style?: { [key: string]: any }, description?: ReactNode[], icon?: IconType }) => {
   return (
@@ -16,5 +16,5 @@ export const Route = (props: { href: string, className?: string, onClick?: Mouse
         </a>
       </Link>
     </div>
-  );
-};
+  )
+}
