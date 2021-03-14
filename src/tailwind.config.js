@@ -1,4 +1,4 @@
-const config = require("./next.config");
+const config = require("./next.config")
 
 const colors = {
   primary: config.env.colorPrimary,
@@ -7,7 +7,7 @@ const colors = {
   light: config.env.colorLight,
   gray: config.env.colorGray,
   dark: config.env.colorDark,
-};
+}
 
 module.exports = {
   purge: ["./pages/**/*.tsx", "./components/**/*.tsx"],
@@ -44,4 +44,4 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-};
+}

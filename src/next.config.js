@@ -18,4 +18,4 @@ module.exports = {
     colorLight: "#ffffff",
     colorGray: "#fafafa",
   },
-};
+}

@@ -1,4 +1,4 @@
-import React, { createElement, ReactNode } from "react"
+import { createElement, ReactNode } from "react"
 
 export type HeadlineType = { children: ReactNode[], className?: string }
 

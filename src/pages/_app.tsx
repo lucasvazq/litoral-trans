@@ -1,12 +1,13 @@
 import "../styles/styles.sass"
 
+import { AppContext } from "next"
 import Head from "next/head"
 
 import { DefaultSeo } from "next-seo"
 
 import React from "react"
 
-const App = ({ Component, initialProps }) => (
+const App = ({ Component, initialProps }: AppContext) => (
   <>
     <Head>
       <meta charSet="utf-8" />
