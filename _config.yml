@@ -9,12 +9,15 @@ markdown: kramdown
 theme: minima
 
 exclude: [
-  # ruby generated files
-  ".bundle",
-  "vendor",
-
-  # next proyect folder
+  # folders
+  "docs",
   "src",
+
+  # files
+  "CNAME",
+  "LICENSE",
+  "README.md",
+  "githubpages.rb",
 ]
 
 

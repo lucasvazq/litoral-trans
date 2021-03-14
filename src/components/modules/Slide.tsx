@@ -1,6 +1,6 @@
 import "react-slideshow-image/dist/styles.css";
 
-import { useState, ReactNode } from "react";
+import { useState } from "react";
 
 import { Slide } from "react-slideshow-image";
 

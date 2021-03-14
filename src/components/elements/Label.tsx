@@ -8,4 +8,4 @@ export const Label = (props: { children: ReactNode[], className: string }) => (
   </div>
 );
 
-export const LabelsContainer = (props: { children: JSX.Element | JSX.Element[] }) => <div className="flex flex-wrap justify-center">{props.children}</div>;
+export const LabelsContainer = (props: { children: ReactNode[] }) => <div className="flex flex-wrap justify-center">{props.children}</div>;

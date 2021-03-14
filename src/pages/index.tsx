@@ -7,7 +7,7 @@ import { MdEmail } from "react-icons/md";
 
 import { NextSeo } from "next-seo";
 
-import { Base, Button, Clients, H2 , Map, Paragraph, Route, Separation, Services, Slideshow, } from "../components";
+import { Base, Button, Clients, H2 , Map, Paragraph, Separation, Services, Slideshow, } from "../components";
 
 const services = [
   { icon: GoPackage, description: "Encomiendas generales puerta a puerta" },

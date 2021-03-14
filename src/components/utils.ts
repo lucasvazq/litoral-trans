@@ -4,12 +4,11 @@
  *
  * @param color - hex color.
  */
-export const hexColorToInt = (color: string) => {
-  return color
+export const hexColorToInt = (color: string) =>
+  color
     .replace("#", "")
     .match(/.{2}/g)
     .map((value) => parseInt(value, 16));
-};
 
 /**
  * Mix two hex colors.

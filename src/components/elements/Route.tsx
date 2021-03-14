@@ -4,7 +4,7 @@ import { IconType } from "react-icons";
 
 import { MouseEventHandler, ReactNode } from "react";
 
-export const Route = (props: { href: string, className?: string, onClick?: MouseEventHandler, style?: { [key: string]: any }, description?: ReactNode, icon?: IconType }) => {
+export const Route = (props: { href: string, className?: string, onClick?: MouseEventHandler, style?: { [key: string]: any }, description?: ReactNode[], icon?: IconType }) => {
   return (
     <div className="flex items-center">
       <Link href={props.href}>
