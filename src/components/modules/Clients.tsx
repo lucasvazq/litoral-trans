@@ -10,14 +10,12 @@ const clients: { path: string, name: string }[] = [
   { path: "images/brands/veterinaria_rafaela.png", name: "Veterinaria Rafaela" },
 ];
 
-export const Clients = () => {
-  return (
-    <div className="flex flex-wrap justify-center">
-      {clients.map((data, index) => (
-        <div key={index} className="greyscale h-24 w-24 m-4">
-          <img src={data.path} alt={data.name} />
-        </div>
-      ))}
-    </div>
-  );
-};
+export const Clients = () => (
+  <div className="flex flex-wrap justify-center">
+    {clients.map((data, index) => (
+      <div key={index} className="greyscale h-24 w-24 m-4">
+        <img src={data.path} alt={data.name} />
+      </div>
+    ))}
+  </div>
+);

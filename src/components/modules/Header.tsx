@@ -1,14 +1,16 @@
-import { useState, createRef, RefObject, useEffect } from "react";
-import { VscClose } from "react-icons/vsc";
-import { HiPhone, HiMenuAlt3 } from "react-icons/hi";
+import { createRef, useEffect, useState, RefObject } from "react";
+
 import { FaShippingFast } from "react-icons/fa";
+import { HiMenuAlt3, HiPhone } from "react-icons/hi";
 import { MdEmail } from "react-icons/md";
 import { RiArrowDropRightLine } from "react-icons/ri";
-import { Route } from "..";
+import { VscClose } from "react-icons/vsc";
+
+import { Button, Route } from "..";
 
 export const Header = (props: { breadcrumb?: string, items?: { href: string, description: string }[] }) => {
+  /* Handle menu visibility */
   const hiddenMenu: RefObject<HTMLDivElement> = createRef();
-  const navBar: RefObject<HTMLElement> = createRef();
   const [menuIsActive, setMenuIsActive] = useState(false);
   useEffect(() => {
     const node = hiddenMenu.current;
@@ -25,7 +27,7 @@ export const Header = (props: { breadcrumb?: string, items?: { href: string, des
   }, [menuIsActive]);
 
   return (
-    <nav ref={navBar} className="bg-primary text-light fixed shadow-lg top-0 w-full z-2">
+    <nav className="bg-primary text-light fixed shadow-lg top-0 w-full z-2">
       <div className="m-8">
         <div className="flex justify-between">
           <Route href="/" description={process.env.name} icon={FaShippingFast} className="text-xl font-semibold" />
@@ -35,6 +37,7 @@ export const Header = (props: { breadcrumb?: string, items?: { href: string, des
           </button>
         </div>
         <div ref={hiddenMenu} className={`${menuIsActive ? "opacity-100" : "opacity-0"} mt-6 mb-1`}>
+          {/* Custom items */}
           <ul className="list-reset flex-1 justify-end items-center text-lg my-4 font-semibold">
             {props.items
               ? props.items.map((item, index) => (
@@ -44,12 +47,14 @@ export const Header = (props: { breadcrumb?: string, items?: { href: string, des
                 ))
               : null}
           </ul>
-          <ul className="list-reset flex-1 justify-end items-center text-md ml-5">
+
+          {/* Default items */}
+          <ul className="list-reset flex-1 justify-end items-center text-md">
             <li>
-              <Route href={`mailto:${process.env.email}`} icon={MdEmail} description={process.env.email} />
+              <Button href={`mailto:${process.env.email}`} icon={MdEmail} description={process.env.email} />
             </li>
             <li>
-              <Route
+              <Button
                 href={`tel:+${process.env.telCountryCode}${process.env.telAreaCode}${process.env.telPhoneNumber}`}
                 icon={HiPhone}
                 description={`+${process.env.telCountryCode} ${process.env.telAreaCode} ${process.env.telPhoneNumber}`}

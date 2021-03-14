@@ -2,7 +2,7 @@
   "name": "litoral-trans",
   "version": "1.0.0",
   "description": "litoral-trans web",
-  "main": "index.tsx",
+  "main": "index.ts",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

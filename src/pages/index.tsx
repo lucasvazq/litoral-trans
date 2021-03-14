@@ -1,33 +1,13 @@
-import { NextSeo } from "next-seo";
-import { Route, Base, Slideshow, SlideContent, Services, Paragraph, H2, Locations, Clients, Separation, Button } from "../components";
+import { AiOutlineSafety } from "react-icons/ai";
+import { BsHouseDoor } from "react-icons/bs";
 import { FaTruckLoading, FaShippingFast } from "react-icons/fa";
 import { GoPackage } from "react-icons/go";
-import { MdEmail } from "react-icons/md";
 import { HiPhone } from "react-icons/hi";
-import { BsHouseDoor } from "react-icons/bs";
-import { AiOutlineSafety } from "react-icons/ai";
+import { MdEmail } from "react-icons/md";
 
-const slides = [
-  {
-    slideContent: (
-      <SlideContent>
-        <p className="text-2xl font-semibold">LA MEJOR MANERA</p>
-        <p className="text tracking-thight">PARA ENVIAR TUS PAQUETES</p>
-      </SlideContent>
-    ),
-    image: "/images/slide/slide_1.jpg",
-  },
-  {
-    slideContent: (
-      <SlideContent>
-        <p className="text-lg tracking-tighter font-semibold mb-4">SOLUCIONES DE LOGÍSTICA</p>
-        <p className="text-sm tracking-wider">BRINDADA POR SUS DUEÑOS</p>
-        <p className="text-sm">DISFRUTADA POR SUS CLIENTES</p>
-      </SlideContent>
-    ),
-    image: "/images/slide/slide_2.jpg",
-  },
-];
+import { NextSeo } from "next-seo";
+
+import { Base, Button, Clients, H2 , Map, Paragraph, Route, Separation, Services, Slideshow, } from "../components";
 
 const services = [
   { icon: GoPackage, description: "Encomiendas generales puerta a puerta" },
@@ -56,8 +36,10 @@ const Root = () => {
         }}
       />
       <Base items={items}>
-        <Slideshow slides={slides} />
 
+        <Slideshow />
+
+        {/* Main separator */}
         <Separation>
           <Paragraph className="relative m-auto z-1 text-center">{`${process.env.name} es una empresa de transporte familiar con más de 30 años de trayectoria.`}</Paragraph>
         </Separation>
@@ -90,6 +72,7 @@ const Root = () => {
           </svg>
         </div>
 
+        {/* Services */}
         <div className="m-8 pt-8">
           <H2 className="text-6xl handwritten-font text-primary">Nuestros Servicios</H2>
         </div>
@@ -97,6 +80,7 @@ const Root = () => {
           <Services services={services} />
         </div>
 
+        {/* Parent Company */}
         <div id="casa-central" className="-mt-24 mb-32"></div>
         <Separation>
           <H2 className="text-4xl handwritten-font p-4">Ubicá nuestra Casa Central</H2>
@@ -123,11 +107,15 @@ const Root = () => {
           </div>
         </Separation>
 
+        {/* Map */ }
         <div className="m-8">
           <H2 className="text-6xl handwritten-font text-primary">Mirá por donde andamos!</H2>
         </div>
-        <Locations />
+        <div className="flex flex-wrap m-auto justify-center max-h-screen max-w-prose">
+          <Map />
+        </div>
 
+        {/* Travel frecuency */}
         <Separation>
           <div className="m-4">
             <Paragraph className="relative text-center m-auto z-1 text-xl font-bold mb-2">Frecuencia de viaje</Paragraph>
@@ -136,6 +124,7 @@ const Root = () => {
           </div>
         </Separation>
 
+        {/* Clients */}
         <div id="clientes" className="-mt-24 mb-32"></div>
         <div className="m-8">
           <H2 className="text-4xl handwritten-font">Nos eligen</H2>
@@ -161,6 +150,7 @@ const Root = () => {
         <div className="m-8">
           <Clients />
         </div>
+
       </Base>
     </>
   );

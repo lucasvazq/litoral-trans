@@ -1,11 +1,36 @@
-import { useState } from "react";
-import { Slide } from "react-slideshow-image";
-import { Label } from "..";
 import "react-slideshow-image/dist/styles.css";
 
-export const Slideshow = (props: { slides: { slideContent: JSX.Element, image: string }[] }) => {
+import { useState, ReactNode } from "react";
+
+import { Slide } from "react-slideshow-image";
+
+import { Label } from "..";
+
+const slides = [
+  {
+    slideContent: (
+      <>
+        <p className="text-2xl font-semibold">LA MEJOR MANERA</p>
+        <p className="text tracking-thight">PARA ENVIAR TUS PAQUETES</p>
+      </>
+    ),
+    image: "/images/slide/slide_1.jpg",
+  },
+  {
+    slideContent: (
+      <>
+        <p className="text-lg tracking-tighter font-semibold mb-4">SOLUCIONES DE LOGÍSTICA</p>
+        <p className="text-sm tracking-wider">BRINDADA POR SUS DUEÑOS</p>
+        <p className="text-sm">DISFRUTADA POR SUS CLIENTES</p>
+      </>
+    ),
+    image: "/images/slide/slide_2.jpg",
+  },
+];
+
+export const Slideshow = () => {
   const [nextIndex, setNextIndex] = useState(null);
-  const properties = {
+  const props = {
     arrows: false,
     transitionDuration: 500,
     indicators: (i: Number) => (
@@ -22,13 +47,17 @@ export const Slideshow = (props: { slides: { slideContent: JSX.Element, image: s
 
   return (
     <div className="flex flex-col-reverse -mb-7">
-      <Slide {...properties}>
-        {props.slides.map((value, index) => {
+      <Slide {...props}>
+        {slides.map((value, index) => {
           return (
             <div className="each-fade" key={index}>
               <div className="bg-center bg-cover h-50vh flex items-center justify-center overflow-hidden" style={{ backgroundImage: `url(${value.image})` }}>
                 <div className="bg-dots">
-                  <div className="m-8">{value.slideContent}</div>
+                  <div className="m-8">
+                    <Label className="bg-primary text-light p-4 select-none">
+                      {value.slideContent}
+                    </Label>
+                  </div>
                 </div>
               </div>
             </div>
@@ -46,8 +75,4 @@ export const Slideshow = (props: { slides: { slideContent: JSX.Element, image: s
       </div>
     </div>
   );
-};
-
-export const SlideContent = (props: { children: JSX.Element | JSX.Element[] }) => {
-  return <Label className="bg-primary text-light p-4 select-none">{props.children}</Label>;
 };

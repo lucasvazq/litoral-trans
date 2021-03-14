@@ -1,33 +1,19 @@
-import { useState, memo } from "react";
-import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup, Point, Line } from "react-simple-maps";
+import { memo, useState } from "react";
+
+import { ComposableMap, Geographies, Geography, Marker, Point, ZoomableGroup } from "react-simple-maps";
+
 import { IoLocationSharp } from "react-icons/io5";
-import { FaPlusSquare, FaMinusSquare } from "react-icons/fa";
+import { FaMinusSquare, FaPlusSquare } from "react-icons/fa";
+
+import { mixHexColors } from "..";
 
 type PointData = { coordinates: Point, iconSize: number, name?: string, namePosition?: string, fontSizeInit?: number, fontSizeEnd?: number, minZoom?: number, maxZoom?: number };
 
-const mixHexColors = (color1: string, color2: string, weight: number) => {
-  const valuesColor1 = color1
-    .replace("#", "")
-    .match(/.{2}/g)
-    .map((value) => parseInt(value, 16));
-  const valuesColor2 = color2
-    .replace("#", "")
-    .match(/.{2}/g)
-    .map((value) => parseInt(value, 16));
-  const mixedValues = valuesColor1.map((value, index) => Math.round(value * (1 - weight) + valuesColor2[index] * weight).toString(16));
-  return `#${mixedValues.join("")}`;
-};
-
-const initialZoom = 45;
-const maxZoom = 200;
-const minZoom = 20;
-const initialCoordinates: Point = [-60.611, -30.131];
-const limits = {
-  top: -26.347,
-  bottom: -35.926,
-  left: -66.419,
-  right: -55.198,
-};
+const layers = [
+  { file: "/map/provincial_routes.topojson", size: 0.07, color: mixHexColors(process.env.colorDark, process.env.colorGray, 0.7) },
+  { file: "/map/national_routes.topojson", size: 0.07, color: mixHexColors(process.env.colorDark, process.env.colorGray, 0.45) },
+  { file: "/map/provinces.topojson", size: 0.2, color: mixHexColors(process.env.colorDark, process.env.colorGray, 0.15) },
+];
 
 const positions: { [key: string]: Point } = {
   Rafaela: [-61.506, -31.264],
@@ -53,13 +39,7 @@ const positions: { [key: string]: Point } = {
   "Reconquista - Avellaneda": [-59.657, -29.156],
 };
 
-const lines: { from: Point, to: Point, color: string, width: number }[] = [];
-
 const points: { coordinates: Point, iconSize: number, name?: string, namePosition?: string, fontSizeInit?: number, fontSizeEnd?: number, minZoom?: number, maxZoom?: number }[] = [
-  // Manucho ?
-  // Cabal ?
-  // San Justo: san roque 2144
-
   { coordinates: positions["Rafaela"], iconSize: 0.7, name: "Rafaela", namePosition: "top", fontSizeInit: 0.5, fontSizeEnd: 0.2, maxZoom: 90 },
   { coordinates: positions["Reconquista - Avellaneda"], iconSize: 0.7, name: "Reconquista - Avellaneda", namePosition: "top", fontSizeInit: 0.5, fontSizeEnd: 0.2, maxZoom: 90 },
   { coordinates: positions["Esperanza"], iconSize: 0.7, name: "Esperanza", namePosition: "top", fontSizeInit: 0.5, fontSizeEnd: 0.266, minZoom: 30, maxZoom: 70 },
@@ -85,70 +65,66 @@ const points: { coordinates: Point, iconSize: number, name?: string, namePositio
   { coordinates: positions["Malabrigo"], iconSize: 0.35, minZoom: 70, maxZoom: 90 },
   { coordinates: positions["Berna"], iconSize: 0.35, minZoom: 70, maxZoom: 90 },
 
-  { coordinates: positions["Rafaela"], iconSize: 0.55, name: "Rafaela", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90, maxZoom: null },
-  { coordinates: positions["Esperanza"], iconSize: 0.55, name: "Esperanza", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90, maxZoom: null },
-  { coordinates: positions["Nelson"], iconSize: 0.55, name: "Nelson", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90, maxZoom: null },
-  { coordinates: positions["Llambi Campbell"], iconSize: 0.55, name: "Llambi Campbell", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90, maxZoom: null },
-  { coordinates: positions["Emilia"], iconSize: 0.55, name: "Emilia", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90, maxZoom: null },
-  { coordinates: positions["Videla"], iconSize: 0.55, name: "Videla", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90, maxZoom: null },
-  { coordinates: positions["San Justo"], iconSize: 0.55, name: "San Justo", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90, maxZoom: null },
-  { coordinates: positions["Ramayón"], iconSize: 0.55, name: "Ramayón", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90, maxZoom: null },
-  { coordinates: positions["Marcelina Escalada"], iconSize: 0.55, name: "Marcelina Escalada", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90, maxZoom: null },
-  { coordinates: positions["Colonia Silva"], iconSize: 0.55, name: "Colonia Silva", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90, maxZoom: null },
-  { coordinates: positions["Gobernador Crespo"], iconSize: 0.55, name: "Gobernador Crespo", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90, maxZoom: null },
-  { coordinates: positions["La Criolla"], iconSize: 0.55, name: "La Criolla", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90, maxZoom: null },
-  { coordinates: positions["Vera y Pintado"], iconSize: 0.55, name: "Vera y Pintado", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90, maxZoom: null },
-  { coordinates: positions["Pedro Gomez Cello"], iconSize: 0.55, name: "Pedro Gomez Cello", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90, maxZoom: null },
-  { coordinates: positions["Calchaquí"], iconSize: 0.55, name: "Calchaquí", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90, maxZoom: null },
-  { coordinates: positions["Margarita"], iconSize: 0.55, name: "Margarita", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90, maxZoom: null },
-  { coordinates: positions["Vera"], iconSize: 0.55, name: "Vera", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90, maxZoom: null },
-  { coordinates: positions["Caraguatay"], iconSize: 0.55, name: "Caraguatay", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90, maxZoom: null },
-  { coordinates: positions["Malabrigo"], iconSize: 0.55, name: "Malabrigo", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90, maxZoom: null },
-  { coordinates: positions["Berna"], iconSize: 0.55, name: "Berna", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90, maxZoom: null },
-  { coordinates: positions["Reconquista - Avellaneda"], iconSize: 0.55, name: "Reconquista - Avellaneda", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90, maxZoom: null },
+  { coordinates: positions["Rafaela"], iconSize: 0.55, name: "Rafaela", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90 },
+  { coordinates: positions["Esperanza"], iconSize: 0.55, name: "Esperanza", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90 },
+  { coordinates: positions["Nelson"], iconSize: 0.55, name: "Nelson", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90 },
+  { coordinates: positions["Llambi Campbell"], iconSize: 0.55, name: "Llambi Campbell", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90 },
+  { coordinates: positions["Emilia"], iconSize: 0.55, name: "Emilia", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90 },
+  { coordinates: positions["Videla"], iconSize: 0.55, name: "Videla", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90 },
+  { coordinates: positions["San Justo"], iconSize: 0.55, name: "San Justo", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90 },
+  { coordinates: positions["Ramayón"], iconSize: 0.55, name: "Ramayón", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90 },
+  { coordinates: positions["Marcelina Escalada"], iconSize: 0.55, name: "Marcelina Escalada", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90 },
+  { coordinates: positions["Colonia Silva"], iconSize: 0.55, name: "Colonia Silva", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90 },
+  { coordinates: positions["Gobernador Crespo"], iconSize: 0.55, name: "Gobernador Crespo", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90 },
+  { coordinates: positions["La Criolla"], iconSize: 0.55, name: "La Criolla", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90 },
+  { coordinates: positions["Vera y Pintado"], iconSize: 0.55, name: "Vera y Pintado", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90 },
+  { coordinates: positions["Pedro Gomez Cello"], iconSize: 0.55, name: "Pedro Gomez Cello", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90 },
+  { coordinates: positions["Calchaquí"], iconSize: 0.55, name: "Calchaquí", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90 },
+  { coordinates: positions["Margarita"], iconSize: 0.55, name: "Margarita", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90 },
+  { coordinates: positions["Vera"], iconSize: 0.55, name: "Vera", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90 },
+  { coordinates: positions["Caraguatay"], iconSize: 0.55, name: "Caraguatay", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90 },
+  { coordinates: positions["Malabrigo"], iconSize: 0.55, name: "Malabrigo", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90 },
+  { coordinates: positions["Berna"], iconSize: 0.55, name: "Berna", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90 },
+  { coordinates: positions["Reconquista - Avellaneda"], iconSize: 0.55, name: "Reconquista - Avellaneda", namePosition: "left", fontSizeInit: 0.2, fontSizeEnd: 0.1, minZoom: 90 },
 ];
+
 const markers = {
   color: process.env.colorPrimary,
   icon: IoLocationSharp,
   fontFamily: "Poppins",
   points: points,
-  lines: lines,
 };
-const layers = [
-  { file: "/map/provincial_routes.topojson", size: 0.07, color: mixHexColors(process.env.colorDark, process.env.colorGray, 0.7) },
-  { file: "/map/national_routes.topojson", size: 0.07, color: mixHexColors(process.env.colorDark, process.env.colorGray, 0.45) },
-  { file: "/map/provinces.topojson", size: 0.2, color: mixHexColors(process.env.colorDark, process.env.colorGray, 0.15) },
-];
+
+const initialZoom = 45;
+const maxZoom = 200;
+const minZoom = 20;
+const initialCoordinates: Point = [-60.611, -30.131];
+const limits = {
+  top: -26.347,
+  bottom: -35.926,
+  left: -66.419,
+  right: -55.198,
+};
 
 const MapClass = () => {
+  const [coordinates, setCoordinates] = useState(initialCoordinates);
+
+  /* Zoom-in and Zoom-out buttons */
   function handleZoomIn() {
     if (zoom * 1.5 >= maxZoom) return;
     const newZoom = zoom * 1.5;
     setZoom(newZoom);
     handleLimits({ coordinates: coordinates, zoom: newZoom });
   }
-
   function handleZoomOut() {
     if (zoom / 1.5 <= minZoom) return;
     const newZoom = zoom / 1.5;
     setZoom(newZoom);
     handleLimits({ coordinates: coordinates, zoom: newZoom });
   }
+  const [zoom, setZoom] = useState(initialZoom);
 
-  function handleMoveEnd(config: { coordinates: Point, zoom: number }) {
-    console.log(config.coordinates);
-    setCoordinates(config.coordinates);
-    setZoom(config.zoom);
-    handleLimits(config);
-  }
-
-  function handleLimits(config: { coordinates: Point, zoom: number }) {
-    setCoordinates([
-      handleCoordinatess({ start: limits.right, end: limits.left }, { initial: initialCoordinates[0], actual: config.coordinates[0] }, config.zoom),
-      handleCoordinatess({ start: limits.top, end: limits.bottom }, { initial: initialCoordinates[1], actual: config.coordinates[1] }, config.zoom),
-    ]);
-  }
-
+  /* Handle the limits where the user can move on the map. */
   function handleCoordinatess(interval: { start: number, end: number }, coordinates: { initial: number, actual: number }, actualZoom: number) {
     const areaOfView = (interval.end - coordinates.initial - (interval.start - coordinates.initial)) * (minZoom / actualZoom);
     const limitStart = interval.start + areaOfView / 2;
@@ -161,20 +137,32 @@ const MapClass = () => {
     }
     return coordinates.actual;
   }
+  function handleLimits(config: { coordinates: Point, zoom: number }) {
+    setCoordinates([
+      handleCoordinatess({ start: limits.right, end: limits.left }, { initial: initialCoordinates[0], actual: config.coordinates[0] }, config.zoom),
+      handleCoordinatess({ start: limits.top, end: limits.bottom }, { initial: initialCoordinates[1], actual: config.coordinates[1] }, config.zoom),
+    ]);
+  }
 
+  /* Handle user movement on the map */
+  function handleMoveEnd(config: { coordinates: Point, zoom: number }) {
+    setCoordinates(config.coordinates);
+    setZoom(config.zoom);
+    handleLimits(config);
+  }
+
+  /* Adjust font size and icons according to zoom levels */
   const getFontSize = (pointData: PointData) =>
     (pointData.fontSizeInit || 1) + (pointData.fontSizeEnd - pointData.fontSizeInit) * (((pointData.minZoom || minZoom) - zoom) / ((pointData.minZoom || minZoom) - (pointData.maxZoom || maxZoom)));
-
   const getIconSize = (pointData: PointData) => pointData.iconSize * (initialZoom / zoom);
-
-  const [coordinates, setCoordinates] = useState(initialCoordinates);
-  const [zoom, setZoom] = useState(initialZoom);
 
   return (
     <>
-      <div style={{ backgroundColor: mixHexColors(process.env.colorDark, process.env.colorGray, 0.95) }}>
-        <ComposableMap projection="geoMercator" dataTip="" fill="red" width={600} height={600}>
+      <div style={{ backgroundColor: mixHexColors(process.env.colorDark, process.env.colorGray, 0.95) }} className="w-full h-full">
+        {/* Main map */}
+        <ComposableMap projection="geoMercator" fill="red" width={600} height={600}>
           <ZoomableGroup zoom={zoom} center={coordinates} onMoveEnd={handleMoveEnd} maxZoom={maxZoom} minZoom={minZoom}>
+            {/* Geographies */}
             {layers.map((layer, index) => (
               <Geographies key={index} geography={layer.file} strokeWidth={layer.size * (initialZoom / zoom)} stroke={layer.color ? layer.color : null} style={{ pointerEvents: "none" }}>
                 {({ geographies }) =>
@@ -192,10 +180,13 @@ const MapClass = () => {
                 }
               </Geographies>
             ))}
+
+            {/* Markers */}
             {markers.points.map((pointData, index) => (
               <Marker key={index} coordinates={pointData.coordinates} opacity={zoom > (pointData.minZoom || zoom - 1) && zoom < (pointData.maxZoom || zoom + 1) ? 1 : 0}>
                 <g transform={`translate(${-getIconSize(pointData) / 2}, ${-getIconSize(pointData)})`}>
                   <markers.icon size={getIconSize(pointData)} fill={markers.color} />
+                  {/* Description at the side of the marker */}
                   {pointData.namePosition && pointData.namePosition === "left" && (
                     <text
                       y={getIconSize(pointData) / 1.15}
@@ -211,6 +202,7 @@ const MapClass = () => {
                     </text>
                   )}
                 </g>
+                {/* Description at the top of the marker */}
                 {pointData.namePosition && pointData.namePosition === "top" && (
                   <>
                     <text
@@ -229,17 +221,16 @@ const MapClass = () => {
                 )}
               </Marker>
             ))}
-            {markers.lines.map((lineData, index) => (
-              <Line key={index} from={lineData.from} to={lineData.to} stroke={lineData.color} strokeWidth={lineData.width} />
-            ))}
           </ZoomableGroup>
         </ComposableMap>
       </div>
-      <div className="text-xl mt-2 text-secondary flex flex-row-reverse">
-        <button className="m-1" onClick={handleZoomIn}>
+
+      {/* Buttons */}
+      <div className="text-xl text-secondary flex flex-row-reverse m-2">
+        <button className="ml-1" onClick={handleZoomIn}>
           <FaPlusSquare />
         </button>
-        <button className="m-1" onClick={handleZoomOut}>
+        <button onClick={handleZoomOut}>
           <FaMinusSquare />
         </button>
       </div>

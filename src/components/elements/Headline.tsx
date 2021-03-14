@@ -1,23 +1,9 @@
-export const H1 = (props: { children: JSX.Element | JSX.Element[] | string, className?: string, id?: string }) => {
-  return (
-    <h1 id={props.id ? props.id : null} className={`text-center max-w-prose m-auto ${props.className || ""}`}>
-      {props.children}
-    </h1>
-  );
-};
+import { createElement, ReactNode } from "react";
 
-export const H2 = (props: { children: JSX.Element | JSX.Element[] | string, className?: string, id?: string }) => {
-  return (
-    <h2 id={props.id ? props.id : null} className={`text-center max-w-prose m-auto ${props.className || ""}`}>
-      {props.children}
-    </h2>
-  );
-};
+export type HeadlineType = { children: ReactNode[], className?: string };
 
-export const H3 = (props: { children: JSX.Element | JSX.Element[] | string, className?: string, id?: string }) => {
-  return (
-    <h3 id={props.id ? props.id : null} className={`text-center max-w-prose m-auto ${props.className || ""}`}>
-      {props.children}
-    </h3>
-  );
-};
+const headline = (tag, props: HeadlineType) => createElement(tag, { className: `text-center max-w-prose m-auto ${props.className || ""}` }, props.children);
+
+export const H1 = (props: HeadlineType) => headline("h1", props);
+export const H2 = (props: HeadlineType) => headline("h2", props);
+export const H3 = (props: HeadlineType) => headline("h3", props);
