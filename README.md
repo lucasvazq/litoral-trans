@@ -1,4 +1,6 @@
-<img src="https://github.com/lucasvazq/litoral-trans/blob/main/docs/title.png?raw=true">
+<img src="https://github.com/lucasvazq/litoral-trans/blob/main/docs/screenshot.png?raw=true">
+
+https://litoral-trans.com.ar
 
 Sitio en desarrollo 👨‍💻
 
