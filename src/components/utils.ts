@@ -8,7 +8,7 @@ export const hexColorToInt = (color: string) =>
   color
     .replace("#", "")
     .match(/.{2}/g)
-    .map((value) => parseInt(value, 16));
+    .map((value) => parseInt(value, 16))
 
 /**
  * Mix two hex colors.
@@ -18,7 +18,7 @@ export const hexColorToInt = (color: string) =>
  * @param opacity - opacity of top color.
  */
 export const mixHexColors = (bottomColor: string, topColor: string, opacity: number) => {
-  const valuesTopColor = hexColorToInt(topColor);
-  const mixedValues = hexColorToInt(bottomColor).map((value, index) => Math.round(value * (1 - opacity) + valuesTopColor[index] * opacity).toString(16));
-  return `#${mixedValues.join("")}`;
-};
+  const valuesTopColor = hexColorToInt(topColor)
+  const mixedValues = hexColorToInt(bottomColor).map((value, index) => Math.round(value * (1 - opacity) + valuesTopColor[index] * opacity).toString(16))
+  return `#${mixedValues.join("")}`
+}

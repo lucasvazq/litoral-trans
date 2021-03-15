@@ -1,8 +1,8 @@
-import React from "react"
+import * as React from "react"
 
 import { Footer, Header, Whatsapp } from ".."
 
-export const Base = (props: { items?: { href: string, description: string }[] }) => (
+export const Base = (props: { children: React.ReactNode[], items?: { href: string, description: string }[] }) => (
   <>
     <Header items={props.items} />
     <Whatsapp />

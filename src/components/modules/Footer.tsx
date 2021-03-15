@@ -1,14 +1,15 @@
 import Link from "next/link"
 
-import React from "react"
+import * as React from "react"
 
 import { Paragraph } from ".."
 
 export const Footer = () => (
   <>
+    {/* Business information */}
     <div className="bg-dark">
-      <div className="w-70 right text-light">
-        <div className="flex flex-wrap flex-row justify-center items-center p-8">
+      <div className="text-light w-70 right">
+        <div className="flex flex-wrap flex-row items-center justify-center p-8">
           <div className="m-2">
             <Paragraph className="font-bold text-2xl mx-4 my-2">CASA CENTRAL</Paragraph>
             <div className="flex flex-row justify-center">
@@ -36,7 +37,9 @@ export const Footer = () => (
         </div>
       </div>
     </div>
-    <div className="bg-black p-2 text-light text-center text-sm flex items-center flex-col">
+
+    {/* Developer information */}
+    <div className="text-light text-center text-sm bg-black flex items-center flex-col p-2">
       <Paragraph>Copyright 2021. Litoral-trans</Paragraph>
       <Paragraph>
         Diseñador por:

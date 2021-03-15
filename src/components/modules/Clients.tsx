@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "react"
 
 const clients: { path: string, name: string }[] = [
   { path: "images/brands/boness.png", name: "Boness" },

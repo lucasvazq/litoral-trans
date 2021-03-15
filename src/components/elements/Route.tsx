@@ -1,14 +1,14 @@
 import Link from "next/link"
 
-import React, { MouseEventHandler, ReactNode } from "react"
+import * as React from "react"
 
 import { IconType } from "react-icons"
 
-export const Route = (props: { href: string, className?: string, onClick?: MouseEventHandler, style?: { [key: string]: any }, description?: ReactNode[], icon?: IconType }) => {
+export const Route = (props: { href: string, className?: string, onClick?: React.MouseEventHandler, style?: { [key: string]: any }, description?: React.ReactNode[], icon?: IconType }) => {
   return (
     <div className="flex items-center">
       <Link href={props.href}>
-        <a className={`inline-block font-sans ${props.className ? props.className : ""}`} onClick={props.onClick || null} style={props.style || null}>
+        <a className={`font-sans inline-block ${props.className ? props.className : ""}`} onClick={props.onClick || null} style={props.style || null}>
           <div className="flex items-center">
             {props.icon ? <props.icon className={`inline-block ${props.description ? "mr-1" : ""}`} /> : null}
             {props.description}

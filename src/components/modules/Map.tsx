@@ -1,4 +1,4 @@
-import React, { memo, useState } from "react"
+import * as React from "react"
 
 import { ComposableMap, Geographies, Geography, Marker, Point, ZoomableGroup } from "react-simple-maps"
 
@@ -107,7 +107,7 @@ const limits = {
 }
 
 const MapClass = () => {
-  const [coordinates, setCoordinates] = useState(initialCoordinates)
+  const [coordinates, setCoordinates] = React.useState(initialCoordinates)
 
   /* Zoom-in and Zoom-out buttons */
   function handleZoomIn() {
@@ -122,7 +122,7 @@ const MapClass = () => {
     setZoom(newZoom)
     handleLimits({ coordinates: coordinates, zoom: newZoom })
   }
-  const [zoom, setZoom] = useState(initialZoom)
+  const [zoom, setZoom] = React.useState(initialZoom)
 
   /* Handle the limits where the user can move on the map. */
   function handleCoordinatess(interval: { start: number, end: number }, coordinates: { initial: number, actual: number }, actualZoom: number) {
@@ -237,4 +237,4 @@ const MapClass = () => {
     </>
   )
 }
-export const Map = memo(MapClass)
+export const Map = React.memo(MapClass)

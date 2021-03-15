@@ -1,6 +1,6 @@
 import "react-slideshow-image/dist/styles.css"
 
-import React, { useState } from "react"
+import * as React from "react"
 
 import { Slide } from "react-slideshow-image"
 
@@ -10,32 +10,33 @@ const slides = [
   {
     slideContent: (
       <>
-        <p className="text-2xl font-semibold">LA MEJOR MANERA</p>
+        <p className="font-semibold text-2xl">LA MEJOR MANERA</p>
         <p className="text tracking-thight">PARA ENVIAR TUS PAQUETES</p>
       </>
     ),
-    image: "/images/slide/slide_1.jpg",
+    class: "slide_1",
   },
   {
     slideContent: (
       <>
-        <p className="text-lg tracking-tighter font-semibold mb-4">SOLUCIONES DE LOGÍSTICA</p>
+        <p className="font-semibold text-lg tracking-tighter mb-4">SOLUCIONES DE LOGÍSTICA</p>
         <p className="text-sm tracking-wider">BRINDADA POR SUS DUEÑOS</p>
         <p className="text-sm">DISFRUTADA POR SUS CLIENTES</p>
       </>
     ),
-    image: "/images/slide/slide_2.jpg",
+    class: "slide_2",
   },
 ]
 
 export const Slideshow = () => {
-  const [nextIndex, setNextIndex] = useState(null)
+  const [nextIndex, setNextIndex] = React.useState(null)
   const props = {
     arrows: false,
+    autoplay: false,
     transitionDuration: 500,
     indicators: (i: Number) => (
       <div
-        className={`cursor-pointer rounded-full shadow-strong p-1 mx-1 mb-24 -mt-24 z-1 hover:opacity-90 ${
+        className={`cursor-pointer rounded-full shadow-strong mx-1 mb-24 -mt-24 p-1 z-1 hover:opacity-90 ${
           (!nextIndex && i === 0) || nextIndex === i ? "bg-primary opacity-100" : "bg-light opacity-40"
         }`}
       />
@@ -48,13 +49,16 @@ export const Slideshow = () => {
   return (
     <div className="flex flex-col-reverse -mb-7">
       <Slide {...props}>
-        {slides.map((value, index) => {
+        {slides.map((slide, index) => {
           return (
             <div className="each-fade" key={index}>
-              <div className="bg-center bg-cover h-50vh flex items-center justify-center overflow-hidden" style={{ backgroundImage: `url(${value.image})` }}>
-                <div className="bg-dots">
-                  <div className="m-8">
-                    <Label className="bg-primary text-light p-4 select-none">{value.slideContent}</Label>
+              <div className="overflow-hidden grid grid-cols-1 grid-rows-1 h-50vh">
+                <div className={`bg-center bg-cover col-start-1 col-end-1 row-start-1 row-end-1 ${slide.class}`} />
+                <div className="flex items-center justify-center col-start-1 col-end-1 row-start-1 row-end-1">
+                  <div className="bg-dots">
+                    <div className="m-8">
+                      <Label className="bg-primary select-none text-light p-4">{slide.slideContent}</Label>
+                    </div>
                   </div>
                 </div>
               </div>

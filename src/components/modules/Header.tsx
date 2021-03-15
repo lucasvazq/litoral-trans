@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useState, RefObject } from "react"
+import * as React from "react"
 
 import { FaShippingFast } from "react-icons/fa"
 import { HiMenuAlt3, HiPhone } from "react-icons/hi"
@@ -8,11 +8,11 @@ import { VscClose } from "react-icons/vsc"
 
 import { Button, Route } from ".."
 
-export const Header = (props: { breadcrumb?: string, items?: { href: string, description: string }[] }) => {
+export const Header = (props: { items?: { base: string, id: string, description: string }[] }) => {
   /* Handle menu visibility */
-  const hiddenMenu: RefObject<HTMLDivElement> = createRef()
-  const [menuIsActive, setMenuIsActive] = useState(false)
-  useEffect(() => {
+  const hiddenMenu: React.RefObject<HTMLDivElement> = React.createRef()
+  const [menuIsActive, setMenuIsActive] = React.useState(false)
+  React.useEffect(() => {
     const node = hiddenMenu.current
     if (menuIsActive) {
       node.classList.remove("hidden")
@@ -27,10 +27,10 @@ export const Header = (props: { breadcrumb?: string, items?: { href: string, des
   }, [menuIsActive])
 
   return (
-    <nav className="bg-primary text-light fixed shadow-lg top-0 w-full z-2">
+    <nav className="bg-primary shadow-lg text-light fixed w-full top-0 z-2">
       <div className="m-8">
         <div className="flex justify-between">
-          <Route href="/" description={process.env.name} icon={FaShippingFast} className="text-xl font-semibold" />
+          <Route href="/" description={process.env.name} icon={FaShippingFast} className="font-semibold text-xl" />
           <button onClick={() => setMenuIsActive(!menuIsActive)} className="text-3xl flex items-center h-8 w-8">
             <HiMenuAlt3 className={`${menuIsActive ? "hidden" : ""}`} />
             <VscClose className={`${menuIsActive ? "" : "hidden"}`} />
@@ -38,18 +38,18 @@ export const Header = (props: { breadcrumb?: string, items?: { href: string, des
         </div>
         <div ref={hiddenMenu} className={`${menuIsActive ? "opacity-100" : "opacity-0"} mt-6 mb-1`}>
           {/* Custom items */}
-          <ul className="list-reset flex-1 justify-end items-center text-lg my-4 font-semibold">
+          <ul className="list-reset font-semibold text-lg flex-1 items-center justify-end my-4">
             {props.items
-              ? props.items.map((item, index) => (
+              ? Object.values(props.items).map((item, index) => (
                   <li key={index}>
-                    <Route icon={RiArrowDropRightLine} href={item.href} description={item.description} onClick={() => setMenuIsActive(!menuIsActive)} />
+                    <Route icon={RiArrowDropRightLine} href={`${item.path}${item.id}`} description={item.description} onClick={() => setMenuIsActive(!menuIsActive)} />
                   </li>
                 ))
               : null}
           </ul>
 
           {/* Default items */}
-          <ul className="list-reset flex-1 justify-end items-center text-md">
+          <ul className="list-reset text-md flex-1 items-center justify-end">
             <li>
               <Button href={`mailto:${process.env.email}`} icon={MdEmail} description={process.env.email} />
             </li>

@@ -1,3 +1,3 @@
-import React, { ReactNode } from "react"
+import * as React from "react"
 
-export const Separation = (props: { children: ReactNode[] }) => <div className="bg-primary text-light text-lg main-font p-8">{props.children}</div>
+export const Separation = (props: { children: React.ReactNode[] }) => <div className="bg-primary text-light text-lg main-font p-8">{props.children}</div>

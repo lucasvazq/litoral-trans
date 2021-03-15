@@ -5,7 +5,7 @@ import Head from "next/head"
 
 import { DefaultSeo } from "next-seo"
 
-import React from "react"
+import * as React from "react"
 
 const App = ({ Component, initialProps }: AppContext) => (
   <>
@@ -19,32 +19,7 @@ const App = ({ Component, initialProps }: AppContext) => (
       <meta name="robots" content="index, follow" />
       <meta name="author" content="Lucas Vazquez" />
     </Head>
-    <DefaultSeo
-      titleTemplate={`${process.env.name} | %s`}
-      openGraph={{
-        locale: "es_AR",
-        type: "website",
-        url: process.env.url,
-        site_name: "SiteName",
-        images: [
-          {
-            url: "https://www.example.ie/og-image-01.jpg",
-            width: 800,
-            height: 600,
-            alt: "Og Image Alt",
-          },
-          {
-            url: "https://www.example.ie/og-image-02.jpg",
-            width: 900,
-            height: 800,
-            alt: "Og Image Alt Second",
-          },
-        ],
-      }}
-      twitter={{
-        cardType: "summary",
-      }}
-    />
+    <DefaultSeo titleTemplate={`${process.env.name} | %s`} />
     <Component {...initialProps} />
   </>
 )

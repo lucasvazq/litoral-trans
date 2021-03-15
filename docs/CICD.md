@@ -1,6 +1,6 @@
 # Integración Continua (CI) y Entrega Continua (CD)
 
-Como parte del aseguramiento de calidad del código de este sitio web, se ejecutan sobre el código fuente unas herramientas que fuerzan a que el proyecto cumpla con las convenciones de formateo y prevención de errores.
+Como parte del aseguramiento de calidad del código de este sitio web, se ejecutan sobre el código fuente unas herramientas que detectan errores y fuerzan a que el proyecto cumpla con ciertas convenciones de desarrollo.
 
 Dichas herramientas son:
 

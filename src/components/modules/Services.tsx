@@ -1,20 +1,31 @@
-import React from "react"
+import * as React from "react"
 
-import { IconType } from "react-icons"
+import { AiOutlineSafety } from "react-icons/ai"
+import { BsHouseDoor } from "react-icons/bs"
+import { FaTruckLoading, FaShippingFast } from "react-icons/fa"
+import { GoPackage } from "react-icons/go"
 
 import { Label, LabelsContainer, Paragraph } from ".."
 
-export const Services = (props: { services: { icon: IconType, description: string }[] }) => (
+const services = [
+  { icon: GoPackage, description: "Encomiendas generales puerta a puerta" },
+  { icon: BsHouseDoor, description: "Retiro de mercadería en domicilio" },
+  { icon: AiOutlineSafety, description: "Gestión de contrareembolsos" },
+  { icon: FaShippingFast, description: "Redespacho a otras localidades" },
+  { icon: FaTruckLoading, description: "Entregas inmediatas una vez llegada a la localidad del destino" },
+]
+
+export const Services = () => (
   <LabelsContainer>
-    {props.services.map((value, index) => {
+    {services.map((value, index) => {
       const Icon = value.icon
       return (
-        <Label key={index} className="bg-light p-4 min-h-64 max-w-2xs">
+        <Label key={index} className="bg-light min-h-64 max-w-2xs p-4">
           <div>
-            <div className="p-3 mb-3">
+            <div className="mb-3 p-3">
               <Icon className="text-5xl text-primary relative z-1" />
             </div>
-            <div className="absolute h-40 w-40 -ml-11 -mt-36 pt-2">
+            <div className="absolute h-40 w-40 -mt-36 -ml-11 pt-2">
               <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <path
                   fill={process.env.colorSecondary}
@@ -23,7 +34,7 @@ export const Services = (props: { services: { icon: IconType, description: strin
                 />
               </svg>
             </div>
-            <div className="absolute h-44 w-44 -ml-11 -mt-36 pt-2">
+            <div className="absolute h-44 w-44 -mt-36 -ml-11 pt-2">
               <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <path
                   fill={process.env.colorTerciary}

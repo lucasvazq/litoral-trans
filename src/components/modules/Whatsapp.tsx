@@ -1,9 +1,9 @@
-import React from "react"
+import * as React from "react"
 
 import { Route } from ".."
 
 export const Whatsapp = () => (
-  <div className="text-8xl z-2 fixed bottom-0 right-0 m-4">
+  <div className="text-8xl fixed bottom-0 right-0 m-4 z-2">
     <Route
       href={`https://api.whatsapp.com/send?phone=${process.env.telCountryCode}${process.env.telAreaCode}${process.env.telPhoneNumber}&text=${encodeURI(process.env.whatsappMessage)}`}
       className="z-1"
@@ -15,12 +15,12 @@ export const Whatsapp = () => (
           fill="#E0E0E0"
           d="M1041.858 178.02C927.206 63.289 774.753.07 612.325 0 277.617 0 5.232 272.298 5.098 606.991c-.039 106.986 27.915 211.42 81.048 303.476L0 1225.016l321.898-84.406c88.689 48.368 188.547 73.855 290.166 73.896h.258.003c334.654 0 607.08-272.346 607.222-607.023.056-162.208-63.052-314.724-177.689-429.463zm-429.533 933.963h-.197c-90.578-.048-179.402-24.366-256.878-70.339l-18.438-10.93-191.021 50.083 51-186.176-12.013-19.087c-50.525-80.336-77.198-173.175-77.16-268.504.111-278.186 226.507-504.503 504.898-504.503 134.812.056 261.519 52.604 356.814 147.965 95.289 95.36 147.728 222.128 147.688 356.948-.118 278.195-226.522 504.543-504.693 504.543z"
         />
-        <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="609.77" y1="1190.114" x2="609.77" y2="21.084">
+        <linearGradient id="1" gradientUnits="userSpaceOnUse" x1="609.77" y1="1190.114" x2="609.77" y2="21.084">
           <stop offset="0" stopColor="#20b038" />
           <stop offset="1" stopColor="#60d66a" />
         </linearGradient>
         <path
-          fill="url(#a)"
+          fill="url(#1)"
           d="M27.875 1190.114l82.211-300.18c-50.719-87.852-77.391-187.523-77.359-289.602.133-319.398 260.078-579.25 579.469-579.25 155.016.07 300.508 60.398 409.898 169.891 109.414 109.492 169.633 255.031 169.57 409.812-.133 319.406-260.094 579.281-579.445 579.281-.023 0 .016 0 0 0h-.258c-96.977-.031-192.266-24.375-276.898-70.5l-307.188 80.548z"
         />
         <image overflow="visible" opacity=".08" width="682" height="639" transform="translate(270.984 291.372)" />

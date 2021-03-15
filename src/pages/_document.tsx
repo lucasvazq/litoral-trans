@@ -1,6 +1,6 @@
 import Document, { Head, Html, Main, NextScript } from "next/document"
 
-import React from "react"
+import * as React from "react"
 
 export const GoogleTagManager = () => {
   const data = `
@@ -20,7 +20,7 @@ class CustomDocument extends Document {
         <Head>
           <GoogleTagManager />
         </Head>
-        <body className="min-h-screen bg-gray text-dark main-font">
+        <body className="bg-gray text-dark main-font min-h-screen">
           <noscript>
             <iframe src={`https://www.googletagmanager.com/ns.html?id=${process.env.GTM}`} height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe>
           </noscript>
