@@ -9,7 +9,7 @@ export const Footer = () => (
     {/* Business information */}
     <div className="bg-dark">
       <div className="text-light w-70 right">
-        <div className="flex flex-wrap flex-row items-center justify-center p-8">
+        <div className="flex flex-wrap flex-row items-center justify-center p-6 sm:p-8">
           <div className="m-2">
             <Paragraph className="font-bold text-2xl mx-4 my-2">CASA CENTRAL</Paragraph>
             <div className="flex flex-row justify-center">
@@ -39,7 +39,7 @@ export const Footer = () => (
     </div>
 
     {/* Developer information */}
-    <div className="text-light text-center text-sm bg-black flex items-center flex-col p-2">
+    <div className="text-light text-center text-sm bg-black relative flex flex-col items-center justify-center h-20 p-2 z-2">
       <Paragraph>Copyright 2021. Litoral-trans</Paragraph>
       <Paragraph>
         Diseñador por:

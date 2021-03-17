@@ -160,7 +160,7 @@ const MapClass = () => {
     <>
       <div style={{ backgroundColor: mixHexColors(process.env.colorDark, process.env.colorGray, 0.95) }} className="w-full h-full">
         {/* Main map */}
-        <ComposableMap projection="geoMercator" fill="red" width={600} height={600}>
+        <ComposableMap projection="geoMercator" width={600} height={600}>
           <ZoomableGroup zoom={zoom} center={coordinates} onMoveEnd={handleMoveEnd} maxZoom={maxZoom} minZoom={minZoom}>
             {/* Geographies */}
             {layers.map((layer, index) => (
@@ -226,7 +226,7 @@ const MapClass = () => {
       </div>
 
       {/* Buttons */}
-      <div className="text-xl text-secondary flex flex-row-reverse m-2">
+      <div className="text-xl text-primary flex flex-row-reverse mt-2 mb-6 sm:mb-8">
         <button className="ml-1" onClick={handleZoomIn}>
           <FaPlusSquare />
         </button>

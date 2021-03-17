@@ -20,7 +20,7 @@ class CustomDocument extends Document {
         <Head>
           <GoogleTagManager />
         </Head>
-        <body className="bg-gray text-dark main-font min-h-screen">
+        <body className="bg-gray font-main text-dark min-h-screen">
           <noscript>
             <iframe src={`https://www.googletagmanager.com/ns.html?id=${process.env.GTM}`} height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe>
           </noscript>

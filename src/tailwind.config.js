@@ -18,25 +18,31 @@ module.exports = {
       borderColor: colors,
       textColor: colors,
       gradientColorStops: colors,
+      boxShadow: {
+        strong: "0px 0px 2px 1px rgba(0, 0, 0, 0.4)",
+      },
+      borderRadius: {
+        16: "4rem",
+      },
       height: {
-        "50vh": "50vh",
+        "10vh": "10vh",
+        "60vh": "60vh",
       },
       minHeight: {
         64: "16rem",
-        screen: "100vh",
+        5: "5rem",
       },
       maxWidth: {
         "2xs": "16rem",
+        "60vh": "60vh",
       },
-      boxShadow: {
-        strong: "0px 0px 2px 1px rgba(0, 0, 0, 0.4)",
+      margin: {
+        "-15vh": "-15vh",
+        "15vh": "15vh",
       },
       zIndex: {
         1: 1,
         2: 2,
-      },
-      borderRadius: {
-        16: "4rem",
       },
     },
   },

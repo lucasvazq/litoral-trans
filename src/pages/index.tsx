@@ -5,7 +5,7 @@ import * as React from "react"
 import { HiPhone } from "react-icons/hi"
 import { MdEmail } from "react-icons/md"
 
-import { Base, Button, Clients, H2, Id, Map, Paragraph, Separation, Services, Slideshow } from "../components"
+import { Base, Button, Clients, H2, Id, Map, Paragraph, Separation, Services, Slideshow, Span } from "../components"
 
 const items = {
   services: { path: "/#", id: "servicios", description: "Servicios" },
@@ -25,15 +25,29 @@ const Root = () => {
           description: `${process.env.slogan}`,
         }}
       />
-      <Base items={items}>
-        <Slideshow />
+      <Base items={Object.values(items)}>
+        <div className="flex flex-col-reverse -mb-7">
+          <Slideshow />
+          <div className="absolute z-1 w-full mb-7 h-10vh min-h-5">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" height="100%" width="100%">
+              <path
+                fill={process.env.colorPrimary}
+                fillOpacity="1"
+                d="M0,64L80,90.7C160,117,320,171,480,176C640,181,800,139,960,144C1120,149,1280,203,1360,229.3L1440,256L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+              />
+            </svg>
+          </div>
+        </div>
 
         {/* Main separator */}
         <Separation>
-          <Paragraph className="text-center relative m-auto z-1">{`${process.env.name} es una empresa de transporte familiar con más de 30 años de trayectoria.`}</Paragraph>
+          <Paragraph className="text-center relative m-auto z-1">
+            <Span className="sm:block">{`${process.env.name} es una empresa de transporte ` /* trailing space is necessary */}</Span>
+            <Span className="sm:block">familiar con más de 30 años de trayectoria.</Span>
+          </Paragraph>
         </Separation>
-        <div className="h-0">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <div className="absolute z-1 w-full mb-7 h-10vh min-h-5">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" height="100%" width="100%">
             <path
               fill={process.env.colorTerciary}
               fillOpacity="1"
@@ -41,8 +55,8 @@ const Root = () => {
             />
           </svg>
         </div>
-        <div className="h-0">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <div className="absolute z-1 w-full mb-7 h-10vh min-h-5">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" height="100%" width="100%">
             <path
               fill={process.env.colorSecondary}
               fillOpacity="1"
@@ -50,8 +64,8 @@ const Root = () => {
             ></path>
           </svg>
         </div>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <div className="absolute z-1 w-full mb-7 h-10vh min-h-5">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" height="100%" width="100%">
             <path
               fill={process.env.colorPrimary}
               fillOpacity="1"
@@ -61,46 +75,49 @@ const Root = () => {
         </div>
 
         {/* Services */}
+        <div className="h-10vh min-h-5" />
         <Id id={items.services.id} />
-        <div className="m-8">
-          <H2 className="text-6xl text-primary handwritten-font">Nuestros Servicios</H2>
+        <div className="m-6 sm:m-8">
+          <H2 className="font-bold font-main text-4xl text-primary">NUESTROS SERVICIOS</H2>
         </div>
-        <div className="m-8">
+        <div className="m-6 sm:m-8">
           <Services />
         </div>
 
         {/* Parent Company */}
         <Id id={items.parentCompany.id} />
         <Separation>
-          <H2 className="text-4xl handwritten-font p-4">Ubicá nuestra Casa Central</H2>
+          <H2 className="font-bold font-main text-2xl p-4">CASA CENTRAL</H2>
           <div className="text-center flex flex-wrap flex-row items-center justify-center p-2">
             <div className="m-4">
-              <Paragraph className="relative m-auto z-1">Rafaela, Santa Fe</Paragraph>
-              <Paragraph className="relative m-auto z-1">Calle 14 de Julio, nº 270</Paragraph>
-            </div>
-            <div className="m-4">
-              <Button
-                href={`tel:+${process.env.telCountryCode}${process.env.telAreaCode}${process.env.telPhoneNumber}`}
-                icon={HiPhone}
-                description={`+${process.env.telCountryCode} ${process.env.telAreaCode} ${process.env.telPhoneNumber}`}
-              />
+              <div className="mb-8">
+                <Paragraph className="relative m-auto z-1">Rafaela, Santa Fe</Paragraph>
+                <Paragraph className="relative m-auto z-1">Calle 14 de Julio, nº 270</Paragraph>
+              </div>
+              <div className="mb-2">
+                <Button
+                  href={`tel:+${process.env.telCountryCode}${process.env.telAreaCode}${process.env.telPhoneNumber}`}
+                  icon={HiPhone}
+                  description={`+${process.env.telCountryCode} ${process.env.telAreaCode} ${process.env.telPhoneNumber}`}
+                />
+              </div>
               <Button href={`mailto:${process.env.email}`} icon={MdEmail} description={process.env.email} />
             </div>
             <div className="m-4">
-              <Paragraph className="relative m-auto z-1">Lunes a Viernes:</Paragraph>
+              <Paragraph className="font-bold relative m-auto z-1">LUNES A VIERNES</Paragraph>
               <Paragraph className="relative m-auto z-1">8 – 12 Hs.</Paragraph>
               <Paragraph className="relative m-auto mb-2 z-1">16 - 20 Hs.</Paragraph>
-              <Paragraph className="relative m-auto z-1">Sábado:</Paragraph>
+              <Paragraph className="font-bold relative m-auto z-1">SÁBADO</Paragraph>
               <Paragraph className="relative m-auto z-1">8 – 12 Hs.</Paragraph>
             </div>
           </div>
         </Separation>
 
         {/* Map */}
-        <div className="m-8">
-          <H2 className="text-6xl text-primary handwritten-font">Mirá por donde andamos!</H2>
+        <div className="m-6 sm:m-8">
+          <H2 className="font-bold font-main text-2xl sm:text-4xl text-primary">LOCALIDADES</H2>
         </div>
-        <div className="flex flex-wrap justify-center max-h-screen max-w-prose m-auto">
+        <div className="flex flex-wrap justify-center max-w-60vh m-auto">
           <Map />
         </div>
 
@@ -108,15 +125,15 @@ const Root = () => {
         <Separation>
           <div className="m-4">
             <Paragraph className="font-bold text-center text-xl relative m-auto mb-2 z-1">Frecuencia de viaje</Paragraph>
-            <Paragraph className="text-center text-sm relative m-auto z-1">Rafaela – Reconquista/Avellaneda</Paragraph>
-            <Paragraph className="text-center text-sm relative m-auto z-1">Lunes – Miércoles – Viernes</Paragraph>
+            <Paragraph className="text-center text-sm sm:text-lg relative m-auto z-1">Rafaela – Reconquista/Avellaneda</Paragraph>
+            <Paragraph className="text-center text-sm sm:text-lg relative m-auto z-1">Lunes – Miércoles – Viernes</Paragraph>
           </div>
         </Separation>
 
         {/* Clients */}
         <Id id={items.clients.id} />
-        <div className="m-8">
-          <H2 className="text-4xl handwritten-font">Nos eligen</H2>
+        <div className="m-6 sm:m-8">
+          <H2 className="font-bold font-main text-4xl">NOS ELIGEN</H2>
           <div className="m-auto w-0 -mb-4">
             <div className="-ml-16">
               <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="120" height="20" preserveAspectRatio="none" viewBox="0 0 120 20">
@@ -136,7 +153,7 @@ const Root = () => {
             </div>
           </div>
         </div>
-        <div className="m-8">
+        <div className="m-6 sm:m-8">
           <Clients />
         </div>
       </Base>

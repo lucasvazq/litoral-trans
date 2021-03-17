@@ -8,7 +8,7 @@ import { VscClose } from "react-icons/vsc"
 
 import { Button, Route } from ".."
 
-export const Header = (props: { items?: { base: string, id: string, description: string }[] }) => {
+export const Header = (props: { items?: { path: string, id: string, description: string }[] }) => {
   /* Handle menu visibility */
   const hiddenMenu: React.RefObject<HTMLDivElement> = React.createRef()
   const [menuIsActive, setMenuIsActive] = React.useState(false)
@@ -28,7 +28,7 @@ export const Header = (props: { items?: { base: string, id: string, description:
 
   return (
     <nav className="bg-primary shadow-lg text-light fixed w-full top-0 z-2">
-      <div className="m-8">
+      <div className="my-8 mx-4 sm:mx-8">
         <div className="flex justify-between">
           <Route href="/" description={process.env.name} icon={FaShippingFast} className="font-semibold text-xl" />
           <button onClick={() => setMenuIsActive(!menuIsActive)} className="text-3xl flex items-center h-8 w-8">
@@ -36,9 +36,9 @@ export const Header = (props: { items?: { base: string, id: string, description:
             <VscClose className={`${menuIsActive ? "" : "hidden"}`} />
           </button>
         </div>
-        <div ref={hiddenMenu} className={`${menuIsActive ? "opacity-100" : "opacity-0"} mt-6 mb-1`}>
+        <div ref={hiddenMenu} className={`${menuIsActive ? "opacity-100" : "opacity-0"}`}>
           {/* Custom items */}
-          <ul className="list-reset font-semibold text-lg flex-1 items-center justify-end my-4">
+          <ul className="list-reset font-semibold text-lg flex-1 items-center justify-end mt-4 mb-6">
             {props.items
               ? Object.values(props.items).map((item, index) => (
                   <li key={index}>
@@ -50,7 +50,7 @@ export const Header = (props: { items?: { base: string, id: string, description:
 
           {/* Default items */}
           <ul className="list-reset text-md flex-1 items-center justify-end">
-            <li>
+            <li className="mb-2">
               <Button href={`mailto:${process.env.email}`} icon={MdEmail} description={process.env.email} />
             </li>
             <li>
