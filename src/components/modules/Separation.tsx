@@ -1,3 +1,3 @@
-export const Separation = (props: { children: JSX.Element | JSX.Element[] }) => {
-  return <div className="bg-primary text-light text-lg main-font p-8">{props.children}</div>;
-};
+import * as React from "react"
+
+export const Separation = (props: { children: React.ReactNode | React.ReactNode[] }) => <div className="bg-primary font-main text-light text-lg p-6 sm:p-8">{props.children}</div>

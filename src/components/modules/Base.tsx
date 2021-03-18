@@ -1,12 +1,12 @@
-import { Header, Whatsapp, Footer } from "..";
+import * as React from "react"
 
-export const Base = (props: { breadcrumb?: string, children: JSX.Element | JSX.Element[], items?: { href: string, description: string }[] }) => {
-  return (
-    <>
-      <Header breadcrumb={props.breadcrumb} items={props.items} />
-      <Whatsapp />
-      <div className="mt-24">{props.children}</div>
-      <Footer />
-    </>
-  );
-};
+import { Footer, Header, Whatsapp } from ".."
+
+export const Base = (props: { children: React.ReactNode | React.ReactNode[], items?: { path: string, id: string, description: string }[] }) => (
+  <>
+    <Header items={props.items} />
+    <Whatsapp />
+    <div className="mt-24">{props.children}</div>
+    <Footer />
+  </>
+)

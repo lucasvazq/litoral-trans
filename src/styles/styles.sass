@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@400;600;700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap')
 @tailwind base
 @tailwind components
 @tailwind utilities
@@ -6,12 +6,9 @@
 
 @layer components
 
-    .main-font
+    .font-main
         @apply font-sans
         font-family: Poppins
-
-    .handwritten-font
-        font-family: 'Dancing Script', cursive
 
     .bg-dots
         background: radial-gradient(rgba(0, 0, 0, 0.3) 1px, transparent 0)
@@ -19,3 +16,21 @@
 
     .greyscale
         filter: grayscale(100%)
+
+    .slide_1
+        background-image: url(/images/slide/slide_1_639.webp), url(/images/slide/slide_1_639.jpg)
+        @screen sm
+            background-image: url(/images/slide/slide_1_767.webp), url(/images/slide/slide_1_767.jpg)
+        @screen md
+            background-image: url(/images/slide/slide_1_1023.webp), url(/images/slide/slide_1_1023.jpg)
+        @screen lg
+            background-image: url(/images/slide/slide_1_1279.webp), url(/images/slide/slide_1_1279.jpg)
+
+    .slide_2
+        background-image: url(/images/slide/slide_2_639.webp), url(/images/slide/slide_2_639.jpg)
+        @screen sm
+            background-image: url(/images/slide/slide_2_767.webp), url(/images/slide/slide_2_767.jpg)
+        @screen md
+            background-image: url(/images/slide/slide_2_1023.webp), url(/images/slide/slide_2_1023.jpg)
+        @screen lg
+            background-image: url(/images/slide/slide_2_1279.webp), url(/images/slide/slide_2_1279.jpg)
