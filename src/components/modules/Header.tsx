@@ -36,7 +36,7 @@ export const Header = (props: { items?: { path: string, id: string, description:
             <VscClose className={`${menuIsActive ? "" : "hidden"}`} />
           </button>
         </div>
-        <div ref={hiddenMenu} className={`${menuIsActive ? "opacity-100" : "opacity-0"}`}>
+        <div ref={hiddenMenu} className={`${menuIsActive ? "" : "hidden"}`}>
           {/* Custom items */}
           <ul className="list-reset font-semibold text-lg flex-1 items-center justify-end mt-4 mb-6">
             {props.items

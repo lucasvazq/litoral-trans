@@ -33,14 +33,14 @@ export const Slideshow = () => {
   const props = {
     arrows: false,
     transitionDuration: 500,
-    indicators: (i: Number) => (
+    indicators: (actualIndex: number) => (
       <div
         className={`cursor-pointer rounded-full shadow-strong mx-1 -mt-15vh mb-15vh p-1 z-1 hover:opacity-90 ${
-          (!nextIndex && i === 0) || nextIndex === i ? "bg-primary opacity-100" : "bg-light opacity-40"
+          (!nextIndex && actualIndex === 0) || nextIndex === actualIndex ? "bg-primary opacity-100" : "bg-light opacity-40"
         }`}
       />
     ),
-    onChange: (_: Number, next: Number) => {
+    onChange: (_: number, next: number) => {
       setNextIndex(next)
     },
   }
