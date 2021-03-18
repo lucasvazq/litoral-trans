@@ -1,13 +1,12 @@
 import "../styles/styles.sass"
 
-import { AppContext } from "next"
 import Head from "next/head"
 
 import { DefaultSeo } from "next-seo"
 
 import * as React from "react"
 
-const App = ({ Component, initialProps }: AppContext) => (
+const App = ({ Component, props }) => (
   <>
     <Head>
       <meta charSet="utf-8" />
@@ -20,7 +19,7 @@ const App = ({ Component, initialProps }: AppContext) => (
       <meta name="author" content="Lucas Vazquez" />
     </Head>
     <DefaultSeo titleTemplate={`${process.env.name} | %s`} />
-    <Component {...initialProps} />
+    <Component {...props} />
   </>
 )
 
