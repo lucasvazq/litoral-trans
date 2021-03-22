@@ -6,7 +6,7 @@ export const Base = (props: { children: React.ReactNode | React.ReactNode[], ite
   <>
     <Header items={props.items} />
     <Whatsapp />
-    <div className="mt-24">{props.children}</div>
+    {props.children}
     <Footer />
   </>
 )

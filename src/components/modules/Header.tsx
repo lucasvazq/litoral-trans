@@ -6,10 +6,10 @@ import { MdEmail } from "react-icons/md"
 import { RiArrowDropRightLine } from "react-icons/ri"
 import { VscClose } from "react-icons/vsc"
 
-import { Button, Route } from ".."
+import { IconButton, LinkButton, Route, Ul } from ".."
 
 export const Header = (props: { items?: { path: string, id: string, description: string }[] }) => {
-  /* Handle menu visibility */
+  // Handle menu visibility.
   const hiddenMenu: React.RefObject<HTMLDivElement> = React.createRef()
   const [menuIsActive, setMenuIsActive] = React.useState(false)
   React.useEffect(() => {
@@ -27,41 +27,35 @@ export const Header = (props: { items?: { path: string, id: string, description:
   }, [menuIsActive])
 
   return (
-    <nav className="bg-primary shadow-lg text-light fixed w-full top-0 z-2">
-      <div className="my-8 mx-4 sm:mx-8">
-        <div className="flex justify-between">
-          <Route href="/" description={process.env.name} icon={FaShippingFast} className="font-semibold text-xl" />
-          <button onClick={() => setMenuIsActive(!menuIsActive)} className="text-3xl flex items-center h-8 w-8">
-            <HiMenuAlt3 className={`${menuIsActive ? "hidden" : ""}`} />
-            <VscClose className={`${menuIsActive ? "" : "hidden"}`} />
-          </button>
-        </div>
-        <div ref={hiddenMenu} className={`${menuIsActive ? "" : "hidden"}`}>
+    <nav className="bg-primary shadow-lg fixed w-full top-0 py-8 px-4 sm:px-8 z-3 sm:bg-green-400 md:bg-yellow-400 lg:bg-blue-400">
+      <div className="flex items-center justify-between h-8">
+        <Route href="/" icon={FaShippingFast} description={process.env.name} className="text-xl sm:text-2xl" />
+        <IconButton icon={HiMenuAlt3} ariaLabel="Expandir menú desplegable" onClick={() => setMenuIsActive(true)} className={`${menuIsActive ? "hidden" : ""}`} />
+        <IconButton icon={VscClose} ariaLabel="Cerrar menú desplegable" onClick={() => setMenuIsActive(false)} className={`${menuIsActive ? "" : "hidden"}`} />
+      </div>
+      <div ref={hiddenMenu} className={`${menuIsActive ? "" : "hidden"}`}>
+        <Ul className={props.items ? `pt-4` : ""}>
           {/* Custom items */}
-          <ul className="list-reset font-semibold text-lg flex-1 items-center justify-end mt-4 mb-6">
-            {props.items
-              ? Object.values(props.items).map((item, index) => (
-                  <li key={index}>
-                    <Route icon={RiArrowDropRightLine} href={`${item.path}${item.id}`} description={item.description} onClick={() => setMenuIsActive(!menuIsActive)} />
-                  </li>
-                ))
-              : null}
-          </ul>
+          {props.items
+            ? Object.values(props.items).map((item, index) => (
+                <li key={index} className="flex">
+                  <Route href={`${item.path}${item.id}`} icon={RiArrowDropRightLine} description={item.description} onClick={() => setMenuIsActive(!menuIsActive)} className="text-lg sm:text-xl" />
+                </li>
+              ))
+            : null}
 
           {/* Default items */}
-          <ul className="list-reset text-md flex-1 items-center justify-end">
-            <li className="mb-2">
-              <Button href={`mailto:${process.env.email}`} icon={MdEmail} description={process.env.email} />
-            </li>
-            <li>
-              <Button
-                href={`tel:+${process.env.telCountryCode}${process.env.telAreaCode}${process.env.telPhoneNumber}`}
-                icon={HiPhone}
-                description={`+${process.env.telCountryCode} ${process.env.telAreaCode} ${process.env.telPhoneNumber}`}
-              />
-            </li>
-          </ul>
-        </div>
+          <li className={`text-md flex justify-center ${props.items ? "pt-6" : "pt-6"}`}>
+            <LinkButton href={`mailto:${process.env.email}`} icon={MdEmail} description={process.env.email} />
+          </li>
+          <li className="text-md flex justify-center pt-2">
+            <LinkButton
+              href={`tel:+${process.env.telCountryCode}${process.env.telAreaCode}${process.env.telPhoneNumber}`}
+              icon={HiPhone}
+              description={`+${process.env.telCountryCode} ${process.env.telAreaCode} ${process.env.telPhoneNumber}`}
+            />
+          </li>
+        </Ul>
       </div>
     </nav>
   )

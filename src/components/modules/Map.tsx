@@ -1,18 +1,18 @@
 import * as React from "react"
 
-import { ComposableMap, Geographies, Geography, Marker, Point, ZoomableGroup } from "react-simple-maps"
-
 import { IoLocationSharp } from "react-icons/io5"
 import { FaMinusSquare, FaPlusSquare } from "react-icons/fa"
 
-import { mixHexColors } from ".."
+import { ComposableMap, Geographies, Geography, Marker, Point, ZoomableGroup } from "react-simple-maps"
+
+import { IconButton, mixHexColors } from ".."
 
 type PointData = { coordinates: Point, iconSize: number, name?: string, namePosition?: string, fontSizeInit?: number, fontSizeEnd?: number, minZoom?: number, maxZoom?: number }
 
 const layers = [
-  { file: "/map/provincial_routes.topojson", size: 0.07, color: mixHexColors(process.env.colorDark, process.env.colorGray, 0.7) },
-  { file: "/map/national_routes.topojson", size: 0.07, color: mixHexColors(process.env.colorDark, process.env.colorGray, 0.45) },
-  { file: "/map/provinces.topojson", size: 0.2, color: mixHexColors(process.env.colorDark, process.env.colorGray, 0.15) },
+  { file: "/map/provincial_routes.topojson", size: 0.07, color: mixHexColors(process.env.colorSecondarySemiDark, process.env.colorSecondary, 0.7) },
+  { file: "/map/national_routes.topojson", size: 0.07, color: mixHexColors(process.env.colorSecondarySemiDark, process.env.colorSecondary, 0.45) },
+  { file: "/map/provinces.topojson", size: 0.2, color: mixHexColors(process.env.colorSecondarySemiDark, process.env.colorSecondary, 0.15) },
 ]
 
 const positions: { [key: string]: Point } = {
@@ -109,7 +109,7 @@ const limits = {
 const MapClass = () => {
   const [coordinates, setCoordinates] = React.useState(initialCoordinates)
 
-  /* Zoom-in and Zoom-out buttons */
+  // Zoom-in and Zoom-out buttons.
   function handleZoomIn() {
     if (zoom * 1.5 >= maxZoom) return
     const newZoom = zoom * 1.5
@@ -124,7 +124,7 @@ const MapClass = () => {
   }
   const [zoom, setZoom] = React.useState(initialZoom)
 
-  /* Handle the limits where the user can move on the map. */
+  // Handle the limits where the user can move on the map.
   function handleCoordinatess(interval: { start: number, end: number }, coordinates: { initial: number, actual: number }, actualZoom: number) {
     const areaOfView = (interval.end - coordinates.initial - (interval.start - coordinates.initial)) * (minZoom / actualZoom)
     const limitStart = interval.start + areaOfView / 2
@@ -144,24 +144,33 @@ const MapClass = () => {
     ])
   }
 
-  /* Handle user movement on the map */
+  // Handle user movement on the map
   function handleMoveEnd(config: { coordinates: Point, zoom: number }) {
     setCoordinates(config.coordinates)
     setZoom(config.zoom)
     handleLimits(config)
   }
 
-  /* Adjust font size and icons according to zoom levels */
+  // Adjust font size and icons according to zoom levels.
   const getFontSize = (pointData: PointData) =>
     (pointData.fontSizeInit || 1) + (pointData.fontSizeEnd - pointData.fontSizeInit) * (((pointData.minZoom || minZoom) - zoom) / ((pointData.minZoom || minZoom) - (pointData.maxZoom || maxZoom)))
   const getIconSize = (pointData: PointData) => pointData.iconSize * (initialZoom / zoom)
 
   return (
     <>
-      <div style={{ backgroundColor: mixHexColors(process.env.colorDark, process.env.colorGray, 0.95) }} className="w-full h-full">
+      <div className="bg-secondary w-full h-full">
         {/* Main map */}
         <ComposableMap projection="geoMercator" width={600} height={600}>
-          <ZoomableGroup zoom={zoom} center={coordinates} onMoveEnd={handleMoveEnd} maxZoom={maxZoom} minZoom={minZoom}>
+          <ZoomableGroup
+            zoom={zoom}
+            center={coordinates}
+            onMoveEnd={handleMoveEnd}
+            maxZoom={maxZoom}
+            minZoom={minZoom}
+            // Don't remove this empty className.
+            // https://github.com/zcreativelabs/react-simple-maps/issues/253
+            className=""
+          >
             {/* Geographies */}
             {layers.map((layer, index) => (
               <Geographies key={index} geography={layer.file} strokeWidth={layer.size * (initialZoom / zoom)} stroke={layer.color ? layer.color : null} style={{ pointerEvents: "none" }}>
@@ -226,13 +235,9 @@ const MapClass = () => {
       </div>
 
       {/* Buttons */}
-      <div className="text-xl text-primary flex flex-row-reverse mt-2 mb-6 sm:mb-8">
-        <button className="ml-1" onClick={handleZoomIn}>
-          <FaPlusSquare />
-        </button>
-        <button onClick={handleZoomOut}>
-          <FaMinusSquare />
-        </button>
+      <div className="text-primary flex flex-row justify-center w-full pt-8px">
+        <IconButton icon={FaMinusSquare} ariaLabel="Reducir Zoom" onClick={handleZoomOut} className="mr-2 text-32px" />
+        <IconButton icon={FaPlusSquare} ariaLabel="Aumentar Zoom" onClick={handleZoomIn} className="text-32px" />
       </div>
     </>
   )

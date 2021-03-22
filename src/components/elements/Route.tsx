@@ -4,24 +4,13 @@ import * as React from "react"
 
 import { IconType } from "react-icons"
 
-export const Route = (props: {
-  href: string,
-  className?: string,
-  onClick?: React.MouseEventHandler,
-  style?: { [key: string]: any },
-  description?: React.ReactNode | React.ReactNode[],
-  icon?: IconType,
-}) => {
+export const Route = (props: { href: string, icon: IconType, className?: string, onClick?: React.MouseEventHandler, ariaLabel?: string, description?: string }) => {
   return (
-    <div className="flex items-center">
-      <Link href={props.href}>
-        <a className={`font-sans inline-block ${props.className ? props.className : ""}`} onClick={props.onClick || null} style={props.style || null}>
-          <div className="break-word flex items-center">
-            {props.icon ? <props.icon className={`inline-block ${props.description ? "mr-1" : ""}`} /> : null}
-            {props.description}
-          </div>
-        </a>
-      </Link>
-    </div>
+    <Link href={props.href}>
+      <a className={`font-semibold text-sm sm:text-base break-word ${props.className || ""}`} onClick={props.onClick} aria-label={props.ariaLabel}>
+        <props.icon className={`inline-block ${props.description ? "mr-1" : ""}`} />
+        {props.description}
+      </a>
+    </Link>
   )
 }

@@ -1,8 +1,8 @@
 import "../styles/styles.sass"
 
-import Head from "next/head"
-
 import { DefaultSeo } from "next-seo"
+
+import Head from "next/head"
 
 import * as React from "react"
 

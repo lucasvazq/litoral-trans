@@ -4,60 +4,67 @@ import * as React from "react"
 
 import { Slide } from "react-slideshow-image"
 
-import { Label, Paragraph } from ".."
+import { Card, Paragraph } from ".."
+
+const descriptions = {
+  slide_1: ["LA MEJOR MANERA", "PARA ENVIAR TUS PAQUETES"],
+  slide_2: ["SOLUCIONES DE LOGÍSTICA", "BRINDADA POR SUS DUEÑOS", "DISFRUTADA POR SUS CLIENTES"],
+}
 
 const slides = [
   {
     slideContent: (
       <>
-        <Paragraph className="font-semibold text-2xl sm:text-3xl text-center">LA MEJOR MANERA</Paragraph>
-        <Paragraph className="text-center sm:text-xl tracking-thight">PARA ENVIAR TUS PAQUETES</Paragraph>
+        <Paragraph className="font-semibold text-2xl sm:text-3xl text-center">{descriptions.slide_1[0]}</Paragraph>
+        <Paragraph className="text-center sm:text-xl tracking-thight">{descriptions.slide_1[1]}</Paragraph>
       </>
     ),
     class: "slide_1",
+    description: descriptions.slide_1.join(" "),
   },
   {
     slideContent: (
       <>
-        <Paragraph className="font-semibold text-lg sm:text-2xl text-center tracking-tighter mb-4">SOLUCIONES DE LOGÍSTICA</Paragraph>
-        <Paragraph className="text-sm sm:text-xl text-center tracking-wider">BRINDADA POR SUS DUEÑOS</Paragraph>
-        <Paragraph className="text-sm sm:text-xl text-center">DISFRUTADA POR SUS CLIENTES</Paragraph>
+        <Paragraph className="font-semibold text-lg sm:text-2xl text-center tracking-tighter">{descriptions.slide_2[0]}</Paragraph>
+        <Paragraph className="text-sm sm:text-xl text-center tracking-wider pt-4">{descriptions.slide_2[1]}</Paragraph>
+        <Paragraph className="text-sm sm:text-xl text-center">{descriptions.slide_2[2]}</Paragraph>
       </>
     ),
     class: "slide_2",
+    description: descriptions.slide_2.join(" "),
   },
 ]
 
 export const Slideshow = () => {
+  const getId = (index) => `slide_${index}`
+
   const [nextIndex, setNextIndex] = React.useState(null)
-  const props = {
-    arrows: false,
-    transitionDuration: 500,
-    indicators: (actualIndex: number) => (
-      <div
-        className={`cursor-pointer rounded-full shadow-strong mx-1 -mt-15vh mb-15vh p-1 z-1 hover:opacity-90 ${
-          (!nextIndex && actualIndex === 0) || nextIndex === actualIndex ? "bg-primary opacity-100" : "bg-light opacity-40"
-        }`}
-      />
-    ),
-    onChange: (_: number, next: number) => {
-      setNextIndex(next)
-    },
-  }
+  const indicators = (actualIndex: number) => (
+    <li
+      className={`cursor-pointer rounded-full shadow-strong h-2 w-2 hover:opacity-90 ${
+        (!nextIndex && actualIndex === 0) || nextIndex === actualIndex ? "bg-primary opacity-100" : "bg-secondary-light opacity-40"
+      }`}
+      aria-labelledby={getId(actualIndex)}
+      // Custom styles from react-slideshow-image have more priority than tailwind classes.
+      style={{ marginTop: "-8rem", marginLeft: "0.25rem", marginRight: "0.25rem" }}
+    />
+  )
+  const heightClasses = "h-60vh min-h-104"
 
   return (
-    <Slide {...props}>
+    <Slide arrows={false} transitionDuration={500} indicators={indicators} onChange={(_: number, next: number) => setNextIndex(next)} className={heightClasses}>
       {slides.map((slide, index) => {
         return (
-          <div className="each-fade" key={index}>
-            <div className="overflow-hidden grid grid-cols-1 grid-rows-1 h-60vh min-h-64">
-              <div className={`bg-center bg-cover col-start-1 col-end-1 row-start-1 row-end-1 ${slide.class}`} />
-              <div className="flex items-center justify-center col-start-1 col-end-1 row-start-1 row-end-1">
-                <div className="bg-dots mb-9">
-                  <div className="my-6 mx-2 sm:my-8 sm:mx-4">
-                    <Label className="bg-primary select-none text-light p-4">{slide.slideContent}</Label>
-                  </div>
-                </div>
+          <div
+            key={index}
+            className={`each-fade select-none overflow-hidden grid grid-cols-1 grid-rows-1 ${heightClasses}`}
+            id={getId(index)}
+            aria-label={`Diapositiva número ${index}: ${slide.description}`}
+          >
+            <div className={`bg-center bg-cover col-start-1 col-end-2 row-start-1 row-end-2 ${slide.class}`} />
+            <div className="flex items-center justify-center col-start-1 col-end-2 row-start-1 row-end-2">
+              <div className="bg-dots p-2 sm:p-4">
+                <Card className="bg-primary p-4 sm:p-8">{slide.slideContent}</Card>
               </div>
             </div>
           </div>

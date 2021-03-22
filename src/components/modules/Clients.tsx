@@ -1,22 +1,24 @@
 import * as React from "react"
 
+import { Image } from ".."
+
 const clients: { path: string, name: string }[] = [
-  { path: "images/brands/boness.png", name: "Boness" },
-  { path: "images/brands/andretich.png", name: "Carlos Andretich" },
-  { path: "images/brands/insumet.png", name: "Insu-Met" },
-  { path: "images/brands/mega.png", name: "Laboratorio Mega" },
-  { path: "images/brands/marozzi.png", name: "Marozzi Baterías" },
-  { path: "images/brands/papeltecnica.png", name: "Papeltecnica" },
-  { path: "images/brands/faben.png", name: "Faben" },
-  { path: "images/brands/villanueva.png", name: "Villanueva" },
-  { path: "images/brands/veterinaria_rafaela.png", name: "Veterinaria Rafaela" },
+  { path: "images/brands/boness.webp", name: "Boness" },
+  { path: "images/brands/andretich.webp", name: "Carlos Andretich" },
+  { path: "images/brands/insumet.webp", name: "Insu-Met" },
+  { path: "images/brands/mega.webp", name: "Laboratorio Mega" },
+  { path: "images/brands/marozzi.webp", name: "Marozzi Baterías" },
+  { path: "images/brands/papeltecnica.webp", name: "Papeltecnica" },
+  { path: "images/brands/faben.webp", name: "Faben" },
+  { path: "images/brands/villanueva.webp", name: "Villanueva" },
+  { path: "images/brands/veterinaria_rafaela.webp", name: "Veterinaria Rafaela" },
 ]
 
-export const Clients = () => (
-  <div className="flex flex-wrap justify-center">
+export const Clients = (props: { className?: string }) => (
+  <div className={`flex flex-wrap justify-center ${props.className || ""}`}>
     {clients.map((data, index) => (
-      <div key={index} className="greyscale h-24 w-24 m-4">
-        <img src={data.path} alt={data.name} />
+      <div key={index} className="greyscale p-4">
+        <Image src={data.path} alt={data.name} height={96} width={96} />
       </div>
     ))}
   </div>
