@@ -12,6 +12,6 @@ export const IconButton = (props: { icon: IconType, ariaLabel: string, onClick: 
 
 export const LinkButton = (props: { href: string, icon: IconType, description: string, className?: string }) => (
   <div className={`bg-primary-semi-dark border-b-4 border-primary-dark rounded-lg shadow-lg w-full max-w-prose ${props.className || ""}`}>
-    <Route href={props.href} icon={props.icon} description={props.description} className="flex items-center justify-center p-2" />
+    <Route href={props.href} icon={props.icon} description={props.description} className="break-all flex items-center justify-center p-2" />
   </div>
 )

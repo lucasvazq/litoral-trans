@@ -1,4 +1,3 @@
-// mode: process.env.NODE_ENV,
 module.exports = {
   env: {
     GTM: "GTM-NGGH6LK",
@@ -11,7 +10,7 @@ module.exports = {
     telPhoneNumber: "589638",
     whatsappMessage: "Hola, me gustaría realizar una consulta",
 
-    // colors in hex mode of pair values
+    // Colors in hex mode of pair values.
     colorPrimary: "#d71920",
     colorPrimaryLight: "#ffc4c6",
     colorPrimarySemiLight: "#e35e63",

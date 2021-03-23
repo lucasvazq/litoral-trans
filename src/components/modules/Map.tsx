@@ -144,7 +144,7 @@ const MapClass = () => {
     ])
   }
 
-  // Handle user movement on the map
+  // Handle user movement on the map.
   function handleMoveEnd(config: { coordinates: Point, zoom: number }) {
     setCoordinates(config.coordinates)
     setZoom(config.zoom)
@@ -235,9 +235,9 @@ const MapClass = () => {
       </div>
 
       {/* Buttons */}
-      <div className="text-primary flex flex-row justify-center w-full pt-8px">
-        <IconButton icon={FaMinusSquare} ariaLabel="Reducir Zoom" onClick={handleZoomOut} className="mr-2 text-32px" />
-        <IconButton icon={FaPlusSquare} ariaLabel="Aumentar Zoom" onClick={handleZoomIn} className="text-32px" />
+      <div className="text-32px text-primary flex flex-row justify-center w-full pt-8px">
+        <IconButton icon={FaMinusSquare} ariaLabel="Reducir Zoom" onClick={handleZoomOut} className="mr-2" />
+        <IconButton icon={FaPlusSquare} ariaLabel="Aumentar Zoom" onClick={handleZoomIn} />
       </div>
     </>
   )

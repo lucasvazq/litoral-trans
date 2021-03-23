@@ -6,19 +6,19 @@ export const SVGWave = (props: { color: string }) => (
   </svg>
 )
 
-export const SVGInvertedWave_1 = (props: { color: string }) => (
+export const SVGInvertedWave1 = (props: { color: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" height="100%" width="100%">
     <path fill={props.color} d="M0 320l60-5.3c60-5.7 180-15.7 300-64C480 203 600 117 720 117.3c120-.3 240 85.7 360 90.7s240-69 300-106.7l60-37.3V0H0z" />
   </svg>
 )
 
-export const SVGInvertedWave_2 = (props: { color: string }) => (
+export const SVGInvertedWave2 = (props: { color: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" height="100%" width="100%">
     <path fill={props.color} d="M0 256l60-16c60-16 180-48 300-53.3 120-5.7 240 16.3 360 42.6 120 26.7 240 58.7 360 69.4 120 10.3 240 .3 300-5.4l60-5.3V0H0z" />
   </svg>
 )
 
-export const SVGInvertedWave_3 = (props: { color: string }) => (
+export const SVGInvertedWave3 = (props: { color: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" height="100%" width="100%">
     <path fill={props.color} d="M0 64l80 26.7C160 117 320 171 480 176s320-37 480-32 320 59 400 85.3l80 26.7V0H0z" />
   </svg>

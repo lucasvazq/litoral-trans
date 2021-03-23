@@ -27,7 +27,7 @@ export const Header = (props: { items?: { path: string, id: string, description:
   }, [menuIsActive])
 
   return (
-    <nav className="bg-primary shadow-lg fixed w-full top-0 py-8 px-4 sm:px-8 z-3 sm:bg-green-400 md:bg-yellow-400 lg:bg-blue-400">
+    <nav className="overflow-scroll bg-primary shadow-lg fixed max-h-full w-full top-0 py-8 px-4 sm:px-8 z-2">
       <div className="flex items-center justify-between h-8">
         <Route href="/" icon={FaShippingFast} description={process.env.name} className="text-xl sm:text-2xl" />
         <IconButton icon={HiMenuAlt3} ariaLabel="Expandir menú desplegable" onClick={() => setMenuIsActive(true)} className={`${menuIsActive ? "hidden" : ""}`} />
@@ -45,7 +45,7 @@ export const Header = (props: { items?: { path: string, id: string, description:
             : null}
 
           {/* Default items */}
-          <li className={`text-md flex justify-center ${props.items ? "pt-6" : "pt-6"}`}>
+          <li className="text-md flex justify-center pt-6">
             <LinkButton href={`mailto:${process.env.email}`} icon={MdEmail} description={process.env.email} />
           </li>
           <li className="text-md flex justify-center pt-2">

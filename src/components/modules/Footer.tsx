@@ -10,10 +10,11 @@ export const Footer = () => (
   <>
     {/* Business information */}
     <Section className="bg-secondary-semi-dark">
-      <div className="grid grid-cols-2 grid-rows-1 md:divide-x-2 max-w-200 m-auto">
+      <div className="grid grid-cols-2 grid-rows-1 md:divide-x-2 w-full max-w-200">
         <div className="text-center hidden md:flex flex-col items-center justify-center col-start-1 col-end-2 row-start-1 row-end-2">
           <Paragraph className="font-bold text-4xl">
-            <FaShippingFast className="inline-block mr-1" /> Litoral Trans
+            <FaShippingFast className="inline-block mr-1" />
+            Litoral Trans
           </Paragraph>
           <Paragraph className="text-base text-lg">{process.env.slogan}</Paragraph>
         </div>
@@ -35,7 +36,7 @@ export const Footer = () => (
     </Section>
 
     {/* Developer information */}
-    <div className="bg-secondary-dark text-center text-sm relative flex flex-col items-center p-6 z-4 sm:z-0">
+    <div className="bg-secondary-dark text-center text-sm relative sm:static flex flex-col items-center p-6 z-1">
       <Paragraph>Copyright 2021. Litoral-trans</Paragraph>
       <Paragraph>
         {`Diseñador por: `}

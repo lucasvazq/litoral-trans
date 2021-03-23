@@ -7,36 +7,38 @@ import { Slide } from "react-slideshow-image"
 import { Card, Paragraph } from ".."
 
 const descriptions = {
-  slide_1: ["LA MEJOR MANERA", "PARA ENVIAR TUS PAQUETES"],
-  slide_2: ["SOLUCIONES DE LOGÍSTICA", "BRINDADA POR SUS DUEÑOS", "DISFRUTADA POR SUS CLIENTES"],
+  slide1: ["LA MEJOR MANERA", "PARA ENVIAR TUS PAQUETES"],
+  slide2: ["SOLUCIONES DE LOGÍSTICA", "BRINDADA POR SUS DUEÑOS", "DISFRUTADA POR SUS CLIENTES"],
 }
 
 const slides = [
   {
     slideContent: (
       <>
-        <Paragraph className="font-semibold text-2xl sm:text-3xl text-center">{descriptions.slide_1[0]}</Paragraph>
-        <Paragraph className="text-center sm:text-xl tracking-thight">{descriptions.slide_1[1]}</Paragraph>
+        <Paragraph className="font-semibold text-2xl sm:text-3xl text-center">{descriptions.slide1[0]}</Paragraph>
+        <Paragraph className="text-center sm:text-xl tracking-thight">{descriptions.slide1[1]}</Paragraph>
       </>
     ),
     class: "slide_1",
-    description: descriptions.slide_1.join(" "),
+    description: descriptions.slide1.join(" "),
   },
   {
     slideContent: (
       <>
-        <Paragraph className="font-semibold text-lg sm:text-2xl text-center tracking-tighter">{descriptions.slide_2[0]}</Paragraph>
-        <Paragraph className="text-sm sm:text-xl text-center tracking-wider pt-4">{descriptions.slide_2[1]}</Paragraph>
-        <Paragraph className="text-sm sm:text-xl text-center">{descriptions.slide_2[2]}</Paragraph>
+        <Paragraph className="font-semibold text-lg sm:text-2xl text-center tracking-tighter">{descriptions.slide2[0]}</Paragraph>
+        <Paragraph className="text-sm sm:text-xl text-center tracking-wider pt-4">{descriptions.slide2[1]}</Paragraph>
+        <Paragraph className="text-sm sm:text-xl text-center">{descriptions.slide2[2]}</Paragraph>
       </>
     ),
     class: "slide_2",
-    description: descriptions.slide_2.join(" "),
+    description: descriptions.slide2.join(" "),
   },
 ]
 
 export const Slideshow = () => {
-  const getId = (index) => `slide_${index}`
+  const heightClasses = "h-60vh min-h-120"
+
+  const getId = (index: number) => `slide${index}`
 
   const [nextIndex, setNextIndex] = React.useState(null)
   const indicators = (actualIndex: number) => (
@@ -49,7 +51,6 @@ export const Slideshow = () => {
       style={{ marginTop: "-8rem", marginLeft: "0.25rem", marginRight: "0.25rem" }}
     />
   )
-  const heightClasses = "h-60vh min-h-104"
 
   return (
     <Slide arrows={false} transitionDuration={500} indicators={indicators} onChange={(_: number, next: number) => setNextIndex(next)} className={heightClasses}>
