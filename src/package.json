@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "find:unused": "next-unused"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "@types/react": "^17.0.2",
     "@types/react-simple-maps": "^1.0.3",
     "autoprefixer": "^10.2.5",
+    "next-unused": "0.0.6",
     "postcss": "^8.2.8",
     "postcss-import": "^14.0.0",
     "sass": "^1.32.7",
