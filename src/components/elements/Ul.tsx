@@ -1,3 +1,12 @@
 import * as React from "react"
 
-export const Ul = (props: { children: React.ReactNode | React.ReactNode[], className?: string }) => <ul className={`list-reset ${props.className || ""}`}>{props.children}</ul>
+interface UlProps {
+    children: React.ReactNode | React.ReactNode[]
+    className?: string
+}
+
+export class Ul extends React.Component<UlProps> {
+    render() {
+        return <ul className={`list-reset ${this.props.className || ""}`}>{this.props.children}</ul>
+    }
+}

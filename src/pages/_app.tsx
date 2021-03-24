@@ -6,6 +6,9 @@ import Head from "next/head"
 
 import * as React from "react"
 
+// import { P, AppProps, CP, S} from "next/app"
+// App<P = {}, CP = {}, S = {}> extends React.Component<P & AppProps<CP>, S>
+
 const App = ({ Component, props }) => (
   <>
     <Head>

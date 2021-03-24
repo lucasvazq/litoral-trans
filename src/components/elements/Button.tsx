@@ -1,17 +1,22 @@
 import * as React from "react"
 
-import { IconType } from "react-icons"
+import dynamic from 'next/dynamic'
 
-import { Route } from ".."
+import { IconType, Route } from '..'
 
-export const IconButton = (props: { icon: IconType, ariaLabel: string, onClick: React.MouseEventHandler, className?: string }) => (
-  <button type="button" aria-label={props.ariaLabel} onClick={props.onClick} className={`text-3xl ${props.className || ""}`}>
-    <props.icon />
-  </button>
-)
+interface IconButtonProps {
+  icon: IconType,
+  ariaLabel: string,
+  onClick: React.MouseEventHandler,
+  className?: string,
+}
 
-export const LinkButton = (props: { href: string, icon: IconType, description: string, className?: string }) => (
-  <div className={`bg-primary-semi-dark border-b-4 border-primary-dark rounded-lg shadow-lg w-full max-w-prose ${props.className || ""}`}>
-    <Route href={props.href} icon={props.icon} description={props.description} className="break-all flex items-center justify-center p-2" />
-  </div>
-)
+
+
+export class IconButton extends React.Component<IconButtonProps> {
+  render() {
+    return (
+      <button type="button" aria-label={this.props.ariaLabel} onClick={this.props.onClick} className={`focus:outline-none text-3xl ${this.props.className || ""}`}><this.props.icon /></button>
+    )
+  }
+}

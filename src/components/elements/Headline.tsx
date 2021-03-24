@@ -1,9 +1,24 @@
 import * as React from "react"
 
-export type HeadlineType = { children: React.ReactNode | React.ReactNode[], className?: string }
+interface HeadlineProps {
+  children: React.ReactNode | React.ReactNode[]
+  className?: string
+}
 
-const headline = (tag: string, className: string, children: React.ReactNode | React.ReactNode[]) =>
-  React.createElement(tag, { className: `font-bold text-center break-word max-w-prose m-auto ${className}` }, children)
+const basicClasses = 'font-bold text-center break-word max-w-prose m-auto'
 
-export const H2 = (props: HeadlineType) => headline("h2", `text-3xl sm:text-5xl ${props.className || ""}`, props.children)
-export const H3 = (props: HeadlineType) => headline("h3", `text-2xl sm:text-3xl ${props.className || ""}`, props.children)
+export class H2 extends React.Component<HeadlineProps> {
+  render() {
+    return (
+      <h2 className={`text-3xl sm:text-5xl ${basicClasses} ${this.props.className}`}>{this.props.children}</h2>
+    )
+  }
+}
+
+export class H3 extends React.Component<HeadlineProps> {
+  render() {
+    return (
+      <h3 className={`text-2xl sm:text-3xl ${basicClasses} ${this.props.className}`}>{this.props.children}</h3>
+    )
+  }
+}

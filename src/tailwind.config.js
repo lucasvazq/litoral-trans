@@ -6,11 +6,13 @@ const colors = {
   "primary-semi-light": config.env.colorPrimarySemiLight,
   "primary-semi-dark": config.env.colorPrimarySemiDark,
   "primary-dark": config.env.colorPrimaryDark,
+  "primary-darker": config.env.colorPrimaryDarker,
   secondary: config.env.colorSecondary,
   "secondary-light": config.env.colorSecondaryLight,
   "secondary-semi-light": config.env.colorSecondarySemiLight,
   "secondary-semi-dark": config.env.colorSecondarySemiDark,
   "secondary-dark": config.env.colorSecondaryDark,
+  "secondary-darker": config.env.colorSecondaryDarker,
 }
 
 module.exports = {
@@ -30,12 +32,14 @@ module.exports = {
       },
       height: {
         "340px": "340px",
+        "440px": "440px",
         "10vh": "10vh",
         "60vh": "60vh",
       },
       width: {
         45: "11.25rem",
         "300px": "300px",
+        "400px": "400px",
       },
       minHeight: {
         120: "30rem",

@@ -1,3 +1,14 @@
 import * as React from "react"
 
-export const Paragraph = (props: { children: React.ReactNode | React.ReactNode[], className?: string }) => <p className={`break-word max-w-prose ${props.className || ""}`}>{props.children}</p>
+interface ParagraphProps {
+    children: React.ReactNode | React.ReactNode[]
+    className?: string
+}
+
+export class Paragraph extends React.Component<ParagraphProps> {
+    render() {
+        return (
+            <p className={`break-word max-w-prose ${this.props.className || ""}`}>{this.props.children}</p>
+        )
+    }
+}

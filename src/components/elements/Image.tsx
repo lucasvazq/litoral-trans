@@ -1,3 +1,14 @@
 import * as React from "react"
 
-export const Image = (props: { src: string, alt: string, height: number, width: number }) => <img src={props.src} alt={props.alt} height={props.height} width={props.width} loading="lazy" />
+interface ImageProps {
+    src: string
+    alt: string
+    height: number
+    width: number
+}
+
+export class Image extends React.Component<ImageProps> {
+    render() {
+        return <img src={this.props.src} alt={this.props.alt} height={this.props.height} width={this.props.width} loading="lazy" />
+    }
+}

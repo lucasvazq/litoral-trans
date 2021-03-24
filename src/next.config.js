@@ -1,4 +1,5 @@
 module.exports = {
+  productionBrowserSourceMaps: true,
   env: {
     GTM: "GTM-NGGH6LK",
     url: "https://litoral-trans.com.ar/",
@@ -15,11 +16,13 @@ module.exports = {
     colorPrimaryLight: "#ffc4c6",
     colorPrimarySemiLight: "#e35e63",
     colorPrimarySemiDark: "#ca242b",
-    colorPrimaryDark: "#90181d",
+    colorPrimaryDark: "#b7191f",
+    colorPrimaryDarker: "#90181d",
     colorSecondary: "#f3f3f3",
     colorSecondaryLight: "#ffffff",
     colorSecondarySemiLight: "#fafafa",
     colorSecondarySemiDark: "#686868",
     colorSecondaryDark: "#1c1c1c",
+    colorSecondaryDarker: "#000000",
   },
 }

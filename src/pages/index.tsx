@@ -5,7 +5,7 @@ import * as React from "react"
 import { HiPhone } from "react-icons/hi"
 import { MdEmail } from "react-icons/md"
 
-import { Base, Clients, H2, H3, Id, LinkButton, Paragraph, Section, Services, Slideshow, SVGLineWave, WavesSeparation } from "../components"
+import { Base, Clients, H2, H3, Id, Iframe, LinkButton, Paragraph, Section, Services, Slideshow, SVGLineWave, WavesSeparation } from "../components"
 
 const items = {
   services: { path: "/#", id: "servicios", description: "Servicios" },
@@ -74,7 +74,7 @@ const Root = () => {
         <Section>
           <H2 className="text-primary">LOCALIDADES</H2>
           <div className="overflow-hidden flex justify-center max-w-full pt-8">
-            <iframe src="/map" className="h-340px w-300px" />
+            <Iframe title="Mapa de localidades" src="/map" className="h-340px sm:h-440px w-300px sm:w-400px" />
           </div>
         </Section>
 

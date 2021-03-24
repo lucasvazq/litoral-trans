@@ -51,7 +51,8 @@ Como estamos sirviendo el proyecto a través de Github Pages, tenemos que simula
 
 4.5 Ejecutar `bundle install --gemfile githubpages.rb` para instalar las gemas necesarias
 
-4.6 Ejecutar `bundle exec jekyll serve` para iniciar el proyecto en modo previsualización. Ahora se puede ver el proyecto a través de la url [http://localhost:4000](http://localhost:4000) tal cual se vería como si estuviese en internet
+4.6 Ejecutar `bundle exec jekyll serve` para iniciar el proyecto en modo previsualización.
+    Ahora se puede ver el proyecto a través de la url [http://localhost:4000](http://localhost:4000) tal cual se vería como si estuviese en internet
 
 ## Setup Producción
 

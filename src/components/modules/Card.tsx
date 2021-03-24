@@ -1,9 +1,24 @@
 import * as React from "react"
 
-export const Card = (props: { children: React.ReactNode | React.ReactNode[], className?: string }) => (
-  <div className={`m-4 rounded-md shadow-lg p-4 flex flex-col items-center ${props.className || ""}`}>{props.children}</div>
-)
+interface CardProps {
+  children: React.ReactNode | React.ReactNode[]
+  className?: string
+}
 
-export const CardsContainer = (props: { children: React.ReactNode | React.ReactNode[], className?: string }) => (
-  <div className={`flex flex-wrap justify-center text-center ${props.className || ""}`}>{props.children}</div>
-)
+interface CardsContainerProps {
+  children: React.ReactNode | React.ReactNode[]
+  className?: string
+}
+
+export class Card extends React.Component<CardProps> {
+  render() {
+    return <div className={`m-4 rounded-md shadow-lg p-4 flex flex-col items-center ${this.props.className || ""}`}>{this.props.children}</div>
+  }
+}
+
+// Es realmente necesaria esta clase?
+export class CardsContainer extends React.Component<CardsContainerProps> {
+  render() {
+    return <div className={`flex flex-wrap justify-center text-center ${this.props.className || ""}`}>{this.props.children}</div>
+  }
+}
