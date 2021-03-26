@@ -1,7 +1,5 @@
 import * as React from "react"
 
-import dynamic from "next/dynamic"
-
 import SVGInvertedWave1 from "../svg/SVGInvertedWave1"
 import SVGInvertedWave2 from "../svg/SVGInvertedWave2"
 import SVGInvertedWave3 from "../svg/SVGInvertedWave3"

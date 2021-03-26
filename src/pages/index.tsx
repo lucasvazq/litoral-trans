@@ -43,7 +43,7 @@ class RootView extends React.Component {
         />
         <Base items={Object.values(this.items)}>
           {/* Slide */}
-          <Slideshow />
+          <Slideshow delay={1000000}/>
 
           {/* Presentation */}
           <WavesSection className="bg-primary">

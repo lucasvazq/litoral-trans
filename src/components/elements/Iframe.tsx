@@ -22,19 +22,21 @@ class Iframe extends React.Component<IframeProps, IframeState> {
   }
 
   componentDidMount() {
-    setTimeout(
-      function () {
-        this.setState({ render: true })
-      }.bind(this),
-      10000 || this.props.delay
-    )
+    if (this.props.delay) {
+      setTimeout(
+        function () {
+          this.setState({ render: true })
+        }.bind(this),
+        this.props.delay
+      )
+    }
   }
 
   render() {
-    if (this.state.render) {
-      return <iframe src={this.props.src} title={this.props.title} height={this.props.height} width={this.props.width} className={this.props.className} loading="lazy" />
+    if (this.props.delay && !this.state.render) {
+      return <div className={this.props.className} />
     }
-    return <div className={this.props.className} />
+    return <iframe src={this.props.src} title={this.props.title} height={this.props.height} width={this.props.width} className={this.props.className} loading="lazy" />
   }
 }
 

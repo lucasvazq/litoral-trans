@@ -1,7 +1,5 @@
 import * as React from "react"
 
-import dynamic from "next/dynamic"
-
 import Route from "../elements/Route"
 import SVGWhatsapp from "../svg/SVGWhatsapp"
 

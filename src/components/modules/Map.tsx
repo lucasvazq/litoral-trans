@@ -1,14 +1,6 @@
 import * as React from "react"
 
-import dynamic from "next/dynamic"
-
-import { Point } from "react-simple-maps"
-
-const ComposableMap = dynamic(() => import("react-simple-maps").then((module) => module.ComposableMap))
-const Geographies = dynamic(() => import("react-simple-maps").then((module) => module.Geographies))
-const Geography = dynamic(() => import("react-simple-maps").then((module) => module.Geography))
-const Marker = dynamic(() => import("react-simple-maps").then((module) => module.Marker))
-const ZoomableGroup = dynamic(() => import("react-simple-maps").then((module) => module.ZoomableGroup))
+import { ComposableMap, Geographies, Geography, Marker, Point, ZoomableGroup } from "react-simple-maps"
 
 import IconButton from "../elements/IconButton"
 import SVGFaMinusSquare from "../svg/SVGFaMinusSquare"

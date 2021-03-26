@@ -1,9 +1,6 @@
 import * as React from "react"
 
-import dynamic from "next/dynamic"
-
-// TODO
-const Link = dynamic(() => import("next/link"))
+import Link from "next/link"
 
 interface RouteProps {
   href: string;

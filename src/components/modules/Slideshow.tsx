@@ -2,28 +2,21 @@ import "react-slideshow-image/dist/styles.css"
 
 import * as React from "react"
 
-import dynamic from "next/dynamic"
-
-interface SlideProps {
-  arrows: boolean;
-  transitionDuration: number;
-  indicators: React.ReactNode;
-  onChange: (_: number, next: number) => void;
-  className: string;
-  autoplay: boolean;
-  duration: number;
-}
-
-const Slide: React.ComponentType<SlideProps> = dynamic(() => import("react-slideshow-image").then((mod) => mod.Slide))
+import { Slide } from "react-slideshow-image"
 
 import Card from "./Card"
 import Paragraph from "../elements/Paragraph"
 
-interface SlideshowState {
-  nextIndex: number;
+interface SlideshowProps {
+  delay?: number;
 }
 
-class Slideshow extends React.Component<{}, SlideshowState> {
+interface SlideshowState {
+  nextIndex: number;
+  render: boolean
+}
+
+class Slideshow extends React.Component<SlideshowProps, SlideshowState> {
   heightClasses = "h-60vh min-h-120"
   descriptions = {
     slide_1: ["LA MEJOR MANERA", "PARA ENVIAR TUS PAQUETES"],
@@ -35,11 +28,12 @@ class Slideshow extends React.Component<{}, SlideshowState> {
     description: string,
   }[]
 
-  constructor(props: {}) {
+  constructor(props: SlideshowProps) {
     super(props)
 
     this.state = {
       nextIndex: 0,
+      render: false,
     }
 
     this.slides = [
@@ -82,22 +76,30 @@ class Slideshow extends React.Component<{}, SlideshowState> {
     />
   )
 
-  render() {
+  componentDidMount() {
+    if (this.props.delay) {
+      setTimeout(
+        function () {
+          this.setState({ render: true })
+        }.bind(this),
+        this.props.delay
+      )
+    }
+  }
 
-    
-    // <div class="each-fade overflow-hidden grid grid-cols-1 grid-rows-1 h-60vh min-h-120">
-    return (
-      <div className={`each-fade overflow-hidden grid grid-cols-1 grid-rows-1 ${this.heightClasses} w-full max-w-full`}>
-        <div className={`bg-center bg-cover col-start-1 col-end-2 row-start-1 row-end-2 ${this.slides[0].className}`}/>
-        <div className="flex items-center justify-center col-start-1 col-end-2 row-start-1 row-end-2">
-          <div className="bg-dots p-2 sm:p-4">
-            <Card className="bg-primary p-4 sm:p-8">{this.slides[0].slideContent}</Card>
+  render() {
+    if (this.props.delay && !this.state.render) {
+      return (
+        <div className={`each-fade overflow-hidden select-none grid grid-cols-1 grid-rows-1 ${this.heightClasses} w-full max-w-full`}>
+          <div className={`bg-center bg-cover col-start-1 col-end-2 row-start-1 row-end-2 ${this.slides[0].className}`}/>
+          <div className="flex items-center justify-center col-start-1 col-end-2 row-start-1 row-end-2">
+            <div className="bg-dots p-2 sm:p-4">
+              <Card className="bg-primary h-min-48 p-4 sm:p-8">{this.slides[0].slideContent}</Card>
+            </div>
           </div>
         </div>
-      </div>
-    )
-    
-
+      )
+    }
     return (
       <>
         <div className="hidden">
@@ -116,7 +118,7 @@ class Slideshow extends React.Component<{}, SlideshowState> {
           duration={7500}
         >
           {this.slides.map((slide, index) => (
-            <div key={index} className={`each-fade overflow-hidden grid grid-cols-1 grid-rows-1 ${this.heightClasses}`}>
+            <div key={index} className={`each-fade overflow-hidden select-none grid grid-cols-1 grid-rows-1 ${this.heightClasses}`}>
               <div className={`bg-center bg-cover col-start-1 col-end-2 row-start-1 row-end-2 ${slide.className}`} />
               <div className="flex items-center justify-center col-start-1 col-end-2 row-start-1 row-end-2">
                 <div className="bg-dots p-2 sm:p-4">
