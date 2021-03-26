@@ -1,13 +1,10 @@
 import "../styles/styles.sass"
 
-import { DefaultSeo } from "next-seo"
+import * as React from "react"
 
 import Head from "next/head"
 
-import * as React from "react"
-
-// import { P, AppProps, CP, S} from "next/app"
-// App<P = {}, CP = {}, S = {}> extends React.Component<P & AppProps<CP>, S>
+import SEO from "../components/modules/SEO"
 
 const App = ({ Component, props }) => (
   <>
@@ -21,7 +18,7 @@ const App = ({ Component, props }) => (
       <meta name="robots" content="index, follow" />
       <meta name="author" content="Lucas Vazquez" />
     </Head>
-    <DefaultSeo titleTemplate={`${process.env.name} | %s`} />
+    <SEO titleTemplate={`${process.env.name} | %s`} />
     <Component {...props} />
   </>
 )

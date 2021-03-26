@@ -1,14 +1,14 @@
 import * as React from "react"
 
 interface ParagraphProps {
-    children: React.ReactNode | React.ReactNode[]
-    className?: string
+  children: React.ReactNode | React.ReactNode[];
+  className?: string;
 }
 
-export class Paragraph extends React.Component<ParagraphProps> {
-    render() {
-        return (
-            <p className={`break-word max-w-prose ${this.props.className || ""}`}>{this.props.children}</p>
-        )
-    }
+class Paragraph extends React.Component<ParagraphProps> {
+  render() {
+    return <p className={`break-word max-w-prose ${this.props.className || ""}`}>{this.props.children}</p>
+  }
 }
+
+export default Paragraph

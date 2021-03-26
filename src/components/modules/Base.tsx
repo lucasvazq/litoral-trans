@@ -1,13 +1,17 @@
 import * as React from "react"
 
-import { Footer, Header, Whatsapp } from ".."
+import dynamic from "next/dynamic"
+
+const Footer = dynamic(() => import("./Footer"))
+const Header = dynamic(() => import("./Header"))
+const Whatsapp = dynamic(() => import("./Whatsapp"))
 
 interface BaseProps {
-  children: React.ReactNode | React.ReactNode[]
-  items?: { path: string, id: string, description: string }[]
+  children: React.ReactNode | React.ReactNode[];
+  items?: { path: string, id: string, description: string }[];
 }
 
-export class Base extends React.Component<BaseProps> {
+class Base extends React.Component<BaseProps> {
   render() {
     return (
       <>
@@ -19,3 +23,5 @@ export class Base extends React.Component<BaseProps> {
     )
   }
 }
+
+export default Base

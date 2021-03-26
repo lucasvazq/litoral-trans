@@ -1,30 +1,35 @@
 import * as React from "react"
 
-import { FaShippingFast } from "react-icons/fa"
-import { HiMenuAlt3, HiPhone } from "react-icons/hi"
-import { MdEmail } from "react-icons/md"
-import { RiArrowDropRightLine } from "react-icons/ri"
-import { VscClose } from "react-icons/vsc"
+import dynamic from "next/dynamic"
 
-import { IconButton, LinkButton, Route, Ul } from ".."
+const IconButton = dynamic(() => import("../elements/IconButton"))
+const LinkButton = dynamic(() => import("../elements/LinkButton"))
+const Route = dynamic(() => import("../elements/Route"))
+const Ul = dynamic(() => import("../elements/Ul"))
+const SVGFaShippingFast = dynamic(() => import("../svg/SVGFaShippingFast"))
+const SVGHiMenuAlt3 = dynamic(() => import("../svg/SVGHiMenuAlt3"))
+const SVGHiPhone = dynamic(() => import("../svg/SVGHiPhone"))
+const SVGMdEmail = dynamic(() => import("../svg/SVGMdEmail"))
+const SVGRiArrowDropRightLine = dynamic(() => import("../svg/SVGRiArrowDropRightLine"))
+const SVGVscClose = dynamic(() => import("../svg/SVGVscClose"))
 
 interface HeaderProps {
-  items?: { path: string, id: string, description: string }[]
+  items?: { path: string, id: string, description: string }[];
 }
 
 interface HeaderState {
-  menuIsActive: boolean
+  menuIsActive: boolean;
 }
 
-export class Header extends React.Component<HeaderProps, HeaderState> {
+class Header extends React.Component<HeaderProps, HeaderState> {
   menuRef: React.RefObject<any>
   node: HTMLDivElement
 
-  constructor(props) {
+  constructor(props: HeaderProps) {
     super(props)
     this.menuRef = React.createRef()
     this.state = {
-      menuIsActive: false
+      menuIsActive: false,
     }
   }
 
@@ -32,50 +37,49 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     this.node = this.menuRef.current
   }
 
-  componentDidUpdate(_, prevState) {
-    if (prevState !== this.state.menuIsActive) {
-      // const node = this.menuRef.current
+  componentDidUpdate(_: HeaderProps, prevState: HeaderState) {
+    if (prevState.menuIsActive !== this.state.menuIsActive) {
       if (this.state.menuIsActive) {
         this.node.classList.remove("hidden")
+      } else {
+        this.node.classList.add("hidden")
       }
-      // Por que usamos timeout?
-      setTimeout(() => {
-        if (this.state.menuIsActive) {
-          this.node.classList.remove("hidden")
-        } else {
-          this.node.classList.add("hidden")
-        }
-      }, 100)
     }
   }
 
   render() {
     return (
-      <nav className="overflow-y-auto bg-primary shadow-lg fixed max-h-full w-full top-0 py-8 px-4 sm:px-8 z-2 sm:bg-yellow-400 md:bg-green-400 lg:bg-blue-400">
+      <nav className="overflow-y-auto bg-primary shadow-lg fixed max-h-full w-full top-0 py-8 px-4 sm:px-8 z-2">
         <div className="flex items-center justify-between h-8">
-          <Route href="/" icon={FaShippingFast} description={process.env.name} className="text-xl sm:text-2xl" />
-          <IconButton icon={HiMenuAlt3} ariaLabel="Expandir menú desplegable" onClick={() => this.setState({menuIsActive: true})} className={`${this.state.menuIsActive ? "hidden" : ""}`} />
-          <IconButton icon={VscClose} ariaLabel="Cerrar menú desplegable" onClick={() => this.setState({menuIsActive: false})} className={`${this.state.menuIsActive ? "" : "hidden"}`} />
+          <Route href="/" icon={SVGFaShippingFast} description={process.env.name} className="text-xl sm:text-2xl" />
+          <IconButton icon={SVGHiMenuAlt3} ariaLabel="Expandir menú desplegable" onClick={() => this.setState({ menuIsActive: true })} className={`${this.state.menuIsActive ? "hidden" : ""}`} />
+          <IconButton icon={SVGVscClose} ariaLabel="Cerrar menú desplegable" onClick={() => this.setState({ menuIsActive: false })} className={`${this.state.menuIsActive ? "" : "hidden"}`} />
         </div>
         <div ref={this.menuRef} className={`${this.state.menuIsActive ? "" : "hidden"}`}>
-          <Ul className={this.props.items ? `pt-4` : ""}>
+          <Ul className={this.props.items ? "pt-4" : ""}>
             {/* Custom items */}
             {this.props.items
               ? Object.values(this.props.items).map((item, index) => (
                   <li key={index} className="flex">
-                    <Route href={`${item.path}${item.id}`} icon={RiArrowDropRightLine} description={item.description} onClick={() => this.setState({menuIsActive: false})} className="text-lg sm:text-xl hover:text-primary-darker" />
+                    <Route
+                      href={`${item.path}${item.id}`}
+                      icon={SVGRiArrowDropRightLine}
+                      description={item.description}
+                      onClick={() => this.setState({ menuIsActive: false })}
+                      className="text-lg sm:text-xl hover:text-primary-darker"
+                    />
                   </li>
                 ))
               : null}
 
             {/* Default items */}
             <li className="text-md flex justify-center pt-6">
-              <LinkButton href={`mailto:${process.env.email}`} icon={MdEmail} description={process.env.email} />
+              <LinkButton href={`mailto:${process.env.email}`} icon={SVGMdEmail} description={process.env.email} />
             </li>
             <li className="text-md flex justify-center pt-2">
               <LinkButton
                 href={`tel:+${process.env.telCountryCode}${process.env.telAreaCode}${process.env.telPhoneNumber}`}
-                icon={HiPhone}
+                icon={SVGHiPhone}
                 description={`+${process.env.telCountryCode} ${process.env.telAreaCode} ${process.env.telPhoneNumber}`}
               />
             </li>
@@ -85,3 +89,5 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     )
   }
 }
+
+export default Header

@@ -1,8 +1,11 @@
 import * as React from "react"
 
-import { Route, SVGWhatsapp } from ".."
+import dynamic from "next/dynamic"
 
-export class Whatsapp extends React.Component {
+const Route = dynamic(() => import("../elements/Route"))
+const SVGWhatsapp = dynamic(() => import("../svg/SVGWhatsapp"))
+
+class Whatsapp extends React.Component {
   render() {
     return (
       <div className="fixed bottom-0 right-0 m-5 z-1">
@@ -16,3 +19,5 @@ export class Whatsapp extends React.Component {
     )
   }
 }
+
+export default Whatsapp
