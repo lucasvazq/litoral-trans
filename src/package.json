@@ -9,7 +9,7 @@
     "start": "next start",
     "export": "next export",
     "analyze": "source-map-explorer '.next/**/*.js'",
-    "find:unused": "next-unused"
+    "unused": "next-unused"
   },
   "repository": {
     "type": "git",

@@ -46,10 +46,12 @@ class RootView extends React.Component {
 
           {/* Presentation */}
           <WavesSection className="bg-primary">
-            <Paragraph className="md:text-lg text-center min-h-24">
-              <span className="sm:block">{`${process.env.name} es una empresa de transporte `}</span>
-              <span className="sm:block">familiar con más de 30 años de trayectoria.</span>
-            </Paragraph>
+            <div className="flex items-center justify-center min-h-20">
+              <Paragraph className="md:text-lg text-center">
+                <span className="sm:block">{`${process.env.name} es una empresa de transporte `}</span>
+                <span className="sm:block">familiar con más de 30 años de trayectoria.</span>
+              </Paragraph>
+            </div>
           </WavesSection>
 
           {/* Services */}

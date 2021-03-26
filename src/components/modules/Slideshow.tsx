@@ -10,6 +10,7 @@ interface SlideProps {
   indicators: React.ReactNode;
   onChange: (_: number, next: number) => void;
   className: string;
+  autoplay: boolean;
   duration: number;
 }
 
@@ -82,6 +83,21 @@ class Slideshow extends React.Component<{}, SlideshowState> {
   )
 
   render() {
+
+    
+    // <div class="each-fade overflow-hidden grid grid-cols-1 grid-rows-1 h-60vh min-h-120">
+    return (
+      <div className={`each-fade overflow-hidden grid grid-cols-1 grid-rows-1 ${this.heightClasses} w-full max-w-full`}>
+        <div className={`bg-center bg-cover col-start-1 col-end-2 row-start-1 row-end-2 ${this.slides[0].className}`}/>
+        <div className="flex items-center justify-center col-start-1 col-end-2 row-start-1 row-end-2">
+          <div className="bg-dots p-2 sm:p-4">
+            <Card className="bg-primary p-4 sm:p-8">{this.slides[0].slideContent}</Card>
+          </div>
+        </div>
+      </div>
+    )
+    
+
     return (
       <>
         <div className="hidden">
@@ -95,11 +111,12 @@ class Slideshow extends React.Component<{}, SlideshowState> {
           transitionDuration={500}
           indicators={this.indicators}
           onChange={(_: number, next: number) => this.setState({ nextIndex: next })}
-          className={this.heightClasses}
+          className={`overflow-hidden ${this.heightClasses}`}
+          autoplay={false}
           duration={7500}
         >
           {this.slides.map((slide, index) => (
-            <div key={index} className={`each-fade select-none overflow-hidden grid grid-cols-1 grid-rows-1 ${this.heightClasses}`}>
+            <div key={index} className={`each-fade overflow-hidden grid grid-cols-1 grid-rows-1 ${this.heightClasses}`}>
               <div className={`bg-center bg-cover col-start-1 col-end-2 row-start-1 row-end-2 ${slide.className}`} />
               <div className="flex items-center justify-center col-start-1 col-end-2 row-start-1 row-end-2">
                 <div className="bg-dots p-2 sm:p-4">

@@ -21,9 +21,9 @@ interface WavesSectionProps {
 class WaveContainer extends React.Component<WaveContainerProps> {
   render() {
     return (
-      <div className={`relative flex h-24 w-full ${this.props.isInverted ? "flex-col" : "flex-col-reverse"} ${this.props.isInverted ? "-mb-24" : "-mt-24"}`}>
+      <div className={`absolute flex h-24 w-full ${this.props.isInverted ? "flex-col" : "flex-col-reverse"} ${this.props.isInverted ? "-mb-24" : "-mt-24"}`}>
         {/* If the wave is the main one, we must put it closer to the main container than the rest of them. */}
-        <div className={`h-10vh min-h-5 ${this.props.isMain ? (this.props.isInverted ? "-mt-1" : "-mb-1") : ""}`}>{this.props.children}</div>
+        <div className={`h-10vh min-h-20 ${this.props.isMain ? (this.props.isInverted ? "-mt-1" : "-mb-1") : ""}`}>{this.props.children}</div>
       </div>
     )
   }
