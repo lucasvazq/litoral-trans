@@ -1,17 +1,15 @@
 import * as React from "react"
 
-import dynamic from "next/dynamic"
-
-const IconButton = dynamic(() => import("../elements/IconButton"))
-const LinkButton = dynamic(() => import("../elements/LinkButton"))
-const Route = dynamic(() => import("../elements/Route"))
-const Ul = dynamic(() => import("../elements/Ul"))
-const SVGFaShippingFast = dynamic(() => import("../svg/SVGFaShippingFast"))
-const SVGHiMenuAlt3 = dynamic(() => import("../svg/SVGHiMenuAlt3"))
-const SVGHiPhone = dynamic(() => import("../svg/SVGHiPhone"))
-const SVGMdEmail = dynamic(() => import("../svg/SVGMdEmail"))
-const SVGRiArrowDropRightLine = dynamic(() => import("../svg/SVGRiArrowDropRightLine"))
-const SVGVscClose = dynamic(() => import("../svg/SVGVscClose"))
+import IconButton from "../elements/IconButton"
+import LinkButton from "../elements/LinkButton"
+import Route from "../elements/Route"
+import Ul from "../elements/Ul"
+import SVGFaShippingFast from "../svg/SVGFaShippingFast"
+import SVGHiMenuAlt3 from "../svg/SVGHiMenuAlt3"
+import SVGHiPhone from "../svg/SVGHiPhone"
+import SVGMdEmail from "../svg/SVGMdEmail"
+import SVGRiArrowDropRightLine from "../svg/SVGRiArrowDropRightLine"
+import SVGVscClose from "../svg/SVGVscClose"
 
 interface HeaderProps {
   items?: { path: string, id: string, description: string }[];

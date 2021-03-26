@@ -1,10 +1,8 @@
 import * as React from "react"
 
-import dynamic from "next/dynamic"
-
-const Footer = dynamic(() => import("./Footer"))
-const Header = dynamic(() => import("./Header"))
-const Whatsapp = dynamic(() => import("./Whatsapp"))
+import Footer from "./Footer"
+import Header from "./Header"
+import Whatsapp from "./Whatsapp"
 
 interface BaseProps {
   children: React.ReactNode | React.ReactNode[];

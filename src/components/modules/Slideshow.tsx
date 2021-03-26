@@ -16,8 +16,8 @@ interface SlideProps {
 
 const Slide: React.ComponentType<SlideProps> = dynamic(() => import("react-slideshow-image").then((mod) => mod.Slide))
 
-const Card = dynamic(() => import("./Card"))
-const Paragraph = dynamic(() => import("../elements/Paragraph"))
+import Card from "./Card"
+import Paragraph from "../elements/Paragraph"
 
 interface SlideshowState {
   nextIndex: number;

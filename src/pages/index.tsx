@@ -6,20 +6,21 @@ import { NextSeo } from "next-seo"
 
 import Base from "../components/modules/Base"
 
-const H2 = dynamic(() => import("../components/elements/H2"))
-const H3 = dynamic(() => import("../components/elements/H3"))
-const Id = dynamic(() => import("../components/elements/Id"))
-const Iframe = dynamic(() => import("../components/elements/Iframe"))
-const LinkButton = dynamic(() => import("../components/elements/LinkButton"))
-const Paragraph = dynamic(() => import("../components/elements/Paragraph"))
-const Clients = dynamic(() => import("../components/modules/Clients"))
-const Section = dynamic(() => import("../components/modules/Section"))
-const Services = dynamic(() => import("../components/modules/Services"))
+import H2 from "../components/elements/H2"
+import H3 from "../components/elements/H3"
+import Id from "../components/elements/Id"
+import Iframe from "../components/elements/Iframe"
+import LinkButton from "../components/elements/LinkButton"
+import Paragraph from "../components/elements/Paragraph"
+import Clients from "../components/modules/Clients"
+import Section from "../components/modules/Section"
+import Services from "../components/modules/Services"
+import WavesSection from "../components/modules/WavesSection"
+import SVGHiPhone from "../components/svg/SVGHiPhone"
+import SVGLineWave from "../components/svg/SVGLineWave"
+import SVGMdEmail from "../components/svg/SVGMdEmail"
+
 const Slideshow = dynamic(() => import("../components/modules/Slideshow"))
-const WavesSection = dynamic(() => import("../components/modules/WavesSection"))
-const SVGHiPhone = dynamic(() => import("../components/svg/SVGHiPhone"))
-const SVGLineWave = dynamic(() => import("../components/svg/SVGLineWave"))
-const SVGMdEmail = dynamic(() => import("../components/svg/SVGMdEmail"))
 
 class RootView extends React.Component {
   items = {

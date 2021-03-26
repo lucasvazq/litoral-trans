@@ -1,8 +1,6 @@
 import * as React from "react"
 
-import dynamic from "next/dynamic"
-
-const Image = dynamic(() => import("../elements/Image"))
+import Image from "../elements/Image"
 
 interface ClientsProps {
   className?: string;

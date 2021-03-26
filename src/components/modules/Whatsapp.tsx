@@ -2,8 +2,8 @@ import * as React from "react"
 
 import dynamic from "next/dynamic"
 
-const Route = dynamic(() => import("../elements/Route"))
-const SVGWhatsapp = dynamic(() => import("../svg/SVGWhatsapp"))
+import Route from "../elements/Route"
+import SVGWhatsapp from "../svg/SVGWhatsapp"
 
 class Whatsapp extends React.Component {
   render() {

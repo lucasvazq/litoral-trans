@@ -26,7 +26,7 @@ class Iframe extends React.Component<IframeProps, IframeState> {
       function () {
         this.setState({ render: true })
       }.bind(this),
-      this.props.delay
+      10000 || this.props.delay
     )
   }
 

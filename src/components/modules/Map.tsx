@@ -10,9 +10,9 @@ const Geography = dynamic(() => import("react-simple-maps").then((module) => mod
 const Marker = dynamic(() => import("react-simple-maps").then((module) => module.Marker))
 const ZoomableGroup = dynamic(() => import("react-simple-maps").then((module) => module.ZoomableGroup))
 
-const IconButton = dynamic(() => import("../elements/IconButton"))
-const SVGFaMinusSquare = dynamic(() => import("../svg/SVGFaMinusSquare"))
-const SVGFaPlusSquare = dynamic(() => import("../svg/SVGFaPlusSquare"))
+import IconButton from "../elements/IconButton"
+import SVGFaMinusSquare from "../svg/SVGFaMinusSquare"
+import SVGFaPlusSquare from "../svg/SVGFaPlusSquare"
 
 interface PointData {
   coordinates: Point;

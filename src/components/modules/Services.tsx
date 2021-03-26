@@ -1,16 +1,14 @@
 import * as React from "react"
 
-import dynamic from "next/dynamic"
-
-const Card = dynamic(() => import("./Card"))
-const Paragraph = dynamic(() => import("../elements/Paragraph"))
-const SVGAiOutlineSafety = dynamic(() => import("../svg/SVGAiOutlineSafety"))
-const SVGBlob1 = dynamic(() => import("../svg/SVGBlob1"))
-const SVGBlob2 = dynamic(() => import("../svg/SVGBlob2"))
-const SVGBsHouseDoor = dynamic(() => import("../svg/SVGBsHouseDoor"))
-const SVGGoPackage = dynamic(() => import("../svg/SVGGoPackage"))
-const SVGFaShippingFast = dynamic(() => import("../svg/SVGFaShippingFast"))
-const SVGFaTruckLoading = dynamic(() => import("../svg/SVGFaTruckLoading"))
+import Card from "./Card"
+import Paragraph from "../elements/Paragraph"
+import SVGAiOutlineSafety from "../svg/SVGAiOutlineSafety"
+import SVGBlob1 from "../svg/SVGBlob1"
+import SVGBlob2 from "../svg/SVGBlob2"
+import SVGBsHouseDoor from "../svg/SVGBsHouseDoor"
+import SVGGoPackage from "../svg/SVGGoPackage"
+import SVGFaShippingFast from "../svg/SVGFaShippingFast"
+import SVGFaTruckLoading from "../svg/SVGFaTruckLoading"
 
 interface ServicesProps {
   className?: string;

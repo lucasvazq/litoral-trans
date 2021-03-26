@@ -2,10 +2,10 @@ import * as React from "react"
 
 import dynamic from "next/dynamic"
 
-const SVGInvertedWave1 = dynamic(() => import("../svg/SVGInvertedWave1"))
-const SVGInvertedWave2 = dynamic(() => import("../svg/SVGInvertedWave2"))
-const SVGInvertedWave3 = dynamic(() => import("../svg/SVGInvertedWave3"))
-const SVGWave = dynamic(() => import("../svg/SVGWave"))
+import SVGInvertedWave1 from "../svg/SVGInvertedWave1"
+import SVGInvertedWave2 from "../svg/SVGInvertedWave2"
+import SVGInvertedWave3 from "../svg/SVGInvertedWave3"
+import SVGWave from "../svg/SVGWave"
 
 interface WaveContainerProps {
   children: React.ReactNode | React.ReactNode[];

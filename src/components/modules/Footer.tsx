@@ -1,11 +1,9 @@
 import * as React from "react"
 
-import dynamic from "next/dynamic"
-
-const Paragraph = dynamic(() => import("../elements/Paragraph"))
-const Route = dynamic(() => import("../elements/Route"))
-const Section = dynamic(() => import("./Section"))
-const SVGFaShippingFast = dynamic(() => import("../svg/SVGFaShippingFast"))
+import Paragraph from "../elements/Paragraph"
+import Route from "../elements/Route"
+import Section from "./Section"
+import SVGFaShippingFast from "../svg/SVGFaShippingFast"
 
 class Footer extends React.Component {
   render() {

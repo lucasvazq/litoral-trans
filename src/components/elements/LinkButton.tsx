@@ -1,8 +1,6 @@
 import * as React from "react"
 
-import dynamic from "next/dynamic"
-
-const Route = dynamic(() => import("./Route"))
+import Route from "./Route"
 
 interface LinkButtonProps {
   href: string;
