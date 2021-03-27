@@ -131,7 +131,8 @@ class Map extends React.Component<MapProps, MapState> {
                   <g transform={`translate(${-this.getIconSize(pointData) / 2}, ${-this.getIconSize(pointData)})`}>
                     <this.props.markers.icon size={this.getIconSize(pointData)} fill={this.props.markers.fill} />
                     {/* Description at the side of the marker */}
-                    {pointData.name && pointData.namePosition === "left" ? (
+                    {pointData.name && pointData.namePosition === "left"
+? (
                       <text
                         y={this.getIconSize(pointData) / 1.15}
                         x={this.getIconSize(pointData)}
@@ -144,10 +145,12 @@ class Map extends React.Component<MapProps, MapState> {
                       >
                         {pointData.name}
                       </text>
-                    ) : null}
+                    )
+: null}
                   </g>
                   {/* Description at the top of the marker */}
-                  {pointData.name && pointData.namePosition === "top" ? (
+                  {pointData.name && pointData.namePosition === "top"
+? (
                     <>
                       <text
                         textAnchor="middle"
@@ -162,7 +165,8 @@ class Map extends React.Component<MapProps, MapState> {
                         {pointData.name}
                       </text>
                     </>
-                  ) : null}
+                  )
+: null}
                 </Marker>
               ))}
             </ZoomableGroup>
