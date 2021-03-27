@@ -47,7 +47,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
   render() {
     return (
-      <nav className="overflow-y-auto bg-primary shadow-lg fixed max-h-full w-full top-0 py-8 px-4 sm:px-8 z-2">
+      <nav className="overflow-y-auto bg-primary shadow-lg sticky max-h-full w-full top-0 py-8 px-4 sm:px-8 z-2">
         <div className="flex items-center justify-between h-8">
           <Route href="/" icon={FaShippingFast} description={process.env.name} className="text-xl sm:text-2xl" />
           <IconButton icon={HiMenuAlt3} ariaLabel="Expandir menú desplegable" onClick={() => this.setState({ menuIsActive: true })} className={`${this.state.menuIsActive ? "hidden" : ""}`} />

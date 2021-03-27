@@ -55,7 +55,7 @@ class Map extends React.Component<MapProps, MapState> {
   }
 
   handleMoveEnd = (config: { coordinates: Point, zoom: number }) => {
-    console.log(config)
+    // improve this
     this.setState({ coordinates: config.coordinates })
     this.setState({ zoom: config.zoom })
     this.handleLimits()

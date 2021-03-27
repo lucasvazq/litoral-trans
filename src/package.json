@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "del-cli --force .next && next build",
     "start": "next start",
     "export": "next export",
     "analyze": "source-map-explorer '.next/**/*.js'",
@@ -25,6 +25,7 @@
     "@types/react": "^17.0.2",
     "@types/react-simple-maps": "^1.0.3",
     "autoprefixer": "^10.2.5",
+    "del-cli": "^3.0.1",
     "next-unused": "0.0.6",
     "postcss": "^8.2.8",
     "postcss-import": "^14.0.0",

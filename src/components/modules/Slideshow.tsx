@@ -61,6 +61,17 @@ class Slideshow extends React.Component<SlideshowProps, SlideshowState> {
     ]
   }
 
+  componentDidMount() {
+    if (this.props.delay) {
+      setTimeout(
+        function () {
+          this.setState({ render: true })
+        }.bind(this),
+        this.props.delay
+      )
+    }
+  }
+
   getId = (index: number) => {
     return `slide${index}`
   }
@@ -76,27 +87,21 @@ class Slideshow extends React.Component<SlideshowProps, SlideshowState> {
     />
   )
 
-  componentDidMount() {
-    if (this.props.delay) {
-      setTimeout(
-        function () {
-          this.setState({ render: true })
-        }.bind(this),
-        this.props.delay
-      )
-    }
-  }
-
   render() {
-    if (this.props.delay && !this.state.render) {
+    // arreglar esto
+    if (this.props.delay && !this.state.render && false) {
       return (
-        <div className={`each-fade overflow-hidden select-none grid grid-cols-1 grid-rows-1 ${this.heightClasses} w-full max-w-full`}>
-          <div className={`bg-center bg-cover col-start-1 col-end-2 row-start-1 row-end-2 ${this.slides[0].className}`}/>
-          <div className="flex items-center justify-center col-start-1 col-end-2 row-start-1 row-end-2">
+        <div className={`overflow-hidden select-none ${this.heightClasses} w-full max-w-full`}>
+          <div className={`react-slideshow-container flex items-center justify-center bg-center bg-cover h-full w-full ${this.slides[0].className}`}>
             <div className="bg-dots p-2 sm:p-4">
               <Card className="bg-primary h-min-48 p-4 sm:p-8">{this.slides[0].slideContent}</Card>
             </div>
           </div>
+          <ul className="indicators">
+            {this.slides.map((_, index) => (
+              this.indicators(index)
+            ))}
+          </ul>
         </div>
       )
     }
