@@ -2,51 +2,47 @@ import * as React from "react"
 
 import { AiOutlineSafety } from "react-icons/ai"
 import { BsHouseDoor } from "react-icons/bs"
-import { FaTruckLoading, FaShippingFast } from "react-icons/fa"
+import { FaShippingFast, FaTruckLoading } from "react-icons/fa"
 import { GoPackage } from "react-icons/go"
 
-import { Label, LabelsContainer, Paragraph } from ".."
+import Card from "./Card"
+import Paragraph from "../elements/Paragraph"
+import SVGBlob1 from "../svg/SVGBlob1"
+import SVGBlob2 from "../svg/SVGBlob2"
 
-const services = [
-  { icon: GoPackage, description: "Encomiendas generales puerta a puerta" },
-  { icon: BsHouseDoor, description: "Retiro de mercadería en domicilio" },
-  { icon: AiOutlineSafety, description: "Gestión de contrareembolsos" },
-  { icon: FaShippingFast, description: "Redespacho a otras localidades" },
-  { icon: FaTruckLoading, description: "Entregas inmediatas una vez llegada a la localidad del destino" },
-]
+interface ServicesProps {
+  className?: string;
+}
 
-export const Services = () => (
-  <LabelsContainer>
-    {services.map((value, index) => {
-      const Icon = value.icon
-      return (
-        <Label key={index} className="bg-light min-h-64 max-w-2xs p-4">
-          <div>
-            <div className="mb-3 p-3">
-              <Icon className="text-5xl text-primary relative z-1" />
-            </div>
-            <div className="absolute h-40 w-40 -mt-36 -ml-11 pt-2">
-              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  fill={process.env.colorSecondary}
-                  d="M53.9,-17.3C61.6,6.4,54.1,35.2,37.4,46C20.8,56.9,-5,49.6,-22.8,35.7C-40.7,21.7,-50.5,1,-45.4,-19C-40.3,-39.1,-20.1,-58.5,1.5,-59C23.1,-59.5,46.1,-41,53.9,-17.3Z"
-                  transform="translate(100 100)"
-                />
-              </svg>
-            </div>
-            <div className="absolute h-44 w-44 -mt-36 -ml-11 pt-2">
-              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  fill={process.env.colorTerciary}
-                  d="M27.4,-20C33.2,-5.9,33.8,7,28.4,19.5C23,32,11.5,44.1,-5,47C-21.4,49.9,-42.8,43.5,-49.4,30.3C-55.9,17.2,-47.6,-2.8,-36.9,-19.7C-26.2,-36.7,-13.1,-50.8,-1.1,-50.1C10.8,-49.5,21.7,-34.1,27.4,-20Z"
-                  transform="translate(100 100)"
-                />
-              </svg>
-            </div>
-          </div>
-          <Paragraph className="text-center">{value.description}</Paragraph>
-        </Label>
-      )
-    })}
-  </LabelsContainer>
-)
+class Services extends React.Component<ServicesProps> {
+  services = [
+    { icon: GoPackage, description: "Encomiendas generales puerta a puerta" },
+    { icon: BsHouseDoor, description: "Retiro de mercadería en domicilio" },
+    { icon: AiOutlineSafety, description: "Gestión de contrareembolsos" },
+    { icon: FaShippingFast, description: "Redespacho a otras localidades" },
+    { icon: FaTruckLoading, description: "Entregas inmediatas una vez llegada a la localidad del destino" },
+  ]
+
+  render() {
+    return (
+      <div className={`flex flex-wrap justify-center text-center ${this.props.className || ""}`}>
+        {this.services.map((service, index) => {
+          return (
+            <Card key={index} className="bg-secondary-light w-60">
+              <div className="w-40 -mb-12">
+                <SVGBlob1 fill={process.env.colorPrimarySemiLight} />
+              </div>
+              <div className="w-44 -my-28 ml-4">
+                <SVGBlob2 fill={process.env.colorPrimaryLight} />
+              </div>
+              <service.icon className="text-5xl text-primary" />
+              <Paragraph className="text-secondary-semi-dark pt-12">{service.description}</Paragraph>
+            </Card>
+          )
+        })}
+      </div>
+    )
+  }
+}
+
+export default Services

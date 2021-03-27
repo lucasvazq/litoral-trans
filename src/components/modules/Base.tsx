@@ -1,12 +1,25 @@
 import * as React from "react"
 
-import { Footer, Header, Whatsapp } from ".."
+import Footer from "./Footer"
+import Header from "./Header"
+import Whatsapp from "./Whatsapp"
 
-export const Base = (props: { children: React.ReactNode | React.ReactNode[], items?: { path: string, id: string, description: string }[] }) => (
-  <>
-    <Header items={props.items} />
-    <Whatsapp />
-    <div className="mt-24">{props.children}</div>
-    <Footer />
-  </>
-)
+interface BaseProps {
+  children: React.ReactNode;
+  items?: { path: string, id: string, description: string }[];
+}
+
+class Base extends React.Component<BaseProps> {
+  render() {
+    return (
+      <>
+        <Header items={this.props.items} />
+        <Whatsapp />
+        {this.props.children}
+        <Footer />
+      </>
+    )
+  }
+}
+
+export default Base

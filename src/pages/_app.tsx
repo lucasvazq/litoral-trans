@@ -1,10 +1,10 @@
 import "../styles/styles.sass"
 
+import * as React from "react"
+
 import Head from "next/head"
 
 import { DefaultSeo } from "next-seo"
-
-import * as React from "react"
 
 const App = ({ Component, props }) => (
   <>

@@ -10,12 +10,18 @@ module.exports = {
     telPhoneNumber: "589638",
     whatsappMessage: "Hola, me gustaría realizar una consulta",
 
-    // colors in hex mode of pair values
+    // Colors in hex mode of pair values.
     colorPrimary: "#d71920",
-    colorSecondary: "#e35e63",
-    colorTerciary: "#ffc4c6",
-    colorDark: "#616161",
-    colorLight: "#ffffff",
-    colorGray: "#fafafa",
+    colorPrimaryLight: "#ffc4c6",
+    colorPrimarySemiLight: "#e35e63",
+    colorPrimarySemiDark: "#ca242b",
+    colorPrimaryDark: "#b7191f",
+    colorPrimaryDarker: "#90181d",
+    colorSecondary: "#f3f3f3",
+    colorSecondaryLight: "#ffffff",
+    colorSecondarySemiLight: "#fafafa",
+    colorSecondarySemiDark: "#686868",
+    colorSecondaryDark: "#1c1c1c",
+    colorSecondaryDarker: "#000000",
   },
 }

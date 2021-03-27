@@ -1,27 +1,27 @@
-import Link from "next/link"
-
 import * as React from "react"
 
-import { IconType } from "react-icons"
+import Link from "next/link"
 
-export const Route = (props: {
-  href: string,
-  className?: string,
-  onClick?: React.MouseEventHandler,
-  style?: { [key: string]: any },
-  description?: React.ReactNode | React.ReactNode[],
-  icon?: IconType,
-}) => {
-  return (
-    <div className="flex items-center">
-      <Link href={props.href}>
-        <a className={`font-sans inline-block ${props.className ? props.className : ""}`} onClick={props.onClick || null} style={props.style || null}>
-          <div className="break-word flex items-center">
-            {props.icon ? <props.icon className={`inline-block ${props.description ? "mr-1" : ""}`} /> : null}
-            {props.description}
-          </div>
+interface RouteProps {
+  href: string;
+  icon?: React.ComponentType<{ className?: string, fill?: string }>;
+  className?: string;
+  onClick?: React.MouseEventHandler;
+  ariaLabel?: string;
+  description?: string;
+}
+
+class Route extends React.Component<RouteProps> {
+  render() {
+    return (
+      <Link href={this.props.href}>
+        <a className={`focus:outline-none font-semibold text-sm sm:text-base break-word ${this.props.className || ""}`} onClick={this.props.onClick} aria-label={this.props.ariaLabel}>
+          {this.props.icon ? <this.props.icon className={`inline-block ${this.props.description ? "mr-1" : ""}`} /> : null}
+          {this.props.description}
         </a>
       </Link>
-    </div>
-  )
+    )
+  }
 }
+
+export default Route

@@ -6,63 +6,90 @@ import { MdEmail } from "react-icons/md"
 import { RiArrowDropRightLine } from "react-icons/ri"
 import { VscClose } from "react-icons/vsc"
 
-import { Button, Route } from ".."
+import IconButton from "../elements/IconButton"
+import LinkButton from "../elements/LinkButton"
+import Route from "../elements/Route"
+import Ul from "../elements/Ul"
 
-export const Header = (props: { items?: { path: string, id: string, description: string }[] }) => {
-  /* Handle menu visibility */
-  const hiddenMenu: React.RefObject<HTMLDivElement> = React.createRef()
-  const [menuIsActive, setMenuIsActive] = React.useState(false)
-  React.useEffect(() => {
-    const node = hiddenMenu.current
-    if (menuIsActive) {
-      node.classList.remove("hidden")
+interface HeaderProps {
+  items?: { path: string, id: string, description: string }[];
+}
+
+interface HeaderState {
+  menuIsActive: boolean;
+}
+
+class Header extends React.Component<HeaderProps, HeaderState> {
+  menuRef: React.RefObject<any>
+  node: HTMLDivElement
+
+  constructor(props: HeaderProps) {
+    super(props)
+    this.menuRef = React.createRef()
+    this.state = {
+      menuIsActive: false,
     }
-    setTimeout(() => {
-      if (menuIsActive) {
-        node.classList.remove("hidden")
-      } else {
-        node.classList.add("hidden")
-      }
-    }, 100)
-  }, [menuIsActive])
+  }
 
-  return (
-    <nav className="bg-primary shadow-lg text-light fixed w-full top-0 z-2">
-      <div className="my-8 mx-4 sm:mx-8">
-        <div className="flex justify-between">
-          <Route href="/" description={process.env.name} icon={FaShippingFast} className="font-semibold text-xl" />
-          <button onClick={() => setMenuIsActive(!menuIsActive)} className="text-3xl flex items-center h-8 w-8">
-            <HiMenuAlt3 className={`${menuIsActive ? "hidden" : ""}`} />
-            <VscClose className={`${menuIsActive ? "" : "hidden"}`} />
-          </button>
+  componentDidMount() {
+    this.node = this.menuRef.current
+  }
+
+  componentDidUpdate(_: HeaderProps, prevState: HeaderState) {
+    if (prevState.menuIsActive !== this.state.menuIsActive) {
+      if (this.state.menuIsActive) {
+        this.node.classList.remove("hidden")
+      } else {
+        this.node.classList.add("hidden")
+      }
+    }
+  }
+
+  render() {
+    return (
+      <nav className="overflow-y-auto bg-primary shadow-lg sticky max-h-full w-full top-0 py-8 px-4 sm:px-8 z-2">
+        <div className="flex items-center justify-between h-8">
+          <Route href="/" icon={FaShippingFast} description={process.env.name} className="text-xl sm:text-2xl" />
+          <IconButton
+            icon={this.state.menuIsActive ? HiMenuAlt3 : VscClose}
+            ariaLabel={this.state.menuIsActive ? "Expandir menú desplegable" : "Cerrar menú desplegable"}
+            onClick={() => this.setState({ menuIsActive: !this.state.menuIsActive })}
+            className={`${this.state.menuIsActive ? "hidden" : ""}`}
+          />
         </div>
-        <div ref={hiddenMenu} className={`${menuIsActive ? "" : "hidden"}`}>
-          {/* Custom items */}
-          <ul className="list-reset font-semibold text-lg flex-1 items-center justify-end mt-4 mb-6">
-            {props.items
-              ? Object.values(props.items).map((item, index) => (
-                  <li key={index}>
-                    <Route icon={RiArrowDropRightLine} href={`${item.path}${item.id}`} description={item.description} onClick={() => setMenuIsActive(!menuIsActive)} />
+        <div ref={this.menuRef} className={`${this.state.menuIsActive ? "" : "hidden"}`} aria-hidden={this.state.menuIsActive}>
+          <Ul className={this.props.items ? "pt-4" : ""}>
+            {/* Custom items */}
+            {this.props.items
+              ? Object.values(this.props.items).map((item, index) => (
+                  <li key={index} className="flex">
+                    <Route
+                      href={`${item.path}${item.id}`}
+                      icon={RiArrowDropRightLine}
+                      description={item.description}
+                      onClick={() => this.setState({ menuIsActive: false })}
+                      className="text-lg sm:text-xl hover:text-primary-darker"
+                    />
                   </li>
                 ))
               : null}
-          </ul>
 
-          {/* Default items */}
-          <ul className="list-reset text-md flex-1 items-center justify-end">
-            <li className="mb-2">
-              <Button href={`mailto:${process.env.email}`} icon={MdEmail} description={process.env.email} />
+            {/* Default items */}
+            <li className="text-md flex justify-center pt-6">
+              <LinkButton href={`mailto:${process.env.email}`} icon={MdEmail} description={process.env.email} />
             </li>
-            <li>
-              <Button
+            <li className="text-md flex justify-center pt-2">
+              <LinkButton
                 href={`tel:+${process.env.telCountryCode}${process.env.telAreaCode}${process.env.telPhoneNumber}`}
                 icon={HiPhone}
                 description={`+${process.env.telCountryCode} ${process.env.telAreaCode} ${process.env.telPhoneNumber}`}
               />
             </li>
-          </ul>
+          </Ul>
         </div>
-      </div>
-    </nav>
-  )
+      </nav>
+    )
+  }
 }
+
+export default Header

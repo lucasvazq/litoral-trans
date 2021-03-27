@@ -1,3 +1,13 @@
 import * as React from "react"
 
-export const Id = (props: { id: string }) => <div id={props.id} className="mb-32 -mt-24"></div>
+interface IdProps {
+  id: string;
+}
+
+class Id extends React.Component<IdProps> {
+  render() {
+    return <div id={this.props.id} className="absolute -my-36" />
+  }
+}
+
+export default Id
