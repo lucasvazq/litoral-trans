@@ -2,7 +2,7 @@ import * as React from "react"
 
 import { AiOutlineSafety } from "react-icons/ai"
 import { BsHouseDoor } from "react-icons/bs"
-import { FaShippingFast, FaTruckLoading} from "react-icons/fa"
+import { FaShippingFast, FaTruckLoading } from "react-icons/fa"
 import { GoPackage } from "react-icons/go"
 
 import Card from "./Card"
@@ -28,7 +28,7 @@ class Services extends React.Component<ServicesProps> {
       <div className={`flex flex-wrap justify-center text-center ${this.props.className || ""}`}>
         {this.services.map((service, index) => {
           return (
-            <Card key={index} className="bg-secondary-light w-64">
+            <Card key={index} className="bg-secondary-light w-60">
               <div className="w-40 -mb-12">
                 <SVGBlob1 fill={process.env.colorPrimarySemiLight} />
               </div>

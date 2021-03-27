@@ -2,9 +2,9 @@ import * as React from "react"
 
 import { FaShippingFast } from "react-icons/fa"
 
+import Section from "./Section"
 import Paragraph from "../elements/Paragraph"
 import Route from "../elements/Route"
-import Section from "./Section"
 
 class Footer extends React.Component {
   render() {

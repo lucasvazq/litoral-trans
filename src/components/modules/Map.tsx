@@ -1,11 +1,10 @@
 import * as React from "react"
 
-import { ComposableMap, Geographies, Geography, Marker, Point, ZoomableGroup } from "react-simple-maps"
-
 import { FaMinusSquare, FaPlusSquare } from "react-icons/fa"
 
-import IconButton from "../elements/IconButton"
+import { ComposableMap, Geographies, Geography, Marker, Point, ZoomableGroup } from "react-simple-maps"
 
+import IconButton from "../elements/IconButton"
 
 interface PointData {
   coordinates: Point;

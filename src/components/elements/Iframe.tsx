@@ -1,5 +1,7 @@
 import * as React from "react"
 
+import Paragraph from "./Paragraph"
+
 interface IframeProps {
   src: string;
   title?: string;
@@ -7,6 +9,8 @@ interface IframeProps {
   width?: number;
   className?: string;
   delay?: number;
+  delayClasses: string;
+  delayMessage: string;
 }
 
 interface IframeState {
@@ -22,19 +26,21 @@ class Iframe extends React.Component<IframeProps, IframeState> {
   }
 
   componentDidMount() {
-    if (this.props.delay) {
-      setTimeout(
-        function () {
-          this.setState({ render: true })
-        }.bind(this),
-        this.props.delay
-      )
-    }
+    setTimeout(
+      function () {
+        this.setState({ render: true })
+      }.bind(this),
+      this.props.delay
+    )
   }
 
   render() {
     if (this.props.delay && !this.state.render) {
-      return <div className={this.props.className} />
+      return (
+        <div className={`flex items-center justify-center ${this.props.delayClasses || ""}`}>
+          <Paragraph className="font-semibold text-primary">{this.props.delayMessage}</Paragraph>
+        </div>
+      )
     }
     return <iframe src={this.props.src} title={this.props.title} height={this.props.height} width={this.props.width} className={this.props.className} loading="lazy" />
   }

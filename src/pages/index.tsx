@@ -43,14 +43,14 @@ class RootView extends React.Component {
         />
         <Base items={Object.values(this.items)}>
           {/* Slide */}
-          <Slideshow delay={1000000}/>
+          <Slideshow />
 
           {/* Presentation */}
           <WavesSection className="bg-primary">
             <div className="flex items-center justify-center min-h-20">
               <Paragraph className="md:text-lg text-center">
-                {`${process.env.name} es una empresa de transporte `}
-                familiar con más de 30 años de trayectoria.
+                <span className="sm:block">{`${process.env.name} es una empresa de transporte `}</span>
+                <span className="sm:block">familiar con más de 30 años de trayectoria.</span>
               </Paragraph>
             </div>
           </WavesSection>
@@ -92,7 +92,15 @@ class RootView extends React.Component {
           <Section>
             <H2 className="text-primary">LOCALIDADES</H2>
             <div className="overflow-hidden flex justify-center max-w-full pt-8">
-              <Iframe title="Mapa de localidades" src="/map" className="h-340px sm:h-440px w-300px sm:w-400px" delay={2000} />
+              {/* Background class only for delay */}
+              <Iframe
+                title="Mapa de localidades"
+                src="/map"
+                className="h-340px sm:h-440px w-300px sm:w-400px"
+                delay={5000}
+                delayMessage="Cargando Mapa"
+                delayClasses="bg-secondary h-340px sm:h-440px w-300px sm:w-400px"
+              />
             </div>
           </Section>
 

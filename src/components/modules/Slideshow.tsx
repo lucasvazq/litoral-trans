@@ -13,7 +13,6 @@ interface SlideshowProps {
 
 interface SlideshowState {
   nextIndex: number;
-  render: boolean
 }
 
 class Slideshow extends React.Component<SlideshowProps, SlideshowState> {
@@ -33,7 +32,6 @@ class Slideshow extends React.Component<SlideshowProps, SlideshowState> {
 
     this.state = {
       nextIndex: 0,
-      render: false,
     }
 
     this.slides = [
@@ -61,26 +59,13 @@ class Slideshow extends React.Component<SlideshowProps, SlideshowState> {
     ]
   }
 
-  componentDidMount() {
-    if (this.props.delay) {
-      setTimeout(
-        function () {
-          this.setState({ render: true })
-        }.bind(this),
-        this.props.delay
-      )
-    }
-  }
-
   getId = (index: number) => {
     return `slide${index}`
   }
 
   indicators = (actualIndex: number) => (
     <li
-      className={`cursor-pointer rounded-full shadow-strong h-2 w-2 hover:opacity-90 ${
-        (!this.state.nextIndex && actualIndex === 0) || this.state.nextIndex === actualIndex ? "bg-primary opacity-100" : "bg-secondary-light opacity-40"
-      }`}
+      className={`cursor-pointer rounded-full shadow-strong h-2 w-2 hover:opacity-90 ${this.state.nextIndex === actualIndex ? "bg-primary opacity-100" : "bg-secondary-light opacity-40"}`}
       aria-labelledby={this.getId(actualIndex)}
       // Custom styles from react-slideshow-image have more priority than tailwind classes.
       style={{ marginTop: "-8rem", marginLeft: "0.25rem", marginRight: "0.25rem" }}
@@ -88,23 +73,6 @@ class Slideshow extends React.Component<SlideshowProps, SlideshowState> {
   )
 
   render() {
-    // arreglar esto
-    if (this.props.delay && !this.state.render && false) {
-      return (
-        <div className={`overflow-hidden select-none ${this.heightClasses} w-full max-w-full`}>
-          <div className={`react-slideshow-container flex items-center justify-center bg-center bg-cover h-full w-full ${this.slides[0].className}`}>
-            <div className="bg-dots p-2 sm:p-4">
-              <Card className="bg-primary h-min-48 p-4 sm:p-8">{this.slides[0].slideContent}</Card>
-            </div>
-          </div>
-          <ul className="indicators">
-            {this.slides.map((_, index) => (
-              this.indicators(index)
-            ))}
-          </ul>
-        </div>
-      )
-    }
     return (
       <>
         <div className="hidden">
@@ -118,17 +86,13 @@ class Slideshow extends React.Component<SlideshowProps, SlideshowState> {
           transitionDuration={500}
           indicators={this.indicators}
           onChange={(_: number, next: number) => this.setState({ nextIndex: next })}
-          className={`overflow-hidden ${this.heightClasses}`}
-          autoplay={false}
+          className={`overflow-hidden select-none ${this.heightClasses}`}
           duration={7500}
         >
           {this.slides.map((slide, index) => (
-            <div key={index} className={`each-fade overflow-hidden select-none grid grid-cols-1 grid-rows-1 ${this.heightClasses}`}>
-              <div className={`bg-center bg-cover col-start-1 col-end-2 row-start-1 row-end-2 ${slide.className}`} />
-              <div className="flex items-center justify-center col-start-1 col-end-2 row-start-1 row-end-2">
-                <div className="bg-dots p-2 sm:p-4">
-                  <Card className="bg-primary p-4 sm:p-8">{slide.slideContent}</Card>
-                </div>
+            <div key={index} className={`overflow-hidden bg-center bg-cover flex items-center justify-center w-full ${this.heightClasses} ${slide.className}`}>
+              <div className="bg-dots p-2 sm:p-4">
+                <Card className="bg-primary p-4 sm:p-8 -mt-12">{slide.slideContent}</Card>
               </div>
             </div>
           ))}

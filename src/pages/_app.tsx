@@ -4,7 +4,7 @@ import * as React from "react"
 
 import Head from "next/head"
 
-import SEO from "../components/modules/SEO"
+import { DefaultSeo } from "next-seo"
 
 const App = ({ Component, props }) => (
   <>
@@ -18,7 +18,7 @@ const App = ({ Component, props }) => (
       <meta name="robots" content="index, follow" />
       <meta name="author" content="Lucas Vazquez" />
     </Head>
-    <SEO titleTemplate={`${process.env.name} | %s`} />
+    <DefaultSeo titleTemplate={`${process.env.name} | %s`} />
     <Component {...props} />
   </>
 )

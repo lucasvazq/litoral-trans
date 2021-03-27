@@ -5,9 +5,10 @@
   "main": "index.ts",
   "scripts": {
     "dev": "next dev",
-    "build": "del-cli --force .next && next build",
+    "build": "next build",
     "start": "next start",
     "export": "next export",
+    "clean": "del-cli --force .next",
     "analyze": "source-map-explorer '.next/**/*.js'",
     "unused": "next-unused"
   },
