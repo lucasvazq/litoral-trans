@@ -95,7 +95,7 @@ class RootView extends React.Component {
               {/* Background class only for delay */}
               <Iframe
                 title="Mapa de localidades"
-                src="/map"
+                src="/map/"
                 className="h-340px sm:h-440px w-300px sm:w-400px"
                 delay={3000}
                 delayMessage="Cargando Mapa"
