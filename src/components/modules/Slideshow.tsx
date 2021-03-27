@@ -22,7 +22,7 @@ class Slideshow extends React.Component<SlideshowProps, SlideshowState> {
     slide_2: ["SOLUCIONES DE LOGÍSTICA", "BRINDADA POR SUS DUEÑOS", "DISFRUTADA POR SUS CLIENTES"],
   }
   slides: {
-    slideContent: React.ReactNode | React.ReactNode[],
+    slideContent: React.ReactNode,
     className: string,
     description: string,
   }[]

@@ -1,7 +1,7 @@
 import * as React from "react"
 
 interface H3Props {
-  children: React.ReactNode | React.ReactNode[];
+  children: React.ReactNode;
   className?: string;
 }
 

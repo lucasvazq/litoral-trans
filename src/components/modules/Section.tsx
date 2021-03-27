@@ -1,7 +1,7 @@
 import * as React from "react"
 
 interface SectionProps {
-  children: React.ReactNode | React.ReactNode[];
+  children: React.ReactNode;
   className?: string;
 }
 

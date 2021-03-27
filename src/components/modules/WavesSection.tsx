@@ -6,13 +6,13 @@ import SVGInvertedWave3 from "../svg/SVGInvertedWave3"
 import SVGWave from "../svg/SVGWave"
 
 interface WaveContainerProps {
-  children: React.ReactNode | React.ReactNode[];
+  children: React.ReactNode;
   isInverted: boolean;
   isMain: boolean;
 }
 
 interface WavesSectionProps {
-  children: React.ReactNode | React.ReactNode[];
+  children: React.ReactNode;
   className?: string;
 }
 

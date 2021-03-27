@@ -5,7 +5,7 @@ import Header from "./Header"
 import Whatsapp from "./Whatsapp"
 
 interface BaseProps {
-  children: React.ReactNode | React.ReactNode[];
+  children: React.ReactNode;
   items?: { path: string, id: string, description: string }[];
 }
 
