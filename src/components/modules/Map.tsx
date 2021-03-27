@@ -1,7 +1,5 @@
 import * as React from "react"
 
-import dynamic from "next/dynamic"
-
 import { FaMinusSquare, FaPlusSquare } from "react-icons/fa"
 
 import { ComposableMap, Geographies, Geography, Marker, Point, ZoomableGroup } from "react-simple-maps"
