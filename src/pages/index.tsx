@@ -4,8 +4,10 @@ import dynamic from "next/dynamic"
 
 import { NextSeo } from "next-seo"
 
-import Base from "../components/modules/Base"
+import { HiPhone } from "react-icons/hi"
+import { MdEmail } from "react-icons/md"
 
+import Base from "../components/modules/Base"
 import H2 from "../components/elements/H2"
 import H3 from "../components/elements/H3"
 import Id from "../components/elements/Id"
@@ -16,9 +18,7 @@ import Clients from "../components/modules/Clients"
 import Section from "../components/modules/Section"
 import Services from "../components/modules/Services"
 import WavesSection from "../components/modules/WavesSection"
-import SVGHiPhone from "../components/svg/SVGHiPhone"
 import SVGLineWave from "../components/svg/SVGLineWave"
-import SVGMdEmail from "../components/svg/SVGMdEmail"
 
 const Slideshow = dynamic(() => import("../components/modules/Slideshow"))
 
@@ -49,8 +49,8 @@ class RootView extends React.Component {
           <WavesSection className="bg-primary">
             <div className="flex items-center justify-center min-h-20">
               <Paragraph className="md:text-lg text-center">
-                <span className="sm:block">{`${process.env.name} es una empresa de transporte `}</span>
-                <span className="sm:block">familiar con más de 30 años de trayectoria.</span>
+                {`${process.env.name} es una empresa de transporte `}
+                familiar con más de 30 años de trayectoria.
               </Paragraph>
             </div>
           </WavesSection>
@@ -72,11 +72,11 @@ class RootView extends React.Component {
                 <Paragraph>Calle 14 de Julio, nº 270</Paragraph>
                 <LinkButton
                   href={`tel:+${process.env.telCountryCode}${process.env.telAreaCode}${process.env.telPhoneNumber}`}
-                  icon={SVGHiPhone}
+                  icon={HiPhone}
                   description={`+${process.env.telCountryCode} ${process.env.telAreaCode} ${process.env.telPhoneNumber}`}
                   className="mt-3"
                 />
-                <LinkButton href={`mailto:${process.env.email}`} icon={SVGMdEmail} description={process.env.email} className="mt-3" />
+                <LinkButton href={`mailto:${process.env.email}`} icon={MdEmail} description={process.env.email} className="mt-3" />
               </div>
               <div className="pt-4 sm:pbt-0">
                 <Paragraph className="font-bold">LUNES A VIERNES</Paragraph>

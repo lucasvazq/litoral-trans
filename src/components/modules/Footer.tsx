@@ -1,9 +1,10 @@
 import * as React from "react"
 
+import { FaShippingFast } from "react-icons/fa"
+
 import Paragraph from "../elements/Paragraph"
 import Route from "../elements/Route"
 import Section from "./Section"
-import SVGFaShippingFast from "../svg/SVGFaShippingFast"
 
 class Footer extends React.Component {
   render() {
@@ -14,7 +15,7 @@ class Footer extends React.Component {
           <div className="grid grid-cols-2 grid-rows-1 md:divide-x-2 w-full max-w-200">
             <div className="text-center hidden md:flex flex-col items-center justify-center col-start-1 col-end-2 row-start-1 row-end-2">
               <Paragraph className="font-bold text-4xl">
-                <SVGFaShippingFast className="inline-block mr-1" /> Litoral Trans
+                <FaShippingFast className="inline-block mr-1" /> Litoral Trans
               </Paragraph>
               <Paragraph className="text-base text-lg">{process.env.slogan}</Paragraph>
             </div>

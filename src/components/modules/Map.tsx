@@ -2,9 +2,10 @@ import * as React from "react"
 
 import { ComposableMap, Geographies, Geography, Marker, Point, ZoomableGroup } from "react-simple-maps"
 
+import { FaMinusSquare, FaPlusSquare } from "react-icons/fa"
+
 import IconButton from "../elements/IconButton"
-import SVGFaMinusSquare from "../svg/SVGFaMinusSquare"
-import SVGFaPlusSquare from "../svg/SVGFaPlusSquare"
+
 
 interface PointData {
   coordinates: Point;
@@ -179,8 +180,8 @@ class Map extends React.Component<MapProps, MapState> {
 
         {/* Buttons */}
         <div className="text-32px text-primary flex flex-row justify-center w-full pt-8px">
-          <IconButton icon={SVGFaMinusSquare} ariaLabel="Reducir Zoom" onClick={this.handleZoomOut} className="mr-2 hover:text-primary-darker" />
-          <IconButton icon={SVGFaPlusSquare} ariaLabel="Aumentar Zoom" onClick={this.handleZoomIn} className="hover:text-primary-darker" />
+          <IconButton icon={FaMinusSquare} ariaLabel="Reducir Zoom" onClick={this.handleZoomOut} className="mr-2 hover:text-primary-darker" />
+          <IconButton icon={FaPlusSquare} ariaLabel="Aumentar Zoom" onClick={this.handleZoomIn} className="hover:text-primary-darker" />
         </div>
       </>
     )

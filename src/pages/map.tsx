@@ -1,10 +1,10 @@
 import * as React from "react"
 
-import Map from "../components/modules/Map"
-
 import { Point } from "react-simple-maps"
 
 import { IoLocationSharp } from "react-icons/io5"
+
+import Map from "../components/modules/Map"
 import { mixHexColors } from "../components/utils"
 
 class MapView extends React.Component {

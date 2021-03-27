@@ -1,14 +1,14 @@
 import * as React from "react"
 
+import { AiOutlineSafety } from "react-icons/ai"
+import { BsHouseDoor } from "react-icons/bs"
+import { FaShippingFast, FaTruckLoading} from "react-icons/fa"
+import { GoPackage } from "react-icons/go"
+
 import Card from "./Card"
 import Paragraph from "../elements/Paragraph"
-import SVGAiOutlineSafety from "../svg/SVGAiOutlineSafety"
 import SVGBlob1 from "../svg/SVGBlob1"
 import SVGBlob2 from "../svg/SVGBlob2"
-import SVGBsHouseDoor from "../svg/SVGBsHouseDoor"
-import SVGGoPackage from "../svg/SVGGoPackage"
-import SVGFaShippingFast from "../svg/SVGFaShippingFast"
-import SVGFaTruckLoading from "../svg/SVGFaTruckLoading"
 
 interface ServicesProps {
   className?: string;
@@ -16,11 +16,11 @@ interface ServicesProps {
 
 class Services extends React.Component<ServicesProps> {
   services = [
-    { icon: SVGGoPackage, description: "Encomiendas generales puerta a puerta" },
-    { icon: SVGBsHouseDoor, description: "Retiro de mercadería en domicilio" },
-    { icon: SVGAiOutlineSafety, description: "Gestión de contrareembolsos" },
-    { icon: SVGFaShippingFast, description: "Redespacho a otras localidades" },
-    { icon: SVGFaTruckLoading, description: "Entregas inmediatas una vez llegada a la localidad del destino" },
+    { icon: GoPackage, description: "Encomiendas generales puerta a puerta" },
+    { icon: BsHouseDoor, description: "Retiro de mercadería en domicilio" },
+    { icon: AiOutlineSafety, description: "Gestión de contrareembolsos" },
+    { icon: FaShippingFast, description: "Redespacho a otras localidades" },
+    { icon: FaTruckLoading, description: "Entregas inmediatas una vez llegada a la localidad del destino" },
   ]
 
   render() {
