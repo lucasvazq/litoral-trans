@@ -35,4 +35,3 @@ include:
   # ./_next/static/chunks/pages
   - _error-*.js
   - _app-*.js
-  - _app-*.map

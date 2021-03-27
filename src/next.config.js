@@ -1,5 +1,4 @@
 module.exports = {
-  productionBrowserSourceMaps: true,
   env: {
     GTM: "GTM-NGGH6LK",
     url: "https://litoral-trans.com.ar/",
