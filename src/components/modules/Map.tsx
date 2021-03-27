@@ -1,5 +1,7 @@
 import * as React from "react"
 
+import dynamic from "next/dynamic"
+
 import { FaMinusSquare, FaPlusSquare } from "react-icons/fa"
 
 import { ComposableMap, Geographies, Geography, Marker, Point, ZoomableGroup } from "react-simple-maps"
@@ -41,22 +43,14 @@ class Map extends React.Component<MapProps, MapState> {
     }
   }
 
-  handleZoomIn = () => {
-    if (this.state.zoom * 1.5 >= this.props.maxZoom) return
-    this.setState({ zoom: this.state.zoom * 1.5 })
-    this.handleLimits()
-  }
-
-  handleZoomOut = () => {
-    if (this.state.zoom / 1.5 <= this.props.minZoom) return
-    this.setState({ zoom: this.state.zoom / 1.5 })
+  changeZoom = (newZoom) => {
+    if (!(this.props.maxZoom >= newZoom && newZoom >= this.props.minZoom)) return
+    this.setState({ zoom: newZoom })
     this.handleLimits()
   }
 
   handleMoveEnd = (config: { coordinates: Point, zoom: number }) => {
-    // improve this
-    this.setState({ coordinates: config.coordinates })
-    this.setState({ zoom: config.zoom })
+    this.setState(config)
     this.handleLimits()
   }
 
@@ -85,7 +79,7 @@ class Map extends React.Component<MapProps, MapState> {
   getFontSize = (pointData: PointData) => {
     return (
       (pointData.fontSizeInit || 1) +
-      (pointData.fontSizeEnd || 0 - pointData.fontSizeInit || 0) *
+      ((pointData.fontSizeEnd || 0) - (pointData.fontSizeInit || 0)) *
         (((pointData.minZoom || this.props.minZoom) - this.state.zoom) / ((pointData.minZoom || this.props.minZoom) - (pointData.maxZoom || this.props.maxZoom)))
     )
   }
@@ -134,7 +128,7 @@ class Map extends React.Component<MapProps, MapState> {
                 <Marker
                   key={index}
                   coordinates={pointData.coordinates}
-                  opacity={this.state.zoom > (pointData.minZoom || this.state.zoom - 1) && this.state.zoom < (pointData.maxZoom || this.state.zoom + 1) ? 1 : 0}
+                  opacity={(pointData.maxZoom || this.state.zoom + 1) > this.state.zoom && this.state.zoom > (pointData.minZoom || this.state.zoom - 1) ? 1 : 0}
                 >
                   <g transform={`translate(${-this.getIconSize(pointData) / 2}, ${-this.getIconSize(pointData)})`}>
                     <this.props.markers.icon size={this.getIconSize(pointData)} fill={this.props.markers.fill} />
@@ -179,8 +173,8 @@ class Map extends React.Component<MapProps, MapState> {
 
         {/* Buttons */}
         <div className="text-32px text-primary flex flex-row justify-center w-full pt-8px">
-          <IconButton icon={FaMinusSquare} ariaLabel="Reducir Zoom" onClick={this.handleZoomOut} className="mr-2 hover:text-primary-darker" />
-          <IconButton icon={FaPlusSquare} ariaLabel="Aumentar Zoom" onClick={this.handleZoomIn} className="hover:text-primary-darker" />
+          <IconButton icon={FaMinusSquare} ariaLabel="Reducir Zoom" onClick={() => this.changeZoom(this.state.zoom / 1.5)} className="mr-2 hover:text-primary-darker" />
+          <IconButton icon={FaPlusSquare} ariaLabel="Aumentar Zoom" onClick={() => this.changeZoom(this.state.zoom * 1.5)} className="hover:text-primary-darker" />
         </div>
       </>
     )

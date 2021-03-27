@@ -57,7 +57,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             className={`${this.state.menuIsActive ? "hidden" : ""}`}
           />
         </div>
-        <div ref={this.menuRef} className={`${this.state.menuIsActive ? "" : "hidden"}`} aria-hidden={menuIsActive}>
+        <div ref={this.menuRef} className={`${this.state.menuIsActive ? "" : "hidden"}`} aria-hidden={this.state.menuIsActive}>
           <Ul className={this.props.items ? "pt-4" : ""}>
             {/* Custom items */}
             {this.props.items
