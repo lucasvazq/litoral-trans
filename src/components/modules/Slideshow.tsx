@@ -16,16 +16,16 @@ interface SlideshowState {
 }
 
 class Slideshow extends React.Component<SlideshowProps, SlideshowState> {
-  heightClasses = "h-60vh min-h-120"
-  descriptions = {
-    slide_1: ["LA MEJOR MANERA", "PARA ENVIAR TUS PAQUETES"],
-    slide_2: ["SOLUCIONES DE LOGÍSTICA", "BRINDADA POR SUS DUEÑOS", "DISFRUTADA POR SUS CLIENTES"],
-  }
   slides: {
     slideContent: React.ReactNode,
     className: string,
     description: string,
   }[]
+  heightClasses = "h-60vh min-h-120"
+  descriptions = {
+    slide_1: ["LA MEJOR MANERA", "PARA ENVIAR TUS PAQUETES"],
+    slide_2: ["SOLUCIONES DE LOGÍSTICA", "BRINDADA POR SUS DUEÑOS", "DISFRUTADA POR SUS CLIENTES"],
+  }
 
   constructor(props: SlideshowProps) {
     super(props)
@@ -91,8 +91,8 @@ class Slideshow extends React.Component<SlideshowProps, SlideshowState> {
         >
           {this.slides.map((slide, index) => (
             <div key={index} className={`overflow-hidden bg-center bg-cover flex items-center justify-center w-full ${this.heightClasses} ${slide.className}`}>
-              <div className="bg-dots p-2 sm:p-4">
-                <Card className="bg-primary p-4 sm:p-8 -mt-12">{slide.slideContent}</Card>
+              <div className="bg-dots p-2 sm:p-4 -mt-12">
+                <Card className="bg-primary p-4 sm:p-8">{slide.slideContent}</Card>
               </div>
             </div>
           ))}
