@@ -14,9 +14,6 @@
         background: radial-gradient(rgba(0, 0, 0, 0.3) 1px, transparent 0)
         background-size: 10px 10px
 
-    .greyscale
-        filter: grayscale(100%)
-
     .slide_1
         background-image: url(/images/slide/slide_1_639.webp)
         @screen sm
@@ -34,3 +31,11 @@
             background-image: url(/images/slide/slide_2_1023.webp)
         @screen lg
             background-image: url(/images/slide/slide_2_1279.webp)
+
+    @variants hover
+
+        .filter-none
+            filter: none
+
+        .filter-greyscale
+            filter: grayscale(100%)

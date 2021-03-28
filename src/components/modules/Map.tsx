@@ -4,7 +4,7 @@ import { FaMinusSquare, FaPlusSquare } from "react-icons/fa"
 
 import { ComposableMap, Geographies, Geography, Marker, Point, ZoomableGroup } from "react-simple-maps"
 
-import IconButton from "../elements/IconButton"
+import InteractiveButton from "../elements/InteractiveButton"
 
 interface PointData {
   coordinates: Point;
@@ -90,7 +90,7 @@ class Map extends React.Component<MapProps, MapState> {
     return (
       <>
         <div className="bg-secondary w-full h-full">
-          {/* Main map */}
+          {/* Main map. */}
           <ComposableMap projection="geoMercator" width={600} height={600}>
             <ZoomableGroup
               zoom={this.state.zoom}
@@ -102,7 +102,7 @@ class Map extends React.Component<MapProps, MapState> {
               // https://github.com/zcreativelabs/react-simple-maps/issues/253
               className=""
             >
-              {/* Geographies */}
+              {/* Geographies. */}
               {this.props.layers.map((layer, index) => (
                 <Geographies key={index} geography={layer.file} strokeWidth={layer.size * (this.props.initialZoom / this.state.zoom)} stroke={layer.fill} style={{ pointerEvents: "none" }}>
                   {({ geographies }) =>
@@ -121,7 +121,7 @@ class Map extends React.Component<MapProps, MapState> {
                 </Geographies>
               ))}
 
-              {/* Markers */}
+              {/* Markers. */}
               {this.props.markers.points.map((pointData, index) => (
                 <Marker
                   key={index}
@@ -130,7 +130,7 @@ class Map extends React.Component<MapProps, MapState> {
                 >
                   <g transform={`translate(${-this.getIconSize(pointData) / 2}, ${-this.getIconSize(pointData)})`}>
                     <this.props.markers.icon size={this.getIconSize(pointData)} fill={this.props.markers.fill} />
-                    {/* Description at the side of the marker */}
+                    {/* Description at the side of the marker. */}
                     {pointData.name && pointData.namePosition === "left" ? (
                       <text
                         y={this.getIconSize(pointData) / 1.15}
@@ -146,7 +146,7 @@ class Map extends React.Component<MapProps, MapState> {
                       </text>
                     ) : null}
                   </g>
-                  {/* Description at the top of the marker */}
+                  {/* Description at the top of the marker. */}
                   {pointData.name && pointData.namePosition === "top" ? (
                     <>
                       <text
@@ -169,10 +169,10 @@ class Map extends React.Component<MapProps, MapState> {
           </ComposableMap>
         </div>
 
-        {/* Buttons */}
+        {/* Buttons. */}
         <div className="text-32px text-primary flex flex-row justify-center w-full pt-8px">
-          <IconButton icon={FaMinusSquare} ariaLabel="Reducir Zoom" onClick={() => this.changeZoom(this.state.zoom / 1.5)} className="mr-2 hover:text-primary-darker" />
-          <IconButton icon={FaPlusSquare} ariaLabel="Aumentar Zoom" onClick={() => this.changeZoom(this.state.zoom * 1.5)} className="hover:text-primary-darker" />
+          <InteractiveButton icon={FaMinusSquare} ariaLabel="Reducir Zoom" onClick={() => this.changeZoom(this.state.zoom / 1.5)} className="mr-2 hover:text-primary-darker" />
+          <InteractiveButton icon={FaPlusSquare} ariaLabel="Aumentar Zoom" onClick={() => this.changeZoom(this.state.zoom * 1.5)} className="hover:text-primary-darker" />
         </div>
       </>
     )

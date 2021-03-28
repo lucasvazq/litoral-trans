@@ -1,18 +1,21 @@
 import * as React from "react"
 
-import { FaShippingFast } from "react-icons/fa"
 import { HiMenuAlt3, HiPhone } from "react-icons/hi"
 import { MdEmail } from "react-icons/md"
 import { RiArrowDropRightLine } from "react-icons/ri"
 import { VscClose } from "react-icons/vsc"
 
-import IconButton from "../elements/IconButton"
+import BrandPresentation from "./BrandPresentation"
+import Section from "./Section"
+import InteractiveButton from "../elements/InteractiveButton"
 import LinkButton from "../elements/LinkButton"
+import PlainLinkButton from "../elements/PlainLinkButton"
 import Route from "../elements/Route"
 import Ul from "../elements/Ul"
 
 interface HeaderProps {
-  items?: { path: string, id: string, description: string }[];
+  expandableItems?: { path: string, id: string, description: string }[];
+  inlineItems: { path: string, id: string, description: string }[];
 }
 
 interface HeaderState {
@@ -22,6 +25,17 @@ interface HeaderState {
 class Header extends React.Component<HeaderProps, HeaderState> {
   menuRef: React.RefObject<any>
   node: HTMLDivElement
+
+  /*
+  The sticky display is a good approach, but I have problems when the height of the screen is too small and
+  need to scroll through the expandable menu to see the items.
+  So my solution was to use the header with the fixed display and commensurate its size with another
+  element that uses the same classes that define its height.
+  These classes are listed below, but first, a comment: we use pt and pb instead of py because the firsts take priority over the last one,
+  and the Section element has a py defined in their classes.
+  */
+  inlineContentHeight = "h-8 lg:h-18"
+  sectionYPadding = "pt-8 pb-8"
 
   constructor(props: HeaderProps) {
     super(props)
@@ -48,47 +62,72 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   render() {
     return (
       <>
-        <nav className="overflow-y-auto bg-primary shadow-lg fixed max-h-full w-full top-0 py-8 px-4 sm:px-8 z-2">
-          <div className="flex items-center justify-between h-8">
-            <Route href="/" icon={FaShippingFast} description={process.env.name} className="text-xl sm:text-2xl" />
-            <IconButton
-              icon={this.state.menuIsActive ? VscClose : HiMenuAlt3}
-              ariaLabel={this.state.menuIsActive ? "Cerrar menú desplegable" : "Expandir menú desplegable"}
-              onClick={() => this.setState({ menuIsActive: !this.state.menuIsActive })}
-            />
-          </div>
-          <div ref={this.menuRef} className={this.state.menuIsActive ? "" : "hidden"} aria-hidden={!this.state.menuIsActive}>
-            <Ul className={this.props.items ? "pt-4" : ""}>
-              {/* Custom items */}
-              {this.props.items
-                ? Object.values(this.props.items).map((item, index) => (
-                    <li key={index} className="flex">
-                      <Route
-                        href={`${item.path}${item.id}`}
-                        icon={RiArrowDropRightLine}
-                        description={item.description}
-                        onClick={() => this.setState({ menuIsActive: false })}
-                        className="text-lg sm:text-xl hover:text-primary-darker"
-                      />
-                    </li>
-                  ))
-                : null}
+        {/* Header */}
+        <nav className="overflow-y-auto shadow-lg fixed top-0 z-2">
+          <Section className={`bg-primary ${this.sectionYPadding}`}>
+            <div className={`flex items-center justify-between w-full ${this.inlineContentHeight}`}>
+              <Route href="/">
+                <BrandPresentation />
+              </Route>
 
-              {/* Default items */}
-              <li className="text-md flex justify-center pt-6">
-                <LinkButton href={`mailto:${process.env.email}`} icon={MdEmail} description={process.env.email} />
-              </li>
-              <li className="text-md flex justify-center pt-2">
-                <LinkButton
-                  href={`tel:+${process.env.telCountryCode}${process.env.telAreaCode}${process.env.telPhoneNumber}`}
-                  icon={HiPhone}
-                  description={`+${process.env.telCountryCode} ${process.env.telAreaCode} ${process.env.telPhoneNumber}`}
-                />
-              </li>
-            </Ul>
-          </div>
+              {/* Inline navbar options. Only visible at large resolution. */}
+              <ul className="hidden lg:flex">
+                {/* Custom items. */}
+                {this.props.inlineItems
+                  ? Object.values(this.props.inlineItems).map((item, index) => (
+                      <li key={index} className={index ? "pl-8" : ""}>
+                        <PlainLinkButton href={`${item.path}${item.id}`} className="lg:text-lg">
+                          {item.description}
+                        </PlainLinkButton>
+                      </li>
+                    ))
+                  : null}
+              </ul>
+
+              {/* Button used to expand an options menu. Invisible at large resolution. */}
+              <InteractiveButton
+                icon={this.state.menuIsActive ? VscClose : HiMenuAlt3}
+                ariaLabel={this.state.menuIsActive ? "Cerrar menú desplegable" : "Expandir menú desplegable"}
+                onClick={() => this.setState({ menuIsActive: !this.state.menuIsActive })}
+                className="lg:hidden"
+              />
+            </div>
+
+            {/* The expandable options menu. */}
+            <div ref={this.menuRef} className={`lg:hidden w-full ${this.state.menuIsActive ? "" : "hidden"}`} aria-hidden={!this.state.menuIsActive}>
+              <Ul className={this.props.expandableItems ? "pt-4" : ""}>
+                {/* Custom items. */}
+                {this.props.expandableItems
+                  ? Object.values(this.props.expandableItems).map((item, index) => (
+                      <li key={index} className="flex">
+                        <Route href={`${item.path}${item.id}`} onClick={() => this.setState({ menuIsActive: false })} className="text-lg sm:text-xl hover:text-primary-darker">
+                          <RiArrowDropRightLine className="mr-1" />
+                          {item.description}
+                        </Route>
+                      </li>
+                    ))
+                  : null}
+
+                {/* Default items. */}
+                <li className="text-md flex justify-center pt-6">
+                  <LinkButton href={`mailto:${process.env.email}`} icon={MdEmail} description={process.env.email} />
+                </li>
+                <li className="text-md flex justify-center pt-2">
+                  <LinkButton
+                    href={`tel:+${process.env.telCountryCode}${process.env.telAreaCode}${process.env.telPhoneNumber}`}
+                    icon={HiPhone}
+                    description={`+${process.env.telCountryCode} ${process.env.telAreaCode} ${process.env.telPhoneNumber}`}
+                  />
+                </li>
+              </Ul>
+            </div>
+          </Section>
         </nav>
-        <div className="h-8 py-8" />
+
+        {/* Element that compensates the missing height of the header in the content flow. */}
+        <div className={this.sectionYPadding}>
+          <div className={this.inlineContentHeight} />
+        </div>
       </>
     )
   }

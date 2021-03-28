@@ -21,6 +21,7 @@ class Slideshow extends React.Component<SlideshowProps, SlideshowState> {
     className: string,
     description: string,
   }[]
+
   heightClasses = "h-60vh min-h-120"
   descriptions = {
     slide_1: ["LA MEJOR MANERA", "PARA ENVIAR TUS PAQUETES"],

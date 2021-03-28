@@ -31,8 +31,11 @@ module.exports = {
         "32px": ["32px", "32px"],
       },
       height: {
+        18: "4.5rem",
         "340px": "340px",
         "440px": "440px",
+        "540px": "540px",
+        "640px": "640px",
         "10vh": "10vh",
         "60vh": "60vh",
       },
@@ -40,6 +43,8 @@ module.exports = {
         45: "11.25rem",
         "300px": "300px",
         "400px": "400px",
+        "500px": "500px",
+        "600px": "600px",
       },
       minHeight: {
         120: "30rem",

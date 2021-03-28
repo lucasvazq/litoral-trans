@@ -42,7 +42,7 @@ class MapView extends React.Component {
         layers={[
           { file: "/map/provincial_routes.topojson", size: 0.07, fill: mixHexColors(process.env.colorSecondarySemiDark, process.env.colorSecondary, 0.7) },
           { file: "/map/national_routes.topojson", size: 0.07, fill: mixHexColors(process.env.colorSecondarySemiDark, process.env.colorSecondary, 0.45) },
-          { file: "/map/provinces.topojson", size: 0.2, fill: mixHexColors(process.env.colorSecondarySemiDark, process.env.colorSecondary, 0.15) },
+          { file: "/map/provinces.topojson", size: 0.15, fill: mixHexColors(process.env.colorSecondarySemiDark, process.env.colorSecondary, 0.15) },
         ]}
         limits={{
           top: -26.347,
