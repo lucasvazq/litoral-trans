@@ -9,7 +9,7 @@ interface IframeProps {
   width?: number;
   className?: string;
   delay?: number;
-  delayClasses?: string;
+  delayMessage?: string;
 }
 
 interface IframeState {

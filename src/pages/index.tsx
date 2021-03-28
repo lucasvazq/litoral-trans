@@ -23,6 +23,9 @@ import SVGLineWave from "../components/svg/SVGLineWave"
 const Slideshow = dynamic(() => import("../components/modules/Slideshow"))
 
 class RootView extends React.Component {
+  inlineItems: { path: string, id: string, description: string }[]
+  expandableItems: { path: string, id: string, description: string }[]
+
   ids = {
     services: "servicios",
     parentCompany: "casa-central",
