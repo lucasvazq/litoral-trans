@@ -6,14 +6,15 @@ import Whatsapp from "./Whatsapp"
 
 interface BaseProps {
   children: React.ReactNode;
-  items?: { path: string, id: string, description: string }[];
+  inlineItems?: { path: string, id: string, description: string }[];
+  expandableItems?: { path: string, id: string, description: string }[];
 }
 
 class Base extends React.Component<BaseProps> {
   render() {
     return (
       <>
-        <Header items={this.props.items} />
+        <Header inlineItems={this.props.inlineItems} expandableItems={this.props.expandableItems} />
         <Whatsapp />
         {this.props.children}
         <Footer />

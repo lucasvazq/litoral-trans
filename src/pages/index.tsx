@@ -23,10 +23,27 @@ import SVGLineWave from "../components/svg/SVGLineWave"
 const Slideshow = dynamic(() => import("../components/modules/Slideshow"))
 
 class RootView extends React.Component {
-  items = {
-    services: { path: "/#", id: "servicios", description: "Servicios" },
-    parentCompany: { path: "/#", id: "casa-central", description: "Ubicación" },
-    clients: { path: "/#", id: "clientes", description: "Clientes" },
+  inlineItems: { path: string, id: string, description: string }[]
+  expandableItems: { path: string, id: string, description: string }[]
+
+  ids = {
+    services: "servicios",
+    parentCompany: "casa-central",
+    clients: "clientes",
+  }
+
+  constructor(props: {}) {
+    super(props)
+    this.inlineItems = [
+      { path: "/#", id: this.ids.services, description: "Servicios" },
+      { path: "/#", id: this.ids.parentCompany, description: "Contacto" },
+      { path: "/#", id: this.ids.clients, description: "Clientes" },
+    ]
+    this.expandableItems = [
+      { path: "/#", id: this.ids.services, description: "Servicios" },
+      { path: "/#", id: this.ids.parentCompany, description: "Ubicación" },
+      { path: "/#", id: this.ids.clients, description: "Clientes" },
+    ]
   }
 
   render() {
@@ -41,11 +58,11 @@ class RootView extends React.Component {
             description: `${process.env.slogan}`,
           }}
         />
-        <Base items={Object.values(this.items)}>
-          {/* Slide */}
+        <Base inlineItems={this.inlineItems} expandableItems={this.expandableItems}>
+          {/* Slide. */}
           <Slideshow />
 
-          {/* Presentation */}
+          {/* Presentation. */}
           <WavesSection className="bg-primary">
             <div className="flex items-center justify-center min-h-20">
               <Paragraph className="md:text-lg text-center">
@@ -55,16 +72,16 @@ class RootView extends React.Component {
             </div>
           </WavesSection>
 
-          {/* Services */}
+          {/* Services. */}
           <Section>
-            <Id id={this.items.services.id} />
+            <Id id={this.ids.services} />
             <H2 className="text-primary">NUESTROS SERVICIOS</H2>
             <Services className="pt-6" />
           </Section>
 
-          {/* Parent Company */}
+          {/* Parent Company. */}
           <Section className="bg-primary">
-            <Id id={this.items.parentCompany.id} />
+            <Id id={this.ids.parentCompany} />
             <H2>CASA CENTRAL</H2>
             <div className="text-center sm:flex sm:items-center sm:justify-center pt-8">
               <div className="flex flex-col items-center sm:pr-8">
@@ -88,32 +105,30 @@ class RootView extends React.Component {
             </div>
           </Section>
 
-          {/* Map */}
+          {/* Map. */}
           <Section>
             <H2 className="text-primary">LOCALIDADES</H2>
-            <div className="overflow-hidden flex justify-center max-w-full pt-8">
-              {/* Background class only for delay */}
+            <div className="overflow-hidden flex justify-center pt-8">
               <Iframe
                 title="Mapa de localidades"
                 src="/map"
-                className="h-340px sm:h-440px w-300px sm:w-400px"
+                className="bg-secondary h-340px sm:h-440px md:h-540px lg:h-640px w-300px sm:w-400px md:w-500px lg:w-600px"
                 delay={4000}
                 delayMessage="Cargando Mapa"
-                delayClasses="bg-secondary h-340px sm:h-440px w-300px sm:w-400px"
               />
             </div>
           </Section>
 
-          {/* Travel frecuency */}
+          {/* Travel frecuency. */}
           <Section className="bg-primary">
             <H3>FRECUENCIA DE VIAJE</H3>
             <Paragraph className="text-center pt-6">Rafaela – Reconquista/Avellaneda</Paragraph>
             <Paragraph className="text-center">Lunes – Miércoles – Viernes</Paragraph>
           </Section>
 
-          {/* Clients */}
+          {/* Clients. */}
           <Section>
-            <Id id={this.items.clients.id} />
+            <Id id={this.ids.clients} />
             <H2 className="text-secondary-semi-dark">NOS ELIGEN</H2>
             <div className="w-45">
               <SVGLineWave fill={process.env.colorSecondarySemiDark} />

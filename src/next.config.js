@@ -4,11 +4,15 @@ module.exports = {
     url: "https://litoral-trans.com.ar/",
     name: "Litoral Trans",
     slogan: "Servicio de Transporte",
+
     email: "cristianwalker2@gmail.com",
     telCountryCode: "54",
     telAreaCode: "3492",
     telPhoneNumber: "589638",
     whatsappMessage: "Hola, me gustaría realizar una consulta",
+
+    authorName: "Lucas Vazquez",
+    authorURL: "https://lucasvazq.github.io/",
 
     // Colors in hex mode of pair values.
     colorPrimary: "#d71920",

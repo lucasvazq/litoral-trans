@@ -61,4 +61,3 @@ Como estamos sirviendo el proyecto a través de Github Pages, tenemos que simula
 Este proyecto se realizó utilizando Github Pages, NIC Argentina y Namecheap.
 Un buen tutorial sobre como montar a producción los archivos exportados desde el código fuente, se muestran a continuación:
 [Tutorial: cómo armar un blog con GitHub pages](https://curiosidadesespaciales.ar/2020/09/21/Tutorial-blog-2/)
-

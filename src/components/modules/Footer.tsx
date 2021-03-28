@@ -1,7 +1,6 @@
 import * as React from "react"
 
-import { FaShippingFast } from "react-icons/fa"
-
+import BrandPresentation from "./BrandPresentation"
 import Section from "./Section"
 import Paragraph from "../elements/Paragraph"
 import Route from "../elements/Route"
@@ -10,14 +9,11 @@ class Footer extends React.Component {
   render() {
     return (
       <>
-        {/* Business information */}
+        {/* Business information. */}
         <Section className="bg-secondary-semi-dark">
           <div className="grid grid-cols-2 grid-rows-1 md:divide-x-2 w-full max-w-200">
             <div className="text-center hidden md:flex flex-col items-center justify-center col-start-1 col-end-2 row-start-1 row-end-2">
-              <Paragraph className="font-bold text-4xl">
-                <FaShippingFast className="inline-block mr-1" /> Litoral Trans
-              </Paragraph>
-              <Paragraph className="text-base text-lg">{process.env.slogan}</Paragraph>
+              <BrandPresentation />
             </div>
             <div className="flex flex-col items-center col-start-1 md:col-start-2 col-end-3 row-start-1 row-end-1">
               <div>
@@ -36,12 +32,14 @@ class Footer extends React.Component {
           </div>
         </Section>
 
-        {/* Developer information */}
+        {/* Developer information. */}
         <div className="bg-secondary-dark text-center text-sm relative sm:static flex flex-col items-center p-6 z-1">
-          <Paragraph>Copyright 2021. Litoral-trans</Paragraph>
+          <Paragraph>Copyright 2021. {process.env.name}</Paragraph>
           <Paragraph>
             {`Diseñador por: `}
-            <Route href="https://lucasvazq.github.io/" description="Lucas Vazquez" className="border-b border-secondary-light hover:text-primary italic" />
+            <Route href={process.env.authorURL} className="border-b border-secondary-light hover:text-primary italic inline-block">
+              {process.env.authorName}
+            </Route>
           </Paragraph>
         </div>
       </>

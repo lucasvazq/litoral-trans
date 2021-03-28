@@ -1,13 +1,13 @@
 import * as React from "react"
 
-interface IconButtonProps {
+interface InteractiveButtonProps {
   icon: React.ComponentType;
   ariaLabel: string;
   onClick: React.MouseEventHandler;
   className?: string;
 }
 
-class IconButton extends React.Component<IconButtonProps> {
+class InteractiveButton extends React.Component<InteractiveButtonProps> {
   render() {
     return (
       <button type="button" aria-label={this.props.ariaLabel} onClick={this.props.onClick} className={`focus:outline-none text-3xl ${this.props.className || ""}`}>
@@ -17,4 +17,4 @@ class IconButton extends React.Component<IconButtonProps> {
   }
 }
 
-export default IconButton
+export default InteractiveButton
