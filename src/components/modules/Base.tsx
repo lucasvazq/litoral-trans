@@ -15,7 +15,13 @@ class Base extends React.Component<BaseProps> {
     return (
       <>
         <Header inlineItems={this.props.inlineItems} expandableItems={this.props.expandableItems} />
+
+        {/*
+          Keep floating icons after the header and before the main content
+          so that they take priority in tabindex-based navigation.
+        */}
         <Whatsapp />
+
         {this.props.children}
         <Footer />
       </>

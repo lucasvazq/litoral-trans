@@ -5,6 +5,7 @@ import { Point } from "react-simple-maps"
 import { IoLocationSharp } from "react-icons/io5"
 
 import Map from "../components/modules/Map"
+import SEO from "../components/modules/SEO"
 import { mixHexColors } from "../components/utils"
 
 class MapView extends React.Component {
@@ -34,15 +35,20 @@ class MapView extends React.Component {
 
   render() {
     return (
+      <>
+        <SEO
+          title="Mapa interactivo"
+          description="Mapa interactivo de las localidades que se recorren y a las que se le brinda el servicio de transporte"
+        />
       <Map
         initialZoom={45}
         maxZoom={200}
         minZoom={20}
         initialCoordinates={[-60.611, -30.131]}
         layers={[
-          { file: "/map/provincial_routes.topojson", size: 0.07, fill: mixHexColors(process.env.colorSecondarySemiDark, process.env.colorSecondary, 0.7) },
-          { file: "/map/national_routes.topojson", size: 0.07, fill: mixHexColors(process.env.colorSecondarySemiDark, process.env.colorSecondary, 0.45) },
-          { file: "/map/provinces.topojson", size: 0.15, fill: mixHexColors(process.env.colorSecondarySemiDark, process.env.colorSecondary, 0.15) },
+          { file: "/static/map/provincial_routes.topojson", size: 0.07, fill: mixHexColors(process.env.colorSecondarySemiDark, process.env.colorSecondary, 0.7) },
+          { file: "/static/map/national_routes.topojson", size: 0.07, fill: mixHexColors(process.env.colorSecondarySemiDark, process.env.colorSecondary, 0.45) },
+          { file: "/static/map/provinces.topojson", size: 0.15, fill: mixHexColors(process.env.colorSecondarySemiDark, process.env.colorSecondary, 0.15) },
         ]}
         limits={{
           top: -26.347,
@@ -104,6 +110,7 @@ class MapView extends React.Component {
           ],
         }}
       />
+      </>
     )
   }
 }

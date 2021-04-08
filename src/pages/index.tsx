@@ -2,20 +2,19 @@ import * as React from "react"
 
 import dynamic from "next/dynamic"
 
-import { NextSeo } from "next-seo"
-
 import { HiPhone } from "react-icons/hi"
 import { MdEmail } from "react-icons/md"
 
-import Base from "../components/modules/Base"
 import H2 from "../components/elements/H2"
 import H3 from "../components/elements/H3"
 import Id from "../components/elements/Id"
 import Iframe from "../components/elements/Iframe"
 import LinkButton from "../components/elements/LinkButton"
 import Paragraph from "../components/elements/Paragraph"
+import Base from "../components/modules/Base"
 import Clients from "../components/modules/Clients"
 import Section from "../components/modules/Section"
+import SEO from "../components/modules/SEO"
 import Services from "../components/modules/Services"
 import WavesSection from "../components/modules/WavesSection"
 import SVGLineWave from "../components/svg/SVGLineWave"
@@ -49,15 +48,7 @@ class RootView extends React.Component {
   render() {
     return (
       <>
-        <NextSeo
-          title="Inicio"
-          description={`${process.env.slogan}`}
-          openGraph={{
-            title: `${process.env.name} | Inicio`,
-            site_name: `${process.env.name} | Inicio`,
-            description: `${process.env.slogan}`,
-          }}
-        />
+        <SEO title="Inicio" description={process.env.slogan} />
         <Base inlineItems={this.inlineItems} expandableItems={this.expandableItems}>
           {/* Slide. */}
           <Slideshow />
@@ -108,11 +99,12 @@ class RootView extends React.Component {
           {/* Map. */}
           <Section>
             <H2 className="text-primary">LOCALIDADES</H2>
-            <div className="overflow-hidden flex justify-center pt-8">
+            <div className="overflow-hidden flex justify-center pt-8" aria-label="Mapa interactivo de localidades">
               <Iframe
-                title="Mapa de localidades"
-                src="/map"
+                src="/mapa"
                 className="bg-secondary h-340px sm:h-440px md:h-540px lg:h-640px w-300px sm:w-400px md:w-500px lg:w-600px"
+                role="application"
+                ariaHidden={true}
                 delay={4000}
                 delayMessage="Cargando Mapa"
               />

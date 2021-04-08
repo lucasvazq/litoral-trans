@@ -1,7 +1,15 @@
-module.exports = {
+const withPWA = require('next-pwa')
+
+module.exports = withPWA({
+  pwa: {
+    disable: process.env.NODE_ENV === 'development',
+    dest: 'public',
+    dynamicStartUrl: false
+  },
+
   env: {
-    GTM: "GTM-NGGH6LK",
-    url: "https://litoral-trans.com.ar/",
+    GTM: "GTM-5Q6VCXL",
+    domain: "litoral-trans.com.ar",
     name: "Litoral Trans",
     slogan: "Servicio de Transporte",
 
@@ -28,4 +36,4 @@ module.exports = {
     colorSecondaryDark: "#1c1c1c",
     colorSecondaryDarker: "#000000",
   },
-}
+})

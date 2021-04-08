@@ -33,11 +33,13 @@ En este paso, lo que hacemos es preparar el código fuente para que esté listo 
 
 3.3 Ejecutar `npm run export` para exportar el sitio web en formato estático.
 
-3.4 Vamos a copiar unos archivos de una carpeta a la base del proyecto, por lo que primero hay que limpiarlo.
+3.4 Ejecutar `npm run sitemap` para generar el sitemap en la carpeta **src/out**.
+
+3.5 Vamos a copiar unos archivos de una carpeta a la base del proyecto, por lo que primero hay que limpiarlo.
     Para ello, eliminamos la carpeta **_next** y todas aquellas carpetas o archivos que se puedan generar en base a las carpetas **src/public** y **src/pages**.
     Además, tenemos que eliminar el archivo **404.html**.
 
-3.5 Copiar los archivos de la carpeta **src/out** a la carpeta base del proyecto.
+3.6 Copiar los archivos de la carpeta **src/out** a la carpeta base del proyecto.
 
 ### 4 - Preview de los archivos exportados
 
