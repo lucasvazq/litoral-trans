@@ -1,4 +1,4 @@
-var fs = require('fs');
+var fs = require("fs")
 
 const sitemap = require("nextjs-sitemap-generator")
 
@@ -19,9 +19,9 @@ const opensearch = `\
     <Contact>${config.env.authorURL}</Contact>
 </OpenSearchDescription>`
 fs.writeFile(`${staticFolder}/opensearch.xml`, opensearch, (error) => {
-  if (error) throw error;
+  if (error) throw error
   console.log(`File opensearch.xml generated in ${staticFolder}`)
-});
+})
 
 // robots.txt
 const robots = `\
@@ -30,15 +30,15 @@ Allow: /
 
 Sitemap: https://${config.env.domain}/sitemap.xml`
 fs.writeFile(`${baseFolder}/robots.txt`, robots, (error) => {
-  if (error) throw error;
+  if (error) throw error
   console.log(`File robots.txt generated in ${baseFolder}`)
-});
+})
 
 // sitemap.xml
 sitemap({
   baseUrl: `https://${config.env.domain}`,
   ignoreIndexFiles: true,
-  ignoredPaths: ['404', 'map'],
+  ignoredPaths: ["404", "map"],
   pagesDirectory: `${__dirname}/../pages`,
   targetDirectory: staticFolder,
   sitemapFilename: "sitemap.xml",

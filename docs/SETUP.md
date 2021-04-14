@@ -1,14 +1,14 @@
 # Setup
 
-El setup es el proceso por el cual se configura el proyecto para que funcione en un determinado entorno.
+El setup es el proceso por el cual se configura el proyecto para que funcione en un determinado entorno.\
 En este caso, tenemos dos entornos:
-- Local: configuramos y hacemos andar el proyecto en una computadora particular.
+- Local: configuramos y hacemos andar el proyecto en una computadora particular.\
     El objetivo de esto es poder desarrollar y probar el proyecto antes de que esté disponible en internet.
 - Producción: configuramos y hacemos andar el proyecto en internet.
 
 ## Setup Local
 
-El código fuente se encuentra en la carpeta **src**.
+El código fuente se encuentra en la carpeta **src**\
 A grandes rasgos, el proyecto está armado con Next.js (servido estáticamente) y Tailwind CSS, y corre utilizando Jekyll (backend provisto por Github Pages).
 
 ### 1 - Setup de las herramientas necesarias:
@@ -38,12 +38,12 @@ En este paso, lo que hacemos es preparar el código fuente para que esté listo 
     - **src/public/static/sitemap.xml**\
     - **src/public/static/opensearch.xml**
 
-3.5 Ejecutar `npm run opengraph` para generar las imágenes usadas por OpenGraph en **src/public/static/images/brand**.
+3.5 Ejecutar `npm run opengraph` para generar las imágenes usadas por OpenGraph en **src/public/static/images/brand**
 
 3.6 Ejecutar `npm run pwa` para generar los archivos necesarios para convertir la web en una PWA.\
     Se generan imágenes en el siguiente directorio **src/public/static/images/brand**\
     Se listan unos tags que hay que agregar manualmente en **src/pages/public/_app.tsx**\
-    Además, se genera el siguiente archivo **src/public/static/manifest.json**\
+    Además, se genera el siguiente archivo **src/public/static/manifest.json**
 
 3.7 Vamos a copiar unos archivos de una carpeta a la base del proyecto, por lo que primero hay que limpiarlo.\
     Para ello, eliminamos la carpeta **_next** y todas aquellas carpetas o archivos que se puedan generar en base a las carpetas **src/public** y **src/pages**.
@@ -69,6 +69,6 @@ Como estamos sirviendo el proyecto a través de Github Pages, tenemos que simula
 
 ## Setup Producción
 
-Este proyecto se realizó utilizando Github Pages, NIC Argentina y Namecheap.
-Un buen tutorial sobre como montar a producción los archivos exportados desde el código fuente, se muestran a continuación:
+Este proyecto se realizó utilizando Github Pages, NIC Argentina y Namecheap.\
+Un buen tutorial sobre como montar a producción los archivos exportados desde el código fuente, se muestran a continuación:\
 [Tutorial: cómo armar un blog con GitHub pages](https://curiosidadesespaciales.ar/2020/09/21/Tutorial-blog-2/)

@@ -5,7 +5,7 @@ import { FaShippingFast } from "react-icons/fa"
 import Paragraph from "../elements/Paragraph"
 
 interface BrandPresentationProps {
-  className?: string
+  className?: string;
 }
 
 class BrandPresentation extends React.Component<BrandPresentationProps> {

@@ -9,7 +9,7 @@ interface IframeProps {
   className?: string;
 
   title?: string;
-  role?: string
+  role?: string;
   "aria-hidden"?: boolean;
 
   delay?: number;
@@ -48,13 +48,12 @@ class Iframe extends React.Component<IframeProps, IframeState> {
             height={this.props.height}
             width={this.props.width}
             className={this.props.className}
-
             title={this.props.title}
             role={this.props.role}
             aria-hidden={this.props["aria-hidden"]}
-
             loading="lazy"
-            tabIndex={-1} />
+            tabIndex={-1}
+          />
         )}
       </div>
     )

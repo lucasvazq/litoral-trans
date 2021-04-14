@@ -1,20 +1,20 @@
-const withPWA = require('next-pwa')
+const withPWA = require("next-pwa")
 
 module.exports = withPWA({
   pwa: {
-    disable: process.env.NODE_ENV === 'development',
-    dest: 'public',
-    dynamicStartUrl: false
+    disable: process.env.NODE_ENV === "development",
+    dest: "public",
+    dynamicStartUrl: false,
   },
 
   env: {
     GTM: "GTM-5Q6VCXL",
     domain: "litoral-trans.com.ar",
-    name: "Litoral Trans",
-    slogan: "Servicio de Transporte",
     localeLanguage: "es",
     localeTerritory: "AR",
 
+    name: "Litoral Trans",
+    slogan: "Servicio de Transporte",
     email: "cristianwalker2@gmail.com",
     telCountryCode: "54",
     telAreaCode: "3492",
