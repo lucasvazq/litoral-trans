@@ -33,21 +33,23 @@ En este paso, lo que hacemos es preparar el código fuente para que esté listo 
 
 3.3 Ejecutar `npm run export` para exportar el sitio web en formato estático.
 
-3.4 Ejecutar `npm run sitemap` para generar el sitemap en la carpeta **src/out**.
+3.4 Ejecutar `npm run opensearch` para obtener el contenido de nuestro archivo opensearch.
+    El output que se nos presenta en consola debe ser puesto manualmente en **src/public/static/opensearch.xml**.
 
 3.5 Ejecutar `npm run pwa` para generar las imágenes que se usan para que la página funcione como PWA. Estas se generan en **src/public/static/images/brand**.
     Además, se generan unos output en la consola.
     El primero consiste en el contenido que hay que poner manualmente en **src/public/static/manifest.json**.
     El segundo consiste en tags que hay que ubicar en el header de nuestro archivo **src/pages/public/_app.tsx**.
 
-3.6 Ejecutar `npm run opensearch` para obtener el contenido de nuestro archivo opensearch.
-    El output que se nos presenta en consola debe ser puesto manualmente en **src/public/static/opensearch.xml**.
+3.6 Ejecutar `npm run seo` para generar las imágenes usadas para el SEO en **src/public/static/images/brand**.
 
-3.7 Vamos a copiar unos archivos de una carpeta a la base del proyecto, por lo que primero hay que limpiarlo.
+3.7 Ejecutar `npm run sitemap` para generar el sitemap en la carpeta **src/out**.
+
+3.8 Vamos a copiar unos archivos de una carpeta a la base del proyecto, por lo que primero hay que limpiarlo.
     Para ello, eliminamos la carpeta **_next** y todas aquellas carpetas o archivos que se puedan generar en base a las carpetas **src/public** y **src/pages**.
     Además, tenemos que eliminar el archivo **404.html**.
 
-3.8 Copiar los archivos de la carpeta **src/out** a la carpeta base del proyecto.
+3.9 Copiar los archivos de la carpeta **src/out** a la carpeta base del proyecto.
 
 ### 4 - Preview de los archivos exportados
 

@@ -24,8 +24,8 @@ Estas herramientas nos sirven para asegurar la calidad de ciertos archivos o con
 - [Formatear archivos JSON](https://jsonformatter.org/)
 - [Verificar rendimiento][https://developers.google.com/speed/pagespeed/insights]
 - [Validar las metatags de manera genérica](https://www.heymeta.com/)
-- [Validar el protocolo opengraph](https://developers.facebook.com/tools/debug/)
-- [Validar las twitter card](https://cards-dev.twitter.com/validator?)
+- [Validar el protocolo OpenGraph](https://developers.facebook.com/tools/debug/)
+- [Validar las Twitter Cards](https://cards-dev.twitter.com/validator?)
 - [Validar la structured data](https://search.google.com/structured-data/testing-tool)
 - [Validar el archivo sitemap](https://www.xml-sitemaps.com/validate-xml-sitemap.html)
 - [Validar el archivo robots](https://technicalseo.com/tools/robots-txt/)
