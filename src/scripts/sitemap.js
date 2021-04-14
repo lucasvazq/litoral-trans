@@ -5,7 +5,7 @@ const config = require("../next.config")
 const targetDirectory = "out/"
 
 sitemap({
-  baseUrl: config.env.domain,
+  baseUrl: `https://${config.env.domain}`,
   ignoreIndexFiles: true,
   ignoredPaths: ['404', 'map'],
   pagesDirectory: `${__dirname}/../pages`,
