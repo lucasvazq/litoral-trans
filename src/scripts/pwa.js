@@ -2,20 +2,15 @@ const pwaAssetGenerator = require("pwa-asset-generator")
 
 const config = require("../next.config")
 
-const outputFolder = "public/static/images/brand"
-
-function logOutput(title, description, content) {
-  console.log(`=== ${title} ===`)
-  console.log(description)
-  console.log()
-  console.log(content.split(outputFolder).join(outputFolder.replace('public', '')))
-}
+const baseFolder = "public"
+const staticFolder = `${baseFolder}/static`
+const brandImagesFolder = `${staticFolder}/images/brand`
 
 ;(async () => {
   let content = []
 
-  // Generates favicon
-  let generatedImages = await pwaAssetGenerator.generateImages("original_assets/images/brand/icon.png", outputFolder, {
+  // Generates favicon.
+  let generatedImages = await pwaAssetGenerator.generateImages("original_assets/images/brand/icon.png", brandImagesFolder, {
     favicon: true,
     iconOnly: true,
     type: "png",
@@ -25,8 +20,8 @@ function logOutput(title, description, content) {
   })
   content.push(generatedImages.htmlMeta.favicon)
 
-  // Generate the rest of images
-  generatedImages = await pwaAssetGenerator.generateImages("original_assets/images/brand/presentation.png", outputFolder, {
+  // Generate the rest of images.
+  generatedImages = await pwaAssetGenerator.generateImages("original_assets/images/brand/presentation.png", brandImagesFolder, {
     quality: 100,
     background: config.env.colorPrimary,
     xhtml: true,
@@ -34,6 +29,11 @@ function logOutput(title, description, content) {
   })
   content.push(Object.values(generatedImages.htmlMeta).join(''))
 
+  // Output header tags.
+  console.log('Put this tags under Header in our custom app file at pages/public/_app.tsx')
+  console.log(content.join('').split(staticFolder).join(staticFolder.replace(baseFolder, '')))
+
+  // manifest.json
   const manifestContent = {
     "name": config.env.name,
     "short_name": config.env.name,
@@ -46,7 +46,8 @@ function logOutput(title, description, content) {
     "scope": "/",
     "icons": generatedImages.manifestJsonContent
   }
-
-  logOutput('Manifest file output', 'Put this content under public/static/manifest.json', JSON.stringify(manifestContent, null, 2))
-  logOutput('Head document output', 'Put this tags under Header in our custom app file at pages/public/_app.tsx', content.join(''))
+  fs.writeFile(`${staticFolder}/manifest.json`, JSON.stringify(manifestContent, null, 2), (error) => {
+    if (error) throw error;
+    console.log(`File manifest.json generated in ${staticFolder}`)
+  });
 })()

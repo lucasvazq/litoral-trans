@@ -4,10 +4,9 @@
   "description": "litoral-trans web",
   "main": "index.ts",
   "scripts": {
-    "opensearch": "node scripts/opensearch.js",
+    "files": "node scripts/files.js",
+    "opengraph": "node scripts/opengraph.js",
     "pwa": "node scripts/pwa.js",
-    "seo": "node scripts/seo.js",
-    "sitemap": "node scripts/sitemap.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

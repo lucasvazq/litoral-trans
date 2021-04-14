@@ -6,10 +6,7 @@ const sharp = require('sharp');
       .png({quality: 90})
       .resize(size)
       .toFile(`public/static/images/brand/preview-${size}.png`, (error) => {
-          if (error) {
-              console.log(error)
-          } else {
-              console.log(`Generated file: public/static/images/brand/preview-${size}.png`)
-          }
+          if (error) throw error;
+            console.log(`Generated file: public/static/images/brand/preview-${size}.png`)
         });
 })
