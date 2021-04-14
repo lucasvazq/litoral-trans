@@ -12,6 +12,8 @@ module.exports = withPWA({
     domain: "litoral-trans.com.ar",
     name: "Litoral Trans",
     slogan: "Servicio de Transporte",
+    localeLanguage: "es",
+    localeTerritory: "AR",
 
     email: "cristianwalker2@gmail.com",
     telCountryCode: "54",

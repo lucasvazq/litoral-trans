@@ -89,7 +89,7 @@ class Map extends React.Component<MapProps, MapState> {
   render() {
     return (
       <>
-        <div className="bg-secondary w-full h-full">
+        <div className="bg-secondary">
           {/* Main map. */}
           <ComposableMap projection="geoMercator" width={600} height={600}>
             <ZoomableGroup
@@ -171,8 +171,8 @@ class Map extends React.Component<MapProps, MapState> {
 
         {/* Buttons. */}
         <div className="text-32px text-primary flex flex-row justify-center w-full pt-8px">
-          <InteractiveButton icon={FaMinusSquare} ariaLabel="Reducir Zoom" onClick={() => this.changeZoom(this.state.zoom / 1.5)} className="mr-2 hover:text-primary-darker" />
-          <InteractiveButton icon={FaPlusSquare} ariaLabel="Aumentar Zoom" onClick={() => this.changeZoom(this.state.zoom * 1.5)} className="hover:text-primary-darker" />
+          <InteractiveButton icon={FaMinusSquare} aria-label="Reducir Zoom" onClick={() => this.changeZoom(this.state.zoom / 1.5)} className="mr-2 hover:text-primary-darker" />
+          <InteractiveButton icon={FaPlusSquare} aria-label="Aumentar Zoom" onClick={() => this.changeZoom(this.state.zoom * 1.5)} className="hover:text-primary-darker" />
         </div>
       </>
     )

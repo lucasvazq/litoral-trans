@@ -4,8 +4,10 @@ const config = require("../next.config")
 
 const outputFolder = "public/static/images/brand"
 
-function logOutput(title, content) {
+function logOutput(title, description, content) {
   console.log(`=== ${title} ===`)
+  console.log(description)
+  console.log()
   console.log(content.split(outputFolder).join(outputFolder.replace('public', '')))
 }
 
@@ -45,6 +47,6 @@ function logOutput(title, content) {
     "icons": generatedImages.manifestJsonContent
   }
 
-  logOutput('Manifest file output', JSON.stringify(manifestContent, null, 2))
-  logOutput('Head document output', content.join(''))
+  logOutput('Manifest file output', 'Put this content under public/static/manifest.json', JSON.stringify(manifestContent, null, 2))
+  logOutput('Head document output', 'Put this tags under Header in our custom app file at pages/public/_app.tsx', content.join(''))
 })()

@@ -63,7 +63,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     return (
       <>
         {/* Header */}
-        <nav className="overflow-y-auto shadow-lg fixed top-0 z-2" tabIndex={0}>
+        <nav className="focus:outline-none overflow-y-auto shadow-lg fixed top-0 z-2" tabIndex={0}>
           <Section className={`bg-primary ${this.sectionYPadding}`}>
             <div className={`flex items-center justify-between w-full ${this.inlineContentHeight}`}>
               <Route href="/">
@@ -87,7 +87,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
               {/* Button used to expand an options menu. Invisible at large resolution. */}
               <InteractiveButton
                 icon={this.state.menuIsActive ? VscClose : HiMenuAlt3}
-                ariaLabel={this.state.menuIsActive ? "Cerrar menú desplegable" : "Expandir menú desplegable"}
+                aria-label={this.state.menuIsActive ? "Cerrar menú desplegable" : "Expandir menú desplegable"}
                 onClick={() => this.setState({ menuIsActive: !this.state.menuIsActive })}
                 className="lg:hidden"
               />

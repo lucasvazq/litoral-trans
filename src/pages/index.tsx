@@ -54,7 +54,7 @@ class RootView extends React.Component {
           <Slideshow />
 
           {/* Presentation. */}
-          <WavesSection className="bg-primary">
+          <WavesSection bottomClassName="bg-secondary-semi-light">
             <div className="flex items-center justify-center min-h-20">
               <Paragraph className="md:text-lg text-center">
                 <span className="sm:block">{`${process.env.name} es una empresa de transporte `}</span>
@@ -64,14 +64,14 @@ class RootView extends React.Component {
           </WavesSection>
 
           {/* Services. */}
-          <Section>
+          <Section className="bg-secondary-semi-light">
             <Id id={this.ids.services} />
             <H2 className="text-primary">NUESTROS SERVICIOS</H2>
             <Services className="pt-6" />
           </Section>
 
           {/* Parent Company. */}
-          <Section className="bg-primary">
+          <Section>
             <Id id={this.ids.parentCompany} />
             <H2>CASA CENTRAL</H2>
             <div className="text-center sm:flex sm:items-center sm:justify-center pt-8">
@@ -97,14 +97,14 @@ class RootView extends React.Component {
           </Section>
 
           {/* Map. */}
-          <Section>
+          <Section className="bg-secondary-semi-light">
             <H2 className="text-primary">LOCALIDADES</H2>
             <div className="overflow-hidden flex justify-center pt-8" aria-label="Mapa interactivo de localidades">
               <Iframe
                 src="/mapa"
                 className="bg-secondary h-340px sm:h-440px md:h-540px lg:h-640px w-300px sm:w-400px md:w-500px lg:w-600px"
                 role="application"
-                ariaHidden={true}
+                aria-hidden={true}
                 delay={4000}
                 delayMessage="Cargando Mapa"
               />
@@ -112,14 +112,14 @@ class RootView extends React.Component {
           </Section>
 
           {/* Travel frecuency. */}
-          <Section className="bg-primary">
+          <Section>
             <H3>FRECUENCIA DE VIAJE</H3>
             <Paragraph className="text-center pt-6">Rafaela – Reconquista/Avellaneda</Paragraph>
             <Paragraph className="text-center">Lunes – Miércoles – Viernes</Paragraph>
           </Section>
 
           {/* Clients. */}
-          <Section>
+          <Section className="bg-secondary-semi-light">
             <Id id={this.ids.clients} />
             <H2 className="text-secondary-semi-dark">NOS ELIGEN</H2>
             <div className="w-45">

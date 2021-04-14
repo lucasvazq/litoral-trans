@@ -7,6 +7,10 @@ github_username: lucasvazq
 markdown: kramdown
 theme: minima
 
+webrick:
+  headers:
+    Cache-Control: 864000 # 10 days
+
 exclude:
   # Next app source folder.
   - src

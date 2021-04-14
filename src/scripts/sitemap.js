@@ -7,7 +7,7 @@ const targetDirectory = "out/"
 sitemap({
   baseUrl: config.env.domain,
   ignoreIndexFiles: true,
-  ignoredPaths: '404',
+  ignoredPaths: ['404', 'map'],
   pagesDirectory: `${__dirname}/../pages`,
   targetDirectory: targetDirectory,
   sitemapFilename: "sitemap.xml",

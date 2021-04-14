@@ -10,7 +10,7 @@ class Whatsapp extends React.Component {
         <Route
           href={`https://api.whatsapp.com/send?phone=${process.env.telCountryCode}${process.env.telAreaCode}${process.env.telPhoneNumber}&text=${encodeURI(process.env.whatsappMessage)}`}
           className="block min-h-48px min-w-48px"
-          ariaLabel="Enviar mensaje por Whatsapp"
+          aria-label="Enviar mensaje por Whatsapp"
         >
           <SVGWhatsapp />
         </Route>

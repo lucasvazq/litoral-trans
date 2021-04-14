@@ -12,6 +12,7 @@ const App = ({ Component, props }) => (
   <>
     <Head>
       <meta charSet="utf-8" />
+      <meta http-equiv="Cache-Control" content={60 * 60 * 24 * 10} />
 
       <Script data={`
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
