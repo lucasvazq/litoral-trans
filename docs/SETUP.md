@@ -32,7 +32,7 @@ En este paso, lo que hacemos es preparar el código fuente para que esté listo 
     - **src/public/static/sitemap.xml**\
     - **src/public/static/opensearch.xml**
 
-3.2 Ejecutar `npm run opengraph` para generar las imágenes usadas por OpenGraph en **src/public/static/images/brand**
+3.2 Ejecutar `npm run images` para generar las imágenes usadas por OpenGraph y OpenSearch en **src/public/static/images/brand**
 
 3.3 Ejecutar `npm run pwa` para generar los archivos necesarios para convertir la web en una PWA.\
     Se generan imágenes en el siguiente directorio **src/public/static/images/brand**\
