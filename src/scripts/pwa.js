@@ -1,3 +1,5 @@
+const fs = require("fs")
+
 const pwaAssetGenerator = require("pwa-asset-generator")
 
 const config = require("../next.config")
@@ -5,6 +7,8 @@ const config = require("../next.config")
 const baseFolder = "public"
 const staticFolder = `${baseFolder}/static`
 const brandImagesFolder = `${staticFolder}/images/brand`
+
+const replaceBasePath = (content) => content.split(staticFolder).join(staticFolder.replace(baseFolder, ""))
 
 ;(async () => {
   let content = []
@@ -29,9 +33,11 @@ const brandImagesFolder = `${staticFolder}/images/brand`
   })
   content.push(Object.values(generatedImages.htmlMeta).join(""))
 
+  console.log(`Images generated in ${brandImagesFolder}\n`)
+
   // Output header tags.
-  console.log("Put this tags under Header in our custom app file at pages/public/_app.tsx")
-  console.log(content.join("").split(staticFolder).join(staticFolder.replace(baseFolder, "")))
+  console.log("Put this tags under Header in our custom app file at pages/_app.tsx")
+  console.log(replaceBasePath(content.join("")))
 
   // manifest.json
   const manifestContent = {
@@ -46,7 +52,7 @@ const brandImagesFolder = `${staticFolder}/images/brand`
     scope: "/",
     icons: generatedImages.manifestJsonContent,
   }
-  fs.writeFile(`${staticFolder}/manifest.json`, JSON.stringify(manifestContent, null, 2), (error) => {
+  fs.writeFile(`${staticFolder}/manifest.json`, replaceBasePath(JSON.stringify(manifestContent, null, 2)), (error) => {
     if (error) throw error
     console.log(`File manifest.json generated in ${staticFolder}`)
   })

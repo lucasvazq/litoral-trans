@@ -27,23 +27,23 @@ A grandes rasgos, el proyecto está armado con Next.js (servido estáticamente) 
 
 En este paso, lo que hacemos es preparar el código fuente para que esté listo para ser servido en producción.
 
-3.1 Ejecutar `npm run clean` para eliminar la carpeta **src/.next** en caso de que exista.
-
-3.2 Ejecutar `npm run build` para crear la build.
-
-3.3 Ejecutar `npm run export` para exportar el sitio web en formato estático.
-
-3.4 Ejecutar `npm run files` para generar varios archivos:\
+3.1 Ejecutar `npm run files` para generar los siguientes archivos:\
     - **src/public/robots.txt**\
     - **src/public/static/sitemap.xml**\
     - **src/public/static/opensearch.xml**
 
-3.5 Ejecutar `npm run opengraph` para generar las imágenes usadas por OpenGraph en **src/public/static/images/brand**
+3.2 Ejecutar `npm run opengraph` para generar las imágenes usadas por OpenGraph en **src/public/static/images/brand**
 
-3.6 Ejecutar `npm run pwa` para generar los archivos necesarios para convertir la web en una PWA.\
+3.3 Ejecutar `npm run pwa` para generar los archivos necesarios para convertir la web en una PWA.\
     Se generan imágenes en el siguiente directorio **src/public/static/images/brand**\
     Se listan unos tags que hay que agregar manualmente en **src/pages/public/_app.tsx**\
     Además, se genera el siguiente archivo **src/public/static/manifest.json**
+
+3.4 Ejecutar `npm run clean` para eliminar la carpeta **src/.next** en caso de que exista.
+
+3.5 Ejecutar `npm run build` para crear la build.
+
+3.6 Ejecutar `npm run export` para exportar el sitio web en formato estático.
 
 3.7 Vamos a copiar unos archivos de una carpeta a la base del proyecto, por lo que primero hay que limpiarlo.\
     Para ello, eliminamos la carpeta **_next** y todas aquellas carpetas o archivos que se puedan generar en base a las carpetas **src/public** y **src/pages**.

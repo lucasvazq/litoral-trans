@@ -22,6 +22,7 @@ ESLint y Prettier tienen sus propios archivos de configuración. Los mismos est�
 Estas herramientas nos sirven para asegurar la calidad de ciertos archivos o configuraciones de nuestra web.
 
 - [Formatear archivos JSON](https://jsonformatter.org)
+- [Formatear archivos XML (2 Spaces per indent level)](https://www.freeformatter.com/xml-formatter.html)
 - [Verificar rendimiento][https://developers.google.com/speed/pagespeed/insights]
 - [Validar las metatags de manera genérica](https://www.heymeta.com)
 - [Validar el protocolo OpenGraph](https://developers.facebook.com/tools/debug/)

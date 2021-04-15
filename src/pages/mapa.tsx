@@ -36,7 +36,7 @@ class MapView extends React.Component {
   render() {
     return (
       <>
-        <SEO title="Mapa interactivo" description="Mapa interactivo de las localidades que se recorren y a las que se le brinda el servicio de transporte" />
+        <SEO title="Mapa interactivo" description="Mapa interactivo de las localidades que se recorren y a las que se le brinda el servicio de transporte" path="mapa" />
         <div className="bg-secondary-semi-light w-screen h-screen">
           <Map
             initialZoom={45}

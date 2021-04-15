@@ -1,4 +1,4 @@
-var fs = require("fs")
+const fs = require("fs")
 
 const sitemap = require("nextjs-sitemap-generator")
 
@@ -38,9 +38,8 @@ fs.writeFile(`${baseFolder}/robots.txt`, robots, (error) => {
 sitemap({
   baseUrl: `https://${config.env.domain}`,
   ignoreIndexFiles: true,
-  ignoredPaths: ["404", "map"],
+  ignoredPaths: ["404"],
   pagesDirectory: `${__dirname}/../pages`,
   targetDirectory: staticFolder,
-  sitemapFilename: "sitemap.xml",
 })
 console.log(`File sitemap.xml generated in ${staticFolder}`)
