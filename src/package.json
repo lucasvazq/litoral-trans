@@ -11,7 +11,7 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "clean": "del-cli --force .next && del-cli --force public/workbox-*.js && del-cli --force public/fallback-*.js",
+    "clean": "del-cli .next public/fallback-*.js public/sw.js public/workbox-*.js",
     "analyze": "source-map-explorer '.next/**/*.js'",
     "unused": "next-unused"
   },

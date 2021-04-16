@@ -27,7 +27,6 @@
 - [x] Structured Data
 - [ ] AMP
 - [x] Google Site Ownership
-- [ ] Bing Site Verification
 - [x] Google My Business
 - [x] Google Analytics
 

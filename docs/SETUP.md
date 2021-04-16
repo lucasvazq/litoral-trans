@@ -39,7 +39,7 @@ En este paso, lo que hacemos es preparar el código fuente para que esté listo 
     Se listan unos tags que hay que agregar manualmente en **src/pages/public/_app.tsx**\
     Además, se genera el siguiente archivo **src/public/static/manifest.json**
 
-3.4 Ejecutar `npm run clean` para eliminar la carpeta **src/.next** en caso de que exista.
+3.4 Ejecutar `npm run clean` para eliminar la carpeta **src/.next** en caso de que exista y aquellos archivos relacionados al Service Worker, ya que se van a volver a generar.
 
 3.5 Ejecutar `npm run build` para crear la build.
 

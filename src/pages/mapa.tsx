@@ -60,12 +60,12 @@ class MapView extends React.Component {
               fontFamily: "Poppins",
               points: [
                 { coordinates: this.positions.Rafaela, iconSize: 0.7, name: "Rafaela", namePosition: "top", fontSizeInit: 0.5, fontSizeEnd: 0.2, maxZoom: 90 },
-                { coordinates: this.positions["Reconquista - Avellaneda"], iconSize: 0.7, name: "Reconquista - Avellaneda", namePosition: "top", fontSizeInit: 0.5, fontSizeEnd: 0.2, maxZoom: 90 },
                 { coordinates: this.positions.Esperanza, iconSize: 0.7, name: "Esperanza", namePosition: "top", fontSizeInit: 0.5, fontSizeEnd: 0.266, minZoom: 30, maxZoom: 70 },
                 { coordinates: this.positions.Esperanza, iconSize: 0.7, name: "Esperanza", namePosition: "left", fontSizeInit: 0.266, fontSizeEnd: 0.2, minZoom: 70, maxZoom: 90 },
                 { coordinates: this.positions["San Justo"], iconSize: 0.7, name: "San Justo", namePosition: "top", fontSizeInit: 0.5, fontSizeEnd: 0.266, minZoom: 30, maxZoom: 70 },
                 { coordinates: this.positions["San Justo"], iconSize: 0.7, name: "San Justo", namePosition: "left", fontSizeInit: 0.266, fontSizeEnd: 0.2, minZoom: 70, maxZoom: 90 },
                 { coordinates: this.positions.Vera, iconSize: 0.7, name: "Vera", namePosition: "top", fontSizeInit: 0.5, fontSizeEnd: 0.2, minZoom: 30, maxZoom: 90 },
+                { coordinates: this.positions["Reconquista - Avellaneda"], iconSize: 0.7, name: "Reconquista - Avellaneda", namePosition: "top", fontSizeInit: 0.5, fontSizeEnd: 0.2, maxZoom: 90 },
 
                 { coordinates: this.positions.Nelson, iconSize: 0.35, minZoom: 70, maxZoom: 90 },
                 { coordinates: this.positions["Llambi Campbell"], iconSize: 0.35, minZoom: 70, maxZoom: 90 },
