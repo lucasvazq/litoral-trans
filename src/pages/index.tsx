@@ -12,8 +12,8 @@ import H3 from "../components/elements/H3"
 import Id from "../components/elements/Id"
 import Iframe from "../components/elements/Iframe"
 import LinkButton from "../components/elements/LinkButton"
+import PageBase from "../components/modules/PageBase"
 import Paragraph from "../components/elements/Paragraph"
-import Base from "../components/modules/Base"
 import Clients from "../components/modules/Clients"
 import Section from "../components/modules/Section"
 import Services from "../components/modules/Services"
@@ -83,7 +83,7 @@ class RootView extends React.Component {
           },
           {
             "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Saturday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
             opens: "16:00",
             closes: "20:00",
           },
@@ -125,7 +125,7 @@ class RootView extends React.Component {
 
     return (
       <>
-        <Base title="Inicio" description={process.env.slogan} path="" structuredData={structuredData} inlineItems={this.inlineItems} expandableItems={this.expandableItems}>
+        <PageBase title="Inicio" description={process.env.slogan} path="" structuredData={structuredData} inlineItems={this.inlineItems} expandableItems={this.expandableItems} className="bg-primary">
           {/* Slide. */}
           <Slideshow />
 
@@ -203,7 +203,7 @@ class RootView extends React.Component {
             </div>
             <Clients className="pt-10" />
           </Section>
-        </Base>
+        </PageBase>
       </>
     )
   }

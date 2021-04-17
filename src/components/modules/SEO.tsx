@@ -44,7 +44,6 @@ class SEO extends React.Component<SEOProps> {
             cardType: "summary",
           }}
         />
-
         {this.props.structuredData ? (
           <Head>
             <Script data={JSON.stringify(this.props.structuredData)} type="application/ld+json" />

@@ -9,7 +9,7 @@ class CustomDocument extends Document {
     return (
       <Html lang={`${process.env.localeLanguage}-${process.env.localeTerritory}`}>
         <Head />
-        <body className="bg-primary font-primary text-secondary-light min-h-screen">
+        <body>
           <noscript>
             <Iframe src={`https://www.googletagmanager.com/ns.html?id=${process.env.GTM}`} className="hidden" />
           </noscript>
