@@ -51,6 +51,7 @@
     "react-icons": "^4.2.0",
     "react-simple-maps": "^2.3.0",
     "react-slideshow-image": "^3.4.3",
-    "terser-webpack-plugin": "^5.1.1"
+    "schema-dts": "^0.8.2",
+    "terser-webpack-plugin": "^4.2.3"
   }
 }

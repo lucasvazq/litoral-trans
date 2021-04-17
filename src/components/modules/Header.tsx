@@ -63,8 +63,8 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     return (
       <>
         {/* Header */}
-        <nav className="focus:outline-none overflow-y-auto shadow-lg fixed top-0 z-2" tabIndex={0}>
-          <Section className={`bg-primary ${this.sectionYPadding}`}>
+        <nav className="focus:outline-none overflow-y-auto shadow-lg fixed max-h-screen top-0 z-2" tabIndex={0}>
+          <Section className={`bg-primary w-screen ${this.sectionYPadding}`}>
             <div className={`flex items-center justify-between w-full ${this.inlineContentHeight}`}>
               <Route href="/">
                 <BrandPresentation />

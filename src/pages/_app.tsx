@@ -12,7 +12,12 @@ const App = ({ Component, props }) => (
   <>
     <Head>
       <meta charSet="utf-8" />
-      <meta http-equiv="Cache-Control" content={(60 * 60 * 24 * 10).toString()} />
+      <meta httpEquiv="Cache-Control" content={(60 * 60 * 24 * 10).toString()} />
+
+      <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+      <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="anonymous" />
 
       <Script
         data={`
@@ -23,14 +28,7 @@ const App = ({ Component, props }) => (
         })(window,document,"script","dataLayer","${process.env.GTM}");
       `}
       />
-      <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
-      {/*
-      shrink-to-fit=no
-      user-scalable=no, viewport-fit=cover
-      include google fonts in service worker?
-      */}
       <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1" />
       <meta name="theme-color" content={process.env.colorPrimary} />
       <meta name="application-name" content={process.env.name} />

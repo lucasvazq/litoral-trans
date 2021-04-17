@@ -7,7 +7,7 @@ import Iframe from "../components/elements/Iframe"
 class CustomDocument extends Document {
   render() {
     return (
-      <Html lang={`${process.env.localeLanguage}-${process.env.localeCountry}`}>
+      <Html lang={`${process.env.localeLanguage}-${process.env.localeTerritory}`}>
         <Head />
         <body className="bg-primary font-primary text-secondary-light min-h-screen">
           <noscript>

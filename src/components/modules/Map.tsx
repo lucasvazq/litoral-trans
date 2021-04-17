@@ -41,9 +41,8 @@ class Map extends React.Component<MapProps, MapState> {
     }
   }
 
-  changeZoom = (newZoom) => {
-    if (!(this.props.maxZoom >= newZoom && newZoom >= this.props.minZoom)) return
-    this.setState({ zoom: newZoom })
+  changeZoom = (newZoom: number, fallbackZoom: number) => {
+    this.setState({ zoom: this.props.maxZoom >= newZoom && newZoom >= this.props.minZoom ? newZoom : fallbackZoom })
     this.handleLimits()
   }
 
@@ -171,8 +170,8 @@ class Map extends React.Component<MapProps, MapState> {
 
         {/* Buttons. */}
         <div className="text-32px text-primary flex flex-row justify-center w-full pt-8px">
-          <InteractiveButton icon={FaMinusSquare} aria-label="Reducir Zoom" onClick={() => this.changeZoom(this.state.zoom / 1.5)} className="mr-2 hover:text-primary-darker" />
-          <InteractiveButton icon={FaPlusSquare} aria-label="Aumentar Zoom" onClick={() => this.changeZoom(this.state.zoom * 1.5)} className="hover:text-primary-darker" />
+          <InteractiveButton icon={FaMinusSquare} aria-label="Reducir Zoom" onClick={() => this.changeZoom(this.state.zoom / 1.5, this.props.minZoom)} className="mr-2 hover:text-primary-darker" />
+          <InteractiveButton icon={FaPlusSquare} aria-label="Aumentar Zoom" onClick={() => this.changeZoom(this.state.zoom * 1.5, this.props.maxZoom)} className="hover:text-primary-darker" />
         </div>
       </>
     )

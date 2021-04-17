@@ -16,7 +16,7 @@ const colors = {
 }
 
 module.exports = {
-  purge: ["./pages/**/*.tsx", "./components/**/*.tsx"],
+  purge: ["**/*.tsx"],
   darkMode: false,
   theme: {
     extend: {
@@ -32,8 +32,9 @@ module.exports = {
       },
       height: {
         18: "4.5rem",
-        "340px": "340px",
-        "440px": "440px",
+        "290px": "290px",
+        "390px": "390px",
+        "465px": "465px",
         "540px": "540px",
         "640px": "640px",
         "10vh": "10vh",
@@ -41,8 +42,9 @@ module.exports = {
       },
       width: {
         45: "11.25rem",
-        "300px": "300px",
-        "400px": "400px",
+        "250px": "250px",
+        "350px": "350px",
+        "425px": "425px",
         "500px": "500px",
         "600px": "600px",
       },

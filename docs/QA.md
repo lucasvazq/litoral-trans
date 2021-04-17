@@ -29,4 +29,4 @@ Estas herramientas nos sirven para asegurar la calidad de ciertos archivos o con
 - [Validar las Twitter Cards](https://cards-dev.twitter.com/validator?)
 - [Validar la structured data](https://search.google.com/structured-data/testing-tool)
 - [Validar el archivo sitemap](https://www.xml-sitemaps.com/validate-xml-sitemap.html)
-- [Validar el archivo robots](https://technicalseo.com/tools/robots-txt/)
+- [Validar el archivo robots](https://www.google.com/webmasters/tools/robots-testing-tool)

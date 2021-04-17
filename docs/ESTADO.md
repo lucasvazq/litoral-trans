@@ -25,7 +25,6 @@
 - [x] Sitemap
 - [x] Robots
 - [x] Structured Data
-- [ ] AMP
 - [x] Google Site Ownership
 - [x] Google My Business
 - [x] Google Analytics

@@ -39,7 +39,7 @@ class Iframe extends React.Component<IframeProps, IframeState> {
 
   render() {
     return (
-      <div className={`flex items-center justify-center ${this.props.className || ""}`}>
+      <div className={`flex items-center justify-center max-w-full ${this.props.className || ""}`}>
         {this.props.delay && !this.state.render ? (
           <Paragraph className="font-semibold text-primary">{this.props.delayMessage}</Paragraph>
         ) : (

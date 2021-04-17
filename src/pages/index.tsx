@@ -2,6 +2,8 @@ import * as React from "react"
 
 import dynamic from "next/dynamic"
 
+import { Service, WithContext } from "schema-dts"
+
 import { HiPhone } from "react-icons/hi"
 import { MdEmail } from "react-icons/md"
 
@@ -11,11 +13,9 @@ import Id from "../components/elements/Id"
 import Iframe from "../components/elements/Iframe"
 import LinkButton from "../components/elements/LinkButton"
 import Paragraph from "../components/elements/Paragraph"
-import Script from "../components/elements/Script"
 import Base from "../components/modules/Base"
 import Clients from "../components/modules/Clients"
 import Section from "../components/modules/Section"
-import SEO from "../components/modules/SEO"
 import Services from "../components/modules/Services"
 import WavesSection from "../components/modules/WavesSection"
 import SVGLineWave from "../components/svg/SVGLineWave"
@@ -47,88 +47,85 @@ class RootView extends React.Component {
   }
 
   render() {
+    const structuredData: WithContext<Service> = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      description: "Servicio de transporte",
+      logo: `https://${process.env.domain}/static/images/brand/preview-1080.png`,
+      provider: {
+        "@type": "LocalBusiness",
+        "@id": `https://${process.env.domain}`,
+        sameAs: `https://${process.env.domain}`,
+        url: `https://${process.env.domain}`,
+        name: process.env.name,
+        description: "Empresa de logística",
+        slogan: "La mejor manera para transportar tus productos",
+        image: `https://${process.env.domain}/static/images/brand/preview-1080.png`,
+        telephone: `+${process.env.telCountryCode}${process.env.telAreaCode}${process.env.telPhoneNumber}`,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Calle 14 de Julio, 270",
+          addressLocality: "Rafaela",
+          postalCode: "2300",
+          addressCountry: process.env.localeTerritory,
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: -31.2431136,
+          longitude: -61.4863377,
+        },
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            opens: "08:00",
+            closes: "12:00",
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Saturday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            opens: "16:00",
+            closes: "20:00",
+          },
+        ],
+      },
+      areaServed: [
+        {
+          "@type": "City",
+          "@id": "https://es.wikipedia.org/wiki/Rafaela",
+          name: "Rafaela",
+        },
+        {
+          "@type": "City",
+          "@id": "https://es.wikipedia.org/wiki/Esperanza_(Santa_Fe)",
+          name: "Esperanza",
+        },
+        {
+          "@type": "City",
+          "@id": "https://es.wikipedia.org/wiki/San_Justo_(Santa_Fe)",
+          name: "San Justo",
+        },
+        {
+          "@type": "City",
+          "@id": "https://es.wikipedia.org/wiki/Vera_(Santa_Fe)",
+          name: "Vera",
+        },
+        {
+          "@type": "City",
+          name: "Reconquista",
+          "@id": "https://es.wikipedia.org/wiki/Reconquista_(ciudad)",
+        },
+        {
+          "@type": "City",
+          "@id": "https://es.wikipedia.org/wiki/Avellaneda_(Santa_Fe)",
+          name: "Avellaneda",
+        },
+      ],
+    }
+
     return (
       <>
-        <SEO title="Inicio" description={process.env.slogan} />
-        <Script
-          type="application/ld+json"
-          data={JSON.stringify({
-            "@context": "https://schema.org/",
-            "@type": "Service",
-            description: "Servicio de transporte",
-            logo: `https://${process.env.domain}/static/images/brand/preview-1080.png`,
-            provider: {
-              "@type": "LocalBusiness",
-              "@id": `https://${process.env.domain}`,
-              sameAs: `https://${process.env.domain}`,
-              url: `https://${process.env.domain}`,
-              name: process.env.name,
-              description: "Empresa de logística",
-              slogan: "La mejor manera para transportar tus productos",
-              image: `https://${process.env.domain}/static/images/brand/preview-1080.png`,
-              telephone: `+${process.env.telCountryCode}${process.env.telAreaCode}${process.env.telPhoneNumber}`,
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "Calle 14 de Julio, 270",
-                addressLocality: "Rafaela",
-                postalCode: "2300",
-                addressCountry: process.env.localeTerritory,
-              },
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: -31.2431136,
-                longitude: -61.4863377,
-              },
-              openingHoursSpecification: [
-                {
-                  "@type": "OpeningHoursSpecification",
-                  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-                  opens: "08:00",
-                  closes: "12:00",
-                },
-                {
-                  "@type": "OpeningHoursSpecification",
-                  dayOfWeek: ["Saturday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                  opens: "16:00",
-                  closes: "20:00",
-                },
-              ],
-            },
-            areaServed: [
-              {
-                "@type": "City",
-                "@id": "https://es.wikipedia.org/wiki/Rafaela",
-                name: "Rafaela",
-              },
-              {
-                "@type": "City",
-                "@id": "https://es.wikipedia.org/wiki/Esperanza_(Santa_Fe)",
-                name: "Esperanza",
-              },
-              {
-                "@type": "City",
-                "@id": "https://es.wikipedia.org/wiki/San_Justo_(Santa_Fe)",
-                name: "San Justo",
-              },
-              {
-                "@type": "City",
-                "@id": "https://es.wikipedia.org/wiki/Vera_(Santa_Fe)",
-                name: "Vera",
-              },
-              {
-                "@type": "City",
-                name: "Reconquista",
-                "@id": "https://es.wikipedia.org/wiki/Reconquista_(ciudad)",
-              },
-              {
-                "@type": "City",
-                "@id": "https://es.wikipedia.org/wiki/Avellaneda_(Santa_Fe)",
-                name: "Avellaneda",
-              },
-            ],
-          })}
-        />
-        <Base inlineItems={this.inlineItems} expandableItems={this.expandableItems}>
+        <Base title="Inicio" description={process.env.slogan} path="" structuredData={structuredData} inlineItems={this.inlineItems} expandableItems={this.expandableItems}>
           {/* Slide. */}
           <Slideshow />
 
@@ -181,7 +178,7 @@ class RootView extends React.Component {
             <div className="overflow-hidden flex justify-center pt-8" aria-label="Mapa interactivo de localidades">
               <Iframe
                 src="/mapa"
-                className="bg-secondary h-340px sm:h-440px md:h-540px lg:h-640px w-300px sm:w-400px md:w-500px lg:w-600px"
+                className="bg-secondary h-290px sm:h-390px md:h-465px lg:h-540px xl:h-640px w-250px sm:w-350px md:w-425px lg:w-500px xl:w-600px"
                 role="application"
                 aria-hidden={true}
                 delay={4000}

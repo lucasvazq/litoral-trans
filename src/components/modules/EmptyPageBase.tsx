@@ -1,24 +1,23 @@
 import * as React from "react"
 
-import BrandPresentation from "./BrandPresentation"
-import Section from "./Section"
 import SEO from "./SEO"
 
 interface EmptyPageBaseProps {
   title: string;
   description: string;
+  path: string;
   children: React.ReactNode;
 }
 
+/**
+ * Base component that doesn't index the view and keep it simple.
+ */
 class EmptyPageBase extends React.Component<EmptyPageBaseProps> {
   render() {
     return (
       <>
-        <SEO title={this.props.title} description={this.props.description} noindex={true} />
-        <Section className="flex flex-col items-center justify-center h-screen w-screen">
-          <BrandPresentation className="pb-8" />
-          {this.props.children}
-        </Section>
+        <SEO title={this.props.title} description={this.props.description} path={this.props.path} noindex={true} />
+        {this.props.children}
       </>
     )
   }

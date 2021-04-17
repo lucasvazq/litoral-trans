@@ -4,13 +4,18 @@ import * as React from "react"
 
 import Paragraph from "../components/elements/Paragraph"
 import EmptyPageBase from "../components/modules/EmptyPageBase"
+import Section from "../components/modules/Section"
+import BrandPresentation from "../components/modules/BrandPresentation"
 
 class OfflineView extends React.Component {
   render() {
     return (
-      <EmptyPageBase title="Problema de Red" description="Ha ocurrido un problema en su conexión">
-        <Paragraph>No es posible conectarse a la página.</Paragraph>
-        <Paragraph>Compruebe su conexión de red.</Paragraph>
+      <EmptyPageBase title="Problema de Red" description="Ha ocurrido un problema en su conexión" path="_offline">
+        <Section className="flex flex-col items-center justify-center h-screen w-screen">
+          <BrandPresentation className="pb-8" />
+          <Paragraph className="text-center">No es posible conectarse a la página.</Paragraph>
+          <Paragraph className="text-center">Compruebe su conexión de red.</Paragraph>
+        </Section>
       </EmptyPageBase>
     )
   }

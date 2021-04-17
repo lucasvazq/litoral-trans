@@ -5,8 +5,8 @@ import { Point } from "react-simple-maps"
 import { IoLocationSharp } from "react-icons/io5"
 
 import Map from "../components/modules/Map"
-import SEO from "../components/modules/SEO"
 import { mixHexColors } from "../components/utils"
+import EmptyPageBase from "../components/modules/EmptyPageBase"
 
 class MapView extends React.Component {
   positions: { [key: string]: Point } = {
@@ -35,9 +35,8 @@ class MapView extends React.Component {
 
   render() {
     return (
-      <>
-        <SEO title="Mapa interactivo" description="Mapa interactivo de las localidades que se recorren y a las que se le brinda el servicio de transporte" path="mapa" />
-        <div className="bg-secondary-semi-light w-screen h-screen">
+      <EmptyPageBase title="Mapa interactivo" description="Mapa interactivo de las localidades que se recorren y a las que se le brinda el servicio de transporte" path="mapa">
+        <div className="bg-secondary-semi-light min-h-screen">
           <Map
             initialZoom={45}
             maxZoom={200}
@@ -109,7 +108,7 @@ class MapView extends React.Component {
             }}
           />
         </div>
-      </>
+      </EmptyPageBase>
     )
   }
 }
