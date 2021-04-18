@@ -1,7 +1,6 @@
-# Google y otros
+# Configuraciones varias
 
-Acá se configuran los servicios de Google y otros.
-Ninguno de ellos son necesarios para que el sitio funcione, por ese motivo no están dentro del documento [SETUP](./SETUP.md)
+Acá se configuran algunos servicios no necesarios pero que aportan valor para el proyecto.
 
 ## Configuración de Google
 

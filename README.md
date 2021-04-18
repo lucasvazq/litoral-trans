@@ -14,5 +14,8 @@ Herramientas y Tecnologías aplicadas:
 - [Namecheap](https://www.namecheap.com/)
 
 Documentación:
-- [Info del proyecto](/docs/INFO_DEL_PROYECTO.md)
-- [Setup](/docs/SETUP.md)
+- [Estado del proyecto](./docs/STATUS.md)
+- [Setup](./docs/SETUP.md)
+- [Aseguramiento de calidad](./docs/QA.md)
+- [Configuraciones varias](./docs/MISCELLANEOUS.md)
+- [Origen de las imágenes](./docs/IMAGES.md)
