@@ -22,7 +22,7 @@ class Slideshow extends React.Component<SlideshowProps, SlideshowState> {
     description: string,
   }[]
 
-  heightClasses = "h-60vh min-h-120"
+  heightClasses = "h-80vh min-h-120"
   descriptions = {
     slide_1: ["LA MEJOR MANERA", "PARA ENVIAR TUS PAQUETES"],
     slide_2: ["SOLUCIONES DE LOGÍSTICA", "BRINDADA POR SUS DUEÑOS", "DISFRUTADA POR SUS CLIENTES"],
@@ -49,9 +49,9 @@ class Slideshow extends React.Component<SlideshowProps, SlideshowState> {
       {
         slideContent: (
           <>
-            <Paragraph className="font-semibold text-lg sm:text-2xl text-center tracking-tighter">{this.descriptions.slide_2[0]}</Paragraph>
-            <Paragraph className="text-sm sm:text-xl text-center tracking-wider pt-4">{this.descriptions.slide_2[1]}</Paragraph>
-            <Paragraph className="text-sm sm:text-xl text-center">{this.descriptions.slide_2[2]}</Paragraph>
+            <Paragraph className="font-semibold text-lg sm:text-2xl text-center tracking-tight">{this.descriptions.slide_2[0]}</Paragraph>
+            <Paragraph className="text-sm sm:text-xl text-center tracking-wide pt-4">{this.descriptions.slide_2[1]}</Paragraph>
+            <Paragraph className="text-sm sm:text-xl text-center tracking-tight">{this.descriptions.slide_2[2]}</Paragraph>
           </>
         ),
         className: "slide_2",
@@ -66,7 +66,7 @@ class Slideshow extends React.Component<SlideshowProps, SlideshowState> {
 
   indicators = (actualIndex: number) => (
     <li
-      className={`cursor-pointer rounded-full shadow-strong h-2 w-2 hover:opacity-90 ${this.state.nextIndex === actualIndex ? "bg-primary opacity-100" : "bg-secondary-light opacity-40"}`}
+      className={`cursor-pointer rounded-full shadow-strong h-2 w-2 hover:opacity-90 ${this.state.nextIndex === actualIndex ? "bg-primary opacity-100" : "bg-secondary-lighter opacity-40"}`}
       aria-labelledby={this.getId(actualIndex)}
       // Custom styles from react-slideshow-image have more priority than tailwind classes.
       style={{ marginTop: "-8rem", marginLeft: "0.25rem", marginRight: "0.25rem" }}

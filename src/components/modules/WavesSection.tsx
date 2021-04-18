@@ -9,17 +9,20 @@ interface WaveContainerProps {
   children: React.ReactNode;
   isInverted: boolean;
   isMain: boolean;
+  className?: string;
 }
 
 interface WavesSectionProps {
   children: React.ReactNode;
   className?: string;
+  topClassName?: string;
+  bottomClassName?: string;
 }
 
 class WaveContainer extends React.Component<WaveContainerProps> {
   render() {
     return (
-      <div className={`absolute flex h-24 w-full ${this.props.isInverted ? "flex-col" : "flex-col-reverse"} ${this.props.isInverted ? "-mb-24" : "-mt-24"}`}>
+      <div className={`absolute flex h-24 w-full ${this.props.className || ""} ${this.props.isInverted ? "flex-col" : "flex-col-reverse"} ${this.props.isInverted ? "-mb-24" : "-mt-24"}`}>
         <div
           className={`h-10vh min-h-20 ${
             // If the wave is the main one, through the margins we must put it closer to the main container than the rest of them.
@@ -37,13 +40,13 @@ class WavesSection extends React.Component<WavesSectionProps> {
   render() {
     return (
       <>
-        <WaveContainer isInverted={false} isMain={true}>
+        <WaveContainer isInverted={false} isMain={true} className={this.props.topClassName}>
           <SVGWave fill={process.env.colorPrimary} />
         </WaveContainer>
         <section className={`p-4 ${this.props.className || ""}`}>
           <div className="flex flex-col items-center container m-auto">{this.props.children}</div>
         </section>
-        <div className="h-24">
+        <div className={`h-24 ${this.props.bottomClassName || ""}`}>
           <WaveContainer isInverted={true} isMain={false}>
             <SVGInvertedWave1 fill={process.env.colorPrimaryLight} />
           </WaveContainer>

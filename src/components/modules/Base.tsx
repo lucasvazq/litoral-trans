@@ -1,25 +1,16 @@
 import * as React from "react"
 
-import Footer from "./Footer"
-import Header from "./Header"
-import Whatsapp from "./Whatsapp"
-
 interface BaseProps {
   children: React.ReactNode;
-  inlineItems?: { path: string, id: string, description: string }[];
-  expandableItems?: { path: string, id: string, description: string }[];
+  className?: string;
 }
 
+/**
+ * Base component that applies some default styles.
+ */
 class Base extends React.Component<BaseProps> {
   render() {
-    return (
-      <>
-        <Header inlineItems={this.props.inlineItems} expandableItems={this.props.expandableItems} />
-        <Whatsapp />
-        {this.props.children}
-        <Footer />
-      </>
-    )
+    return <div className={`font-medium font-primary text-secondary-lighter min-h-screen min-w-full ${this.props.className || ""}`}>{this.props.children}</div>
   }
 }
 

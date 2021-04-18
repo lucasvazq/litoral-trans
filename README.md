@@ -4,8 +4,6 @@
 
 https://litoral-trans.com.ar
 
-Sitio en desarrollo 👨‍💻
-
 Herramientas y Tecnologías aplicadas:
 - [Next.js](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
@@ -14,5 +12,8 @@ Herramientas y Tecnologías aplicadas:
 - [Namecheap](https://www.namecheap.com/)
 
 Documentación:
-- [Info del proyecto](/docs/INFO_DEL_PROYECTO.md)
-- [Setup](/docs/SETUP.md)
+- [Estado del proyecto](./docs/STATUS.md)
+- [Setup](./docs/SETUP.md)
+- [Configuraciones varias](./docs/MISCELLANEOUS.md)
+- [Aseguramiento de calidad](./docs/QA.md)
+- [Origen de las imágenes](./docs/IMAGES.md)

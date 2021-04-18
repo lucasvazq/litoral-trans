@@ -27,6 +27,7 @@ exclude:
 include:
   # ./
   - _next
+  - _offline.html
 
   # ./_next/static/d_*/
   - _buildManifest.js
@@ -35,3 +36,4 @@ include:
   # ./_next/static/chunks/pages
   - _error-*.js
   - _app-*.js
+  - _offline-*.js

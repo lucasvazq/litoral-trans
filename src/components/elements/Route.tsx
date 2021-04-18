@@ -6,15 +6,21 @@ interface RouteProps {
   href: string;
   children: React.ReactNode;
   onClick?: React.MouseEventHandler;
-  ariaLabel?: string;
+  "aria-label"?: string;
   className?: string;
+  newTab?: boolean;
 }
 
 class Route extends React.Component<RouteProps> {
   render() {
     return (
       <Link href={this.props.href}>
-        <a className={`focus:outline-none font-sans font-semibold text-sm sm:text-base break-word ${this.props.className || ""}`} onClick={this.props.onClick} aria-label={this.props.ariaLabel}>
+        <a
+          className={`focus:outline-none font-sans font-semibold text-sm sm:text-base break-word ${this.props.className || ""}`}
+          onClick={this.props.onClick}
+          aria-label={this.props["aria-label"]}
+          {...(this.props.newTab ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        >
           <span className="flex items-center">{this.props.children}</span>
         </a>
       </Link>

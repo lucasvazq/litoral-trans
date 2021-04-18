@@ -8,15 +8,15 @@ interface ClientsProps {
 
 class Clients extends React.Component<ClientsProps> {
   clients: { path: string, name: string }[] = [
-    { path: "/images/brands/mega.webp", name: "Laboratorio Mega" },
-    { path: "/images/brands/insumet.webp", name: "Insu-Met" },
-    { path: "/images/brands/marozzi.webp", name: "Marozzi Baterías" },
-    { path: "/images/brands/faben.webp", name: "Faben" },
-    { path: "/images/brands/boness.webp", name: "Boness" },
-    { path: "/images/brands/andretich.webp", name: "Carlos Andretich" },
-    { path: "/images/brands/villanueva.webp", name: "Villanueva" },
-    { path: "/images/brands/veterinaria_rafaela.webp", name: "Veterinaria Rafaela" },
-    { path: "/images/brands/papeltecnica.webp", name: "Papeltecnica" },
+    { path: "/static/images/clients/mega.webp", name: "Laboratorio Mega" },
+    { path: "/static/images/clients/insumet.webp", name: "Insu-Met" },
+    { path: "/static/images/clients/marozzi.webp", name: "Marozzi Baterías" },
+    { path: "/static/images/clients/faben.webp", name: "Faben" },
+    { path: "/static/images/clients/boness.webp", name: "Boness" },
+    { path: "/static/images/clients/andretich.webp", name: "Carlos Andretich" },
+    { path: "/static/images/clients/villanueva.webp", name: "Villanueva" },
+    { path: "/static/images/clients/veterinaria_rafaela.webp", name: "Veterinaria Rafaela" },
+    { path: "/static/images/clients/papeltecnica.webp", name: "Papeltecnica" },
   ]
 
   render() {

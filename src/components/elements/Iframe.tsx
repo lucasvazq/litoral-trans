@@ -4,10 +4,14 @@ import Paragraph from "./Paragraph"
 
 interface IframeProps {
   src: string;
-  title?: string;
   height?: number;
   width?: number;
   className?: string;
+
+  title?: string;
+  role?: string;
+  "aria-hidden"?: boolean;
+
   delay?: number;
   delayMessage?: string;
 }
@@ -35,11 +39,21 @@ class Iframe extends React.Component<IframeProps, IframeState> {
 
   render() {
     return (
-      <div className={`flex items-center justify-center ${this.props.className || ""}`}>
+      <div className={`flex items-center justify-center max-w-full ${this.props.className || ""}`}>
         {this.props.delay && !this.state.render ? (
           <Paragraph className="font-semibold text-primary">{this.props.delayMessage}</Paragraph>
         ) : (
-          <iframe src={this.props.src} title={this.props.title} height={this.props.height} width={this.props.width} className={this.props.className} loading="lazy" />
+          <iframe
+            src={this.props.src}
+            height={this.props.height}
+            width={this.props.width}
+            className={this.props.className}
+            title={this.props.title}
+            role={this.props.role}
+            aria-hidden={this.props["aria-hidden"]}
+            loading="lazy"
+            tabIndex={-1}
+          />
         )}
       </div>
     )

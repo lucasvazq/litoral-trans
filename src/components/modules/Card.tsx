@@ -7,7 +7,7 @@ interface CardProps {
 
 class Card extends React.Component<CardProps> {
   render() {
-    return <div className={`m-4 rounded-md shadow-lg p-4 flex flex-col items-center justify-center ${this.props.className || ""}`}>{this.props.children}</div>
+    return <div className={`m-4 rounded-md shadow-box p-4 flex flex-col items-center justify-center ${this.props.className || ""}`}>{this.props.children}</div>
   }
 }
 
