@@ -37,7 +37,7 @@ module.exports = withPWA({
 
     colorSecondaryLighter: "#ffffff",
     colorSecondaryLight: "#fafafa",
-    colorSecondarySemiLight: "#ebebeb",
+    colorSecondarySemiLight: "#f3f3f3",
     colorSecondary: "#ababab",
     colorSecondarySemiDark: "#989898",
     colorSecondaryDark: "#3e3e3e",
