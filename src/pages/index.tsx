@@ -125,7 +125,15 @@ class RootView extends React.Component {
   render() {
     return (
       <>
-        <PageBase title="Inicio" description={process.env.slogan} path="" structuredData={structuredData} inlineItems={this.inlineItems} expandableItems={this.expandableItems} className="bg-primary">
+        <PageBase
+          title="Inicio"
+          description={process.env.slogan}
+          path=""
+          structuredData={this.structuredData}
+          inlineItems={this.inlineItems}
+          expandableItems={this.expandableItems}
+          className="bg-primary"
+        >
           {/* Slide. */}
           <Slideshow />
 
