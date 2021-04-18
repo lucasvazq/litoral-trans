@@ -16,6 +16,6 @@ Herramientas y Tecnologías aplicadas:
 Documentación:
 - [Estado del proyecto](./docs/STATUS.md)
 - [Setup](./docs/SETUP.md)
-- [Aseguramiento de calidad](./docs/QA.md)
 - [Configuraciones varias](./docs/MISCELLANEOUS.md)
+- [Aseguramiento de calidad](./docs/QA.md)
 - [Origen de las imágenes](./docs/IMAGES.md)
