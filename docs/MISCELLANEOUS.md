@@ -6,7 +6,7 @@ Acá se configuran algunos servicios no necesarios pero que aportan valor para e
 
 ### Indexar
 
-Para verificar el sitio:
+**Para verificar el sitio:**
 
 1.1 - Agregar una nueva propiedad en Google Search Console.
 
@@ -14,7 +14,7 @@ Para verificar el sitio:
     Allí agregar un nuevo registro.\
     Tipo: CNAME Record, Host: @, Value: el valor que nos da Google Tag Manager para verificar nuestra propiedad.
 
-Para inspeccionar nuesto sitio:
+**Para inspeccionar nuesto sitio:**
 
 2.1 - [Inspeccionar el Sitemap](https://search.google.com/search-console/sitemaps)
 
@@ -24,7 +24,7 @@ Para inspeccionar nuesto sitio:
 
 ### Configuración de Google Analytics y Google Tag Manager
 
-En Google Analytics:
+**En Google Analytics:**
 
 1.1 - Crear una cuenta y dentro de ella, una propiedad
 
@@ -32,7 +32,7 @@ En Google Analytics:
 
 1.3 - Copiar el ID de medición
 
-En Google Tag Manager:
+**En Google Tag Manager:**
 
 2.1 - Crear un contenedor en Google Tag Manager.
 
