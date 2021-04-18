@@ -10,7 +10,7 @@ import BrandPresentation from "../components/modules/BrandPresentation"
 class OfflineView extends React.Component {
   render() {
     return (
-      <EmptyPageBase title="Problema de Red" description="Ha ocurrido un problema en su conexión" path="_offline">
+      <EmptyPageBase title="Problema de Red" description="Ha ocurrido un problema en su conexión" path="_offline" className="bg-primary">
         <Section className="flex flex-col items-center justify-center h-screen w-screen">
           <BrandPresentation className="pb-8" />
           <Paragraph className="text-center">No es posible conectarse a la página.</Paragraph>

@@ -28,6 +28,7 @@
 - [x] Google Site Ownership
 - [x] Google My Business
 - [x] Google Analytics
+- [x] Whatsapp
 
 ## Etapa 3
 

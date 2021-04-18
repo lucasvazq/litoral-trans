@@ -88,7 +88,7 @@ class Map extends React.Component<MapProps, MapState> {
   render() {
     return (
       <>
-        <div className="bg-secondary">
+        <div className="bg-secondary-semi-light">
           {/* Main map. */}
           <ComposableMap projection="geoMercator" width={600} height={600}>
             <ZoomableGroup

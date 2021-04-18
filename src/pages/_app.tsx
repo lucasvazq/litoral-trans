@@ -14,10 +14,12 @@ const App = ({ Component, props }) => (
       <meta charSet="utf-8" />
       <meta httpEquiv="Cache-Control" content={(60 * 60 * 24 * 10).toString()} />
 
-      <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
-      <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="anonymous" />
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet" />
+
+      <link rel="preconnect" href="https://fonts.googleapis.com"/>
+      <link rel="preconnect" href="https://fonts.gstatic.com"/>
+      <link rel="preconnect" href="https://www.googletagmanager.com"/>
+      <link rel="preconnect" href="https://www.google-analytics.com"/>
 
       <Script
         data={`

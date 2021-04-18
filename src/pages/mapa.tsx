@@ -39,7 +39,7 @@ class MapView extends React.Component {
         title="Mapa interactivo"
         description="Mapa interactivo de las localidades que se recorren y a las que se le brinda el servicio de transporte"
         path="mapa"
-        className="bg-secondary-semi-light"
+        className="bg-secondary-light"
       >
         <Map
           initialZoom={45}
@@ -47,9 +47,9 @@ class MapView extends React.Component {
           minZoom={20}
           initialCoordinates={[-60.611, -30.131]}
           layers={[
-            { file: "/static/map/provincial_routes.topojson", size: 0.07, fill: mixHexColors(process.env.colorSecondarySemiDark, process.env.colorSecondary, 0.7) },
-            { file: "/static/map/national_routes.topojson", size: 0.07, fill: mixHexColors(process.env.colorSecondarySemiDark, process.env.colorSecondary, 0.45) },
-            { file: "/static/map/provinces.topojson", size: 0.15, fill: mixHexColors(process.env.colorSecondarySemiDark, process.env.colorSecondary, 0.15) },
+            { file: "/static/map/provincial_routes.topojson", size: 0.07, fill: process.env.colorSecondary },
+            { file: "/static/map/national_routes.topojson", size: 0.07, fill: process.env.colorSecondarySemiDark },
+            { file: "/static/map/provinces.topojson", size: 0.12, fill: mixHexColors(process.env.colorSecondaryDark, process.env.colorSecondarySemiDark, 0.55) },
           ]}
           limits={{
             top: -26.347,

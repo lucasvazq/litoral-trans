@@ -20,6 +20,7 @@ interface HeaderProps {
 
 interface HeaderState {
   menuIsActive: boolean;
+  clientWidth?: number;
 }
 
 class Header extends React.Component<HeaderProps, HeaderState> {
@@ -33,6 +34,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   element that uses the same classes that define its height.
   These classes are listed below, but first, a comment: we use pt and pb instead of py because the firsts take priority over the last one,
   and the Section element has a py defined in their classes.
+  Change in this values requires also an adjustament in margins Y of Id element.
   */
   inlineContentHeight = "h-8 lg:h-18"
   sectionYPadding = "pt-8 pb-8"
@@ -42,11 +44,22 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     this.menuRef = React.createRef()
     this.state = {
       menuIsActive: false,
+      clientWidth: null
     }
   }
 
+  updateClientWidth = () => {
+    this.setState({ clientWidth: document.body.clientWidth });
+  };
+
   componentDidMount() {
     this.node = this.menuRef.current
+    this.updateClientWidth()
+    window.addEventListener('resize', this.updateClientWidth)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateClientWidth)
   }
 
   componentDidUpdate(_: HeaderProps, prevState: HeaderState) {
@@ -63,8 +76,8 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     return (
       <>
         {/* Header */}
-        <nav className="focus:outline-none overflow-y-auto shadow-lg fixed max-h-screen top-0 z-2" tabIndex={0}>
-          <Section className={`bg-primary w-screen ${this.sectionYPadding}`}>
+        <nav className={`focus:outline-none overflow-y-auto shadow-lg fixed max-h-screen top-0 z-2`} tabIndex={0}>
+          <Section className={`bg-primary w-screen ${this.sectionYPadding} ${this.state.clientWidth ? "" : "w-screen"}`} {...this.state.clientWidth ? {style: {width: this.state.clientWidth}} : {}} >
             <div className={`flex items-center justify-between w-full ${this.inlineContentHeight}`}>
               <Route href="/">
                 <BrandPresentation />
@@ -110,13 +123,14 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
                 {/* Default items. */}
                 <li className="text-md flex justify-center pt-6">
-                  <LinkButton href={`mailto:${process.env.email}`} icon={MdEmail} description={process.env.email} />
+                  <LinkButton href={`mailto:${process.env.email}`} icon={MdEmail} description={process.env.email} newTab={true} />
                 </li>
                 <li className="text-md flex justify-center pt-2">
                   <LinkButton
-                    href={`tel:+${process.env.telCountryCode}${process.env.telAreaCode}${process.env.telPhoneNumber}`}
+                    href={`tel:+${process.env.telCountryCode}${process.env.telPrefix}${process.env.telAreaCode}${process.env.telPhoneNumber}`}
                     icon={HiPhone}
-                    description={`+${process.env.telCountryCode} ${process.env.telAreaCode} ${process.env.telPhoneNumber}`}
+                    description={`+${process.env.telCountryCode} ${process.env.telPrefix} ${process.env.telAreaCode} ${process.env.telPhoneNumber}`}
+                    newTab={true}
                   />
                 </li>
               </Ul>

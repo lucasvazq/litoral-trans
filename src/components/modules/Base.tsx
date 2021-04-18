@@ -10,7 +10,7 @@ interface BaseProps {
  */
 class Base extends React.Component<BaseProps> {
   render() {
-    return <div className={`font-primary text-secondary-light min-h-screen min-w-full ${this.props.className || ""}`}>{this.props.children}</div>
+    return <div className={`font-medium font-primary text-secondary-lighter min-h-screen min-w-full ${this.props.className || ""}`}>{this.props.children}</div>
   }
 }
 
