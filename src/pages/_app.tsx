@@ -12,7 +12,6 @@ const App = ({ Component, props }) => (
   <>
     <Head>
       <meta charSet="utf-8" />
-      <meta httpEquiv="Cache-Control" content={(60 * 60 * 24 * 10).toString()} />
 
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet" />
 

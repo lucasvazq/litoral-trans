@@ -58,14 +58,14 @@ Como estamos sirviendo el proyecto a través de Github Pages, tenemos que simula
 
 4.2 - Instalar `ruby 2.7.2p137`, también instalar RubyGem si no viene incluido.
 
-4.3 - Ejecutar `gem install bundle` para instalar Bundler
+4.3 - Ejecutar `gem install bundle` para instalar Bundler.
 
-4.4 - Ejecutar `bundle config set --local path vendor/bundle` para configurar Bundler
+4.4 - Ejecutar `bundle config set --local path vendor/bundle` para configurar Bundler.
 
-4.5 - Ejecutar `bundle install --gemfile githubpages.rb` para instalar las gemas necesarias
+4.5 - Ejecutar `bundle install --gemfile githubpages.rb` para instalar las gemas necesarias.
 
 4.6 - Ejecutar `bundle exec jekyll serve` para iniciar el proyecto en modo previsualización.\
-    Ahora se puede ver el proyecto a través de la url [http://localhost:4000](http://localhost:4000) tal cual se vería como si estuviese en internet
+    Ahora se puede ver el proyecto a través de la url [http://localhost:4000](http://localhost:4000) tal cual se vería como si estuviese en la web.
 
 ## Setup Producción
 
