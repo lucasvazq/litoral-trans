@@ -23,7 +23,7 @@ A grandes rasgos, el proyecto está armado con Next.js (servido estáticamente) 
 
 2.1 - Ejecutar `npm run dev` para iniciar el proyecto en modo desarrollo. El mismo estará disponible en la url [http://localhost:3000](http://localhost:3000)
 
-### 3 - Exportación
+### 3 - Generación de archivos básicos y exportación
 
 En este paso, lo que hacemos es preparar el código fuente para que esté listo para ser servido en producción.
 
