@@ -4,8 +4,6 @@
 
 https://litoral-trans.com.ar
 
-Sitio en desarrollo 👨‍💻
-
 Herramientas y Tecnologías aplicadas:
 - [Next.js](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
