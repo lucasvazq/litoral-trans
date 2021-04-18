@@ -1,11 +1,12 @@
 const fs = require("fs")
+const path = require("path")
 
 const sitemap = require("nextjs-sitemap-generator")
 
 const config = require("../next.config")
 
 const baseFolder = "public"
-const staticFolder = `${baseFolder}/static`
+const staticFolder = path.join(baseFolder, "static")
 
 // opensearch.xml
 const opensearch = `\
@@ -19,7 +20,7 @@ const opensearch = `\
     <Developer>${config.env.authorName}</Developer>
     <Contact>${config.env.authorURL}</Contact>
 </OpenSearchDescription>`
-fs.writeFile(`${staticFolder}/opensearch.xml`, opensearch, (error) => {
+fs.writeFile(path.join(staticFolder, "opensearch.xml"), opensearch, (error) => {
   if (error) throw error
   console.log(`File opensearch.xml generated in ${staticFolder}`)
 })
@@ -30,7 +31,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://${config.env.domain}/sitemap.xml`
-fs.writeFile(`${baseFolder}/robots.txt`, robots, (error) => {
+fs.writeFile(path.join(baseFolder, "robots.txt"), robots, (error) => {
   if (error) throw error
   console.log(`File robots.txt generated in ${baseFolder}`)
 })
@@ -40,7 +41,7 @@ sitemap({
   baseUrl: `https://${config.env.domain}`,
   ignoreIndexFiles: true,
   ignoredPaths: ["404"],
-  pagesDirectory: `${__dirname}/../pages`,
+  pagesDirectory: path.join(__dirname, "..", "pages"),
   targetDirectory: staticFolder,
 })
 console.log(`File sitemap.xml generated in ${staticFolder}`)

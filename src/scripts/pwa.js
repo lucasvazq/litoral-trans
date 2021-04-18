@@ -1,20 +1,22 @@
 const fs = require("fs")
+const path = require("path")
 
 const pwaAssetGenerator = require("pwa-asset-generator")
 
 const config = require("../next.config")
 
 const baseFolder = "public"
-const staticFolder = `${baseFolder}/static`
-const brandImagesFolder = `${staticFolder}/images/brand`
+const staticFolder = path.join(baseFolder, "static")
+const brandImagesOutputFolder = path.join(staticFolder, "images", "brand")
+const brandImagesInputFolder = path.join("original_assets", "images", "brand")
 
 const replaceBasePath = (content) => content.split(staticFolder).join(staticFolder.replace(baseFolder, ""))
 
 ;(async () => {
-  let content = []
+  const content = []
 
   // Generates favicon.
-  let generatedImages = await pwaAssetGenerator.generateImages("original_assets/images/brand/icon.png", brandImagesFolder, {
+  let generatedImages = await pwaAssetGenerator.generateImages(path.join(brandImagesInputFolder, "icon.png"), brandImagesOutputFolder, {
     favicon: true,
     iconOnly: true,
     type: "png",
@@ -25,7 +27,7 @@ const replaceBasePath = (content) => content.split(staticFolder).join(staticFold
   content.push(generatedImages.htmlMeta.favicon)
 
   // Generate the rest of images.
-  generatedImages = await pwaAssetGenerator.generateImages("original_assets/images/brand/presentation.png", brandImagesFolder, {
+  generatedImages = await pwaAssetGenerator.generateImages(path.join(brandImagesInputFolder, "presentation.png"), brandImagesOutputFolder, {
     quality: 100,
     background: config.env.colorPrimary,
     xhtml: true,
@@ -33,10 +35,10 @@ const replaceBasePath = (content) => content.split(staticFolder).join(staticFold
   })
   content.push(Object.values(generatedImages.htmlMeta).join(""))
 
-  console.log(`Images generated in ${brandImagesFolder}\n`)
+  console.log(`Images generated in ${brandImagesOutputFolder}\n`)
 
   // Output header tags.
-  console.log("Put this tags under Header in our custom app file at pages/_app.tsx")
+  console.log(`Put this tags under Header in our custom app file at ${path.join("pages", "_app.tsx")}`)
   console.log(replaceBasePath(content.join("")))
 
   // manifest.json
@@ -52,7 +54,7 @@ const replaceBasePath = (content) => content.split(staticFolder).join(staticFold
     scope: "/",
     icons: generatedImages.manifestJsonContent,
   }
-  fs.writeFile(`${staticFolder}/manifest.json`, replaceBasePath(JSON.stringify(manifestContent, null, 2)), (error) => {
+  fs.writeFile(path.join(staticFolder, "manifest.json"), replaceBasePath(JSON.stringify(manifestContent, null, 2)), (error) => {
     if (error) throw error
     console.log(`File manifest.json generated in ${staticFolder}`)
   })
