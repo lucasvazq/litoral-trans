@@ -3,9 +3,9 @@
 import * as React from "react"
 
 import Paragraph from "../components/elements/Paragraph"
+import BrandPresentation from "../components/modules/BrandPresentation"
 import EmptyPageBase from "../components/modules/EmptyPageBase"
 import Section from "../components/modules/Section"
-import BrandPresentation from "../components/modules/BrandPresentation"
 
 class OfflineView extends React.Component {
   render() {

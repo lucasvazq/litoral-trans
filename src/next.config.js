@@ -26,7 +26,7 @@ module.exports = withPWA({
     authorURL: "https://lucasvazq.github.io/",
 
     // Colors in hex mode of pair values.
-  
+
     colorPrimaryLighter: "#ffeaeb",
     colorPrimaryLight: "#ffc4c6",
     colorPrimarySemiLight: "#e35e63",

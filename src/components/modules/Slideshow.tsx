@@ -68,7 +68,6 @@ class Slideshow extends React.Component<SlideshowProps, SlideshowState> {
     <li
       className={`cursor-pointer rounded-full shadow-strong h-2 w-2 hover:opacity-90 ${this.state.nextIndex === actualIndex ? "bg-primary opacity-100" : "bg-secondary-lighter opacity-40"}`}
       aria-labelledby={this.getId(actualIndex)}
-
       // Custom styles from react-slideshow-image have more priority than tailwind classes.
       style={{ marginTop: "-8rem", marginLeft: "0.25rem", marginRight: "0.25rem" }}
     />
@@ -90,7 +89,6 @@ class Slideshow extends React.Component<SlideshowProps, SlideshowState> {
           onChange={(_: number, next: number) => this.setState({ nextIndex: next })}
           className={`overflow-hidden select-none ${this.heightClasses}`}
           duration={7500}
-          autoplay={false}
         >
           {this.slides.map((slide, index) => (
             <div key={index} className={`overflow-hidden bg-center bg-cover flex items-center justify-center w-full ${this.heightClasses} ${slide.className}`}>

@@ -20,7 +20,7 @@ interface BaseProps {
 }
 
 /**
- * Base page component that indexes the view and populate it with default elements.
+ * Base page component that indexes the view and populates it with default elements.
  */
 class PageBase extends React.Component<BaseProps> {
   render() {

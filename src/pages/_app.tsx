@@ -16,10 +16,10 @@ const App = ({ Component, props }) => (
 
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet" />
 
-      <link rel="preconnect" href="https://fonts.googleapis.com"/>
-      <link rel="preconnect" href="https://fonts.gstatic.com"/>
-      <link rel="preconnect" href="https://www.googletagmanager.com"/>
-      <link rel="preconnect" href="https://www.google-analytics.com"/>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link rel="preconnect" href="https://www.googletagmanager.com" />
+      <link rel="preconnect" href="https://www.google-analytics.com" />
 
       <Script
         data={`

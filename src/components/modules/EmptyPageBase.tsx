@@ -12,7 +12,7 @@ interface EmptyPageBaseProps {
 }
 
 /**
- * Base page component that doesn't index the view and keep it simple.
+ * Base page component that prevents the view from being indexed and keeps it simple.
  */
 class EmptyPageBase extends React.Component<EmptyPageBaseProps> {
   render() {

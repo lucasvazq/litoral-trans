@@ -34,7 +34,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   element that uses the same classes that define its height.
   These classes are listed below, but first, a comment: we use pt and pb instead of py because the firsts take priority over the last one,
   and the Section element has a py defined in their classes.
-  Change in this values requires also an adjustament in margins Y of Id element.
+  A change in these values requires also an adjustment in the margin-Y value of the Id element.
   */
   inlineContentHeight = "h-8 lg:h-18"
   sectionYPadding = "pt-8 pb-8"
@@ -44,22 +44,18 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     this.menuRef = React.createRef()
     this.state = {
       menuIsActive: false,
-      clientWidth: null
+      clientWidth: null,
     }
   }
-
-  updateClientWidth = () => {
-    this.setState({ clientWidth: document.body.clientWidth });
-  };
 
   componentDidMount() {
     this.node = this.menuRef.current
     this.updateClientWidth()
-    window.addEventListener('resize', this.updateClientWidth)
+    window.addEventListener("resize", this.updateClientWidth)
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.updateClientWidth)
+    window.removeEventListener("resize", this.updateClientWidth)
   }
 
   componentDidUpdate(_: HeaderProps, prevState: HeaderState) {
@@ -72,12 +68,19 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     }
   }
 
+  updateClientWidth = () => {
+    this.setState({ clientWidth: document.body.clientWidth })
+  }
+
   render() {
     return (
       <>
         {/* Header */}
         <nav className={`focus:outline-none overflow-y-auto shadow-lg fixed max-h-screen top-0 z-2`} tabIndex={0}>
-          <Section className={`bg-primary w-screen ${this.sectionYPadding} ${this.state.clientWidth ? "" : "w-screen"}`} {...this.state.clientWidth ? {style: {width: this.state.clientWidth}} : {}} >
+          <Section
+            className={`bg-primary w-screen ${this.sectionYPadding} ${this.state.clientWidth ? "" : "w-screen"}`}
+            {...(this.state.clientWidth ? { style: { width: this.state.clientWidth } } : {})}
+          >
             <div className={`flex items-center justify-between w-full ${this.inlineContentHeight}`}>
               <Route href="/">
                 <BrandPresentation />

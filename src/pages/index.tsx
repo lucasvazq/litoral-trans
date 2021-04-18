@@ -32,6 +32,82 @@ class RootView extends React.Component {
     path: "recorrido",
   }
 
+  structuredData: WithContext<Service> = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    description: "Servicio de transporte",
+    logo: `https://${process.env.domain}/static/images/brand/preview-1080.png`,
+    provider: {
+      "@type": "LocalBusiness",
+      "@id": `https://${process.env.domain}`,
+      sameAs: `https://${process.env.domain}`,
+      url: `https://${process.env.domain}`,
+      name: process.env.name,
+      description: "Empresa de logística",
+      slogan: "La mejor manera para transportar tus productos",
+      image: `https://${process.env.domain}/static/images/brand/preview-1080.png`,
+      telephone: `+${process.env.telCountryCode} ${process.env.telPrefix} ${process.env.telAreaCode} ${process.env.telPhoneNumber}`,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Calle 14 de Julio, 270",
+        addressLocality: "Rafaela",
+        postalCode: "2300",
+        addressCountry: process.env.localeTerritory,
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: -31.2431136,
+        longitude: -61.4863377,
+      },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          opens: "08:00",
+          closes: "12:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "16:00",
+          closes: "20:00",
+        },
+      ],
+    },
+    areaServed: [
+      {
+        "@type": "City",
+        "@id": "https://es.wikipedia.org/wiki/Rafaela",
+        name: "Rafaela",
+      },
+      {
+        "@type": "City",
+        "@id": "https://es.wikipedia.org/wiki/Esperanza_(Santa_Fe)",
+        name: "Esperanza",
+      },
+      {
+        "@type": "City",
+        "@id": "https://es.wikipedia.org/wiki/San_Justo_(Santa_Fe)",
+        name: "San Justo",
+      },
+      {
+        "@type": "City",
+        "@id": "https://es.wikipedia.org/wiki/Vera_(Santa_Fe)",
+        name: "Vera",
+      },
+      {
+        "@type": "City",
+        name: "Reconquista",
+        "@id": "https://es.wikipedia.org/wiki/Reconquista_(ciudad)",
+      },
+      {
+        "@type": "City",
+        "@id": "https://es.wikipedia.org/wiki/Avellaneda_(Santa_Fe)",
+        name: "Avellaneda",
+      },
+    ],
+  }
+
   constructor(props: {}) {
     super(props)
     this.inlineItems = [
@@ -47,82 +123,6 @@ class RootView extends React.Component {
   }
 
   render() {
-    const structuredData: WithContext<Service> = {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      description: "Servicio de transporte",
-      logo: `https://${process.env.domain}/static/images/brand/preview-1080.png`,
-      provider: {
-        "@type": "LocalBusiness",
-        "@id": `https://${process.env.domain}`,
-        sameAs: `https://${process.env.domain}`,
-        url: `https://${process.env.domain}`,
-        name: process.env.name,
-        description: "Empresa de logística",
-        slogan: "La mejor manera para transportar tus productos",
-        image: `https://${process.env.domain}/static/images/brand/preview-1080.png`,
-        telephone: `+${process.env.telCountryCode} ${process.env.telPrefix} ${process.env.telAreaCode} ${process.env.telPhoneNumber}`,
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "Calle 14 de Julio, 270",
-          addressLocality: "Rafaela",
-          postalCode: "2300",
-          addressCountry: process.env.localeTerritory,
-        },
-        geo: {
-          "@type": "GeoCoordinates",
-          latitude: -31.2431136,
-          longitude: -61.4863377,
-        },
-        openingHoursSpecification: [
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-            opens: "08:00",
-            closes: "12:00",
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            opens: "16:00",
-            closes: "20:00",
-          },
-        ],
-      },
-      areaServed: [
-        {
-          "@type": "City",
-          "@id": "https://es.wikipedia.org/wiki/Rafaela",
-          name: "Rafaela",
-        },
-        {
-          "@type": "City",
-          "@id": "https://es.wikipedia.org/wiki/Esperanza_(Santa_Fe)",
-          name: "Esperanza",
-        },
-        {
-          "@type": "City",
-          "@id": "https://es.wikipedia.org/wiki/San_Justo_(Santa_Fe)",
-          name: "San Justo",
-        },
-        {
-          "@type": "City",
-          "@id": "https://es.wikipedia.org/wiki/Vera_(Santa_Fe)",
-          name: "Vera",
-        },
-        {
-          "@type": "City",
-          name: "Reconquista",
-          "@id": "https://es.wikipedia.org/wiki/Reconquista_(ciudad)",
-        },
-        {
-          "@type": "City",
-          "@id": "https://es.wikipedia.org/wiki/Avellaneda_(Santa_Fe)",
-          name: "Avellaneda",
-        },
-      ],
-    }
-
     return (
       <>
         <PageBase title="Inicio" description={process.env.slogan} path="" structuredData={structuredData} inlineItems={this.inlineItems} expandableItems={this.expandableItems} className="bg-primary">
@@ -161,7 +161,7 @@ class RootView extends React.Component {
                   className="mt-3"
                   newTab={true}
                 />
-                <LinkButton href={`mailto:${process.env.email}`} icon={MdEmail} description={process.env.email} className="mt-3" newTab={true}/>
+                <LinkButton href={`mailto:${process.env.email}`} icon={MdEmail} description={process.env.email} className="mt-3" newTab={true} />
               </div>
               <div className="pt-4 sm:pbt-0">
                 <Paragraph className="font-bold text-lg">LUNES A VIERNES</Paragraph>

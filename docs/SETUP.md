@@ -4,7 +4,7 @@ El setup es el proceso por el cual se configura el proyecto para que funcione en
 En este caso, tenemos dos entornos:
 - Local: configuramos y hacemos andar el proyecto en una computadora particular.\
     El objetivo de esto es poder desarrollar y probar el proyecto antes de que esté disponible en internet.
-- Producción: configuramos y hacemos andar el proyecto en internet.
+- Producción: configuramos y hacemos andar el proyecto en la web.
 
 ## Setup Local
 
