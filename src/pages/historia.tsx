@@ -2,7 +2,7 @@ import * as React from "react"
 class perro extends React.Component {
     render(){
         return(
-<p>hola hola hola hola</p>
+<p>hola hola hola</p>
         )
     }
 }
