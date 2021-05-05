@@ -3,7 +3,9 @@ import Paragraph from "../components/elements/Paragraph"
 class perro extends React.Component {
     render() {
         return(
-               <Paragraph>LUA PAPA REMIL NEGRA</Paragraph>
+            <div>
+                <Paragraph>LUA PAPA REMIL NEGRA</Paragraph>
+            </div>
         )
     }
 }
