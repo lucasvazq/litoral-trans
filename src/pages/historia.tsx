@@ -1,9 +1,10 @@
 import * as React from "react"
+import Paragraph from "../components/elements/Paragraph"
 class perro extends React.Component {
-    render(){
+    render() {
         return(
-<p>hola hola hola</p>
+               <Paragraph>LUA PAPA REMIL NEGRA</Paragraph>
         )
     }
 }
-export default perro 
+export default perro
