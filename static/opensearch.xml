@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns:moz="http://www.mozilla.org/2006/browser/search/" xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>Litoral Trans</ShortName>
+  <LongName>Litoral Trans | Buscador</LongName>
+  <Description>Realizar una búsqueda en Litoral Trans</Description>
+  <Url method="get" type="text/html" template="https://www.google.com/search?q=site:https://litoral-trans.com.ar {searchTerms}"/>
+  <Image height="64" width="64" type="image/x-icon">https://litoral-trans.com.ar/static/images/brand/search-64.png</Image>
+  <Developer>Lucas Vazquez</Developer>
+  <Contact>https://lucasvazq.github.io/</Contact>
+</OpenSearchDescription>

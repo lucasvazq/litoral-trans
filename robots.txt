@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /_offline
+Disallow: /mapa
+
+Sitemap: https://litoral-trans.com.ar/sitemap.xml
